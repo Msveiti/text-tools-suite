@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Lorem Ipsum generator. Generate placeholder text for your designs and mockups instantly.">
+    <meta name="keywords" content="lorem ipsum, placeholder text, dummy text, filler text generator">
+    <title>Free Lorem Ipsum Generator - Placeholder Text Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">📝</span>
+                <span class="logo-text">TextTools</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Word Counter</a>
+                <a href="case-converter.html" class="nav-link">Case Converter</a>
+                <a href="text-diff.html" class="nav-link">Text Compare</a>
+                <a href="lorem-ipsum.html" class="nav-link active">Lorem Ipsum</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="title-section">
+                <h1>Lorem Ipsum Generator</h1>
+                <p class="subtitle">Generate placeholder text for your designs, mockups, and projects.</p>
+            </section>
+
+            <section class="input-section">
+                <div class="toolbar">
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        Generate:
+                        <input type="number" id="loremCount" value="5" min="1" max="100" style="width: 80px; padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem;">
+                    </label>
+                    <select id="loremType" style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem;">
+                        <option value="paragraphs">Paragraphs</option>
+                        <option value="sentences">Sentences</option>
+                        <option value="words">Words</option>
+                    </select>
+                    <button class="btn-tool" id="generateBtn">
+                        <span>✨</span> Generate
+                    </button>
+                    <button class="btn-tool" id="loremCopyBtn">
+                        <span>📋</span> Copy
+                    </button>
+                    <button class="btn-tool" id="loremClearBtn">
+                        <span>🗑️</span> Clear
+                    </button>
+                </div>
+                <textarea 
+                    id="loremOutput" 
+                    class="text-area" 
+                    placeholder="Click 'Generate' to create Lorem Ipsum text..."
+                    readonly
+                ></textarea>
+            </section>
+
+            <section class="content-section">
+                <h2>About Lorem Ipsum</h2>
+                <div class="content-text">
+                    <h3>What is Lorem Ipsum?</h3>
+                    <p>Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. It has been the industry's standard dummy text since the 1500s.</p>
+                    
+                    <h3>Why Use Lorem Ipsum?</h3>
+                    <p>Using Lorem Ipsum allows designers and developers to focus on design elements and layout without being distracted by meaningful content. It provides a realistic distribution of letters and words that mimics natural language.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 VerboMetrics. Free online text tools for everyone.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy</a>
+                    <a href="#terms">Terms</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="lorem-ipsum.js"></script>
+</body>
+</html>

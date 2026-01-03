@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online word counter and character counter tool. Count words, characters, sentences, and paragraphs instantly. No limits, no signup required.">
+    <meta name="keywords" content="word counter, character counter, word count, letter counter, text counter, word calculator">
+    <meta name="author" content="Text Tools Suite">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free Word Counter - Character Counter Tool">
+    <meta property="og:description" content="Count words, characters, sentences, and paragraphs instantly. Free online tool with no limits.">
+    <meta property="og:type" content="website">
+    
+    <title>Free Word Counter - Character Counter & Text Analysis Tool</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">📝</span>
+                <span class="logo-text">VerboMetrics</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Word Counter</a>
+                <a href="case-converter.html" class="nav-link">Case Converter</a>
+                <a href="text-diff.html" class="nav-link">Text Compare</a>
+                <a href="lorem-ipsum.html" class="nav-link">Lorem Ipsum</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Title Section -->
+            <section class="title-section">
+                <h1>Free Word Counter</h1>
+                <p class="subtitle">Count words, characters, sentences, and paragraphs in real-time. No limits, completely free.</p>
+            </section>
+
+            <!-- Stats Display -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="wordCount">0</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="charCount">0</div>
+                        <div class="stat-label">Characters</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="charCountNoSpaces">0</div>
+                        <div class="stat-label">Characters (no spaces)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="sentenceCount">0</div>
+                        <div class="stat-label">Sentences</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="paragraphCount">0</div>
+                        <div class="stat-label">Paragraphs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="readingTime">0 min</div>
+                        <div class="stat-label">Reading Time</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Text Input Area -->
+            <section class="input-section">
+                <div class="toolbar">
+                    <button class="btn-tool" id="clearBtn" title="Clear text">
+                        <span>🗑️</span> Clear
+                    </button>
+                    <button class="btn-tool" id="copyBtn" title="Copy text">
+                        <span>📋</span> Copy
+                    </button>
+                    <button class="btn-tool" id="downloadBtn" title="Download as .txt">
+                        <span>💾</span> Download
+                    </button>
+                </div>
+                <textarea 
+                    id="textInput" 
+                    class="text-area" 
+                    placeholder="Start typing or paste your text here..."
+                    spellcheck="true"
+                ></textarea>
+            </section>
+
+            <!-- Additional Stats -->
+            <section class="detail-stats">
+                <h2>Detailed Statistics</h2>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Speaking Time:</span>
+                        <span class="detail-value" id="speakingTime">0 minutes</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Average Word Length:</span>
+                        <span class="detail-value" id="avgWordLength">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Longest Word:</span>
+                        <span class="detail-value" id="longestWord">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Top Keywords:</span>
+                        <span class="detail-value" id="topKeywords">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character Limits Guide -->
+            <section class="limits-section">
+                <h2>Character Limits for Popular Platforms</h2>
+                <div class="limits-grid">
+                    <div class="limit-card">
+                        <div class="platform-name">Twitter / X</div>
+                        <div class="platform-limit">280 characters</div>
+                        <div class="platform-status" id="twitterStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">Instagram Caption</div>
+                        <div class="platform-limit">2,200 characters</div>
+                        <div class="platform-status" id="instagramStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">Facebook Post</div>
+                        <div class="platform-limit">63,206 characters</div>
+                        <div class="platform-status" id="facebookStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">LinkedIn Post</div>
+                        <div class="platform-limit">3,000 characters</div>
+                        <div class="platform-status" id="linkedinStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">YouTube Description</div>
+                        <div class="platform-limit">5,000 characters</div>
+                        <div class="platform-status" id="youtubeStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">Meta Description</div>
+                        <div class="platform-limit">160 characters</div>
+                        <div class="platform-status" id="metaStatus">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEO Content Section -->
+            <section class="content-section">
+                <h2>About Our Word Counter Tool</h2>
+                <div class="content-text">
+                    <h3>Why Use a Word Counter?</h3>
+                    <p>Our free online word counter is an essential tool for writers, students, teachers, marketers, and professionals who need to track their word count, character count, and text statistics. Whether you're writing an essay, blog post, social media caption, or professional document, our tool provides instant, accurate results.</p>
+                    
+                    <h3>Features</h3>
+                    <ul>
+                        <li><strong>Real-time counting:</strong> See your word count and character count update as you type</li>
+                        <li><strong>Detailed statistics:</strong> Get comprehensive text analysis including sentences, paragraphs, and reading time</li>
+                        <li><strong>Platform limits:</strong> Check if your text fits within popular social media character limits</li>
+                        <li><strong>No limits:</strong> Count unlimited words and characters - no restrictions</li>
+                        <li><strong>Completely free:</strong> No signup, no payment, no downloads required</li>
+                        <li><strong>Privacy focused:</strong> Your text is processed locally in your browser - we never store your content</li>
+                    </ul>
+
+                    <h3>How to Use the Word Counter</h3>
+                    <ol>
+                        <li>Type or paste your text into the text area above</li>
+                        <li>Watch as the word count, character count, and other statistics update automatically</li>
+                        <li>Use the toolbar to clear, copy, or download your text</li>
+                        <li>Check the platform limits to ensure your text meets requirements</li>
+                    </ol>
+
+                    <h3>Who Uses Word Counters?</h3>
+                    <p><strong>Students:</strong> Track essay word counts, meet assignment requirements, and analyze writing complexity.</p>
+                    <p><strong>Writers & Authors:</strong> Monitor daily word counts, track progress on novels, and maintain consistent writing habits.</p>
+                    <p><strong>Content Marketers:</strong> Optimize blog post length, create SEO-friendly content, and meet client specifications.</p>
+                    <p><strong>Social Media Managers:</strong> Ensure posts stay within character limits for Twitter, Instagram, LinkedIn, and other platforms.</p>
+                    <p><strong>SEO Professionals:</strong> Optimize meta descriptions, title tags, and content length for search engines.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 VerboMetrics. Free online text tools for everyone.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy</a>
+                    <a href="#terms">Terms</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
