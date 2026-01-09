@@ -302,7 +302,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Console welcome message
-console.log('%c📝 TextTools - Word Counter', 'font-size: 20px; font-weight: bold; color: #4f46e5;');
+console.log('%c📝 VerboMetrics - Word Counter', 'font-size: 20px; font-weight: bold; color: #4f46e5;');
 console.log('%cYour text is processed locally in your browser. We never store your content.', 'color: #6b7280;');
 console.log('%cKeyboard shortcuts:', 'font-weight: bold; margin-top: 10px;');
 console.log('  Ctrl/Cmd + K: Clear text');

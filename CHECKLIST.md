@@ -1,4 +1,4 @@
-# ✅ TextTools Project Checklist
+# ✅ VerboMetrics Project Checklist
 
 ## Phase 1: Local Development (Week 1)
 - [ ] Download all project files

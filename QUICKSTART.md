@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide - TextTools Suite
+# 🚀 Quick Start Guide - VerboMetrics Suite
 
 ## Step-by-Step Setup (For Complete Beginners)
 
@@ -105,7 +105,7 @@ Once you buy a domain from Namecheap:
    - Go to analytics.google.com
    - Sign in with Google account
    - Click "Start measuring"
-   - Create a property (name it "TextTools" or whatever you want)
+   - Create a property (name it "VerboMetrics" or whatever you want)
    - Select "Web"
    - Enter your website URL
    - Copy your Measurement ID (looks like G-XXXXXXXXXX)
