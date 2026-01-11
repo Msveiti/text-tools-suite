@@ -1,31 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P2JWKFVB39"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-P2JWKFVB39');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online text comparison tool. Compare two texts and find differences.">
-    <title>Text Compare Tool - Coming Soon | VerboMetrics</title>
+    <title>Free Text Compare Tool - Find Differences Between Two Texts | VerboMetrics</title>
+    <meta name="description" content="Free online text comparison tool. Find differences between two texts instantly. Perfect for comparing document versions, detecting changes, and proofreading. No signup required.">
+    <meta name="keywords" content="text compare, text diff, compare text, find differences, text comparison tool, diff checker, document comparison">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2JWKFVB39"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P2JWKFVB39');
+    </script>
+    
+    <style>
+        .compare-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .compare-panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+            font-weight: 600;
+            font-size: 1.125rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header.text2 {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+
+        .compare-textarea {
+            flex: 1;
+            min-height: 300px;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-top: none;
+            border-radius: 0 0 0.5rem 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        .compare-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .compare-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-compare {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 0.875rem 2.5rem;
+            border-radius: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-compare:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+            border: none;
+            padding: 0.875rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        .results-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .results-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #111827;
+        }
+
+        .diff-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .diff-stat {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .diff-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .diff-stat-value.additions {
+            color: #10b981;
+        }
+
+        .diff-stat-value.deletions {
+            color: #ef4444;
+        }
+
+        .diff-stat-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .diff-display {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .diff-panel {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .diff-panel-header {
+            background: #374151;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .diff-content {
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .diff-added {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+        }
+
+        .diff-removed {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            text-decoration: line-through;
+        }
+
+        .diff-unchanged {
+            color: #6b7280;
+        }
+
+        .no-differences {
+            text-align: center;
+            padding: 3rem;
+            background: #f0fdf4;
+            border: 2px dashed #86efac;
+            border-radius: 0.5rem;
+        }
+
+        .no-differences-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .no-differences h3 {
+            color: #166534;
+            margin-bottom: 0.5rem;
+        }
+
+        .no-differences p {
+            color: #16a34a;
+        }
+
+        .legend {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 0.25rem;
+        }
+
+        .legend-color.added {
+            background: #d1fae5;
+            border: 1px solid #10b981;
+        }
+
+        .legend-color.removed {
+            background: #fee2e2;
+            border: 1px solid #ef4444;
+        }
+
+        .instructions {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .instructions h3 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+
+        .instructions ol {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .compare-container {
+                grid-template-columns: 1fr;
+            }
+
+            .diff-display {
+                grid-template-columns: 1fr;
+            }
+
+            .legend {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="logo">
+            <a href="/" class="logo">
                 <span class="logo-icon">📝</span>
-                <span class="logo-text">VerboMetrics</span>
-            </div>
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Word Counter</a>
+                <h1 class="logo-text">VerboMetrics</h1>
+            </a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="/" class="nav-link">Word Counter</a>
                 <a href="case-converter.html" class="nav-link">Case Converter</a>
                 <a href="text-diff.html" class="nav-link active">Text Compare</a>
                 <a href="lorem-ipsum.html" class="nav-link">Lorem Ipsum</a>
@@ -36,21 +328,150 @@
     <main class="main">
         <div class="container">
             <section class="title-section">
-                <h1>Text Compare Tool</h1>
-                <p class="subtitle">🚧 Coming Soon! Compare two texts and find differences instantly.</p>
+                <h1>Free Text Compare Tool - Find Differences Between Texts</h1>
+                <p class="subtitle">Compare two texts and find differences instantly. Perfect for comparing document versions, tracking changes, and proofreading. Free online text diff tool with no signup required.</p>
             </section>
 
-            <section class="content-section">
-                <div class="content-text" style="text-align: center; padding: 4rem 2rem;">
-                    <h2 style="font-size: 3rem; margin-bottom: 1rem;">🔨</h2>
-                    <h3>This Tool is Under Development</h3>
-                    <p>We're working hard to bring you an amazing text comparison tool. Check back soon!</p>
-                    <p style="margin-top: 2rem;">
-                        <a href="index.html" class="btn-tool" style="display: inline-block; padding: 1rem 2rem;">
-                            ← Back to Word Counter
-                        </a>
-                    </p>
+            <div class="instructions">
+                <h3>📋 How to Use the Text Compare Tool</h3>
+                <ol>
+                    <li>Paste your <strong>original text</strong> in the left panel (Text 1)</li>
+                    <li>Paste your <strong>modified text</strong> in the right panel (Text 2)</li>
+                    <li>Click the <strong>"Compare Texts"</strong> button</li>
+                    <li>View highlighted differences - <span class="diff-added">additions in green</span> and <span class="diff-removed">deletions in red</span></li>
+                </ol>
+            </div>
+
+            <div class="compare-container">
+                <div class="compare-panel">
+                    <div class="panel-header">
+                        <span>📄 Text 1 (Original)</span>
+                        <span id="text1Words">0 words</span>
+                    </div>
+                    <textarea 
+                        id="text1" 
+                        class="compare-textarea" 
+                        placeholder="Paste your original text here...
+Example:
+The quick brown fox jumps over the lazy dog.
+This is a sample text for comparison."
+                        spellcheck="true"
+                    ></textarea>
                 </div>
+
+                <div class="compare-panel">
+                    <div class="panel-header text2">
+                        <span>📄 Text 2 (Modified)</span>
+                        <span id="text2Words">0 words</span>
+                    </div>
+                    <textarea 
+                        id="text2" 
+                        class="compare-textarea" 
+                        placeholder="Paste your modified text here...
+Example:
+The quick brown fox jumped over a lazy dog.
+This is sample text for testing comparison."
+                        spellcheck="true"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="compare-actions">
+                <button id="compareBtn" class="btn-compare">
+                    🔍 Compare Texts
+                </button>
+                <button id="clearBtn" class="btn-secondary">
+                    🗑️ Clear All
+                </button>
+                <button id="swapBtn" class="btn-secondary">
+                    ⇄ Swap Texts
+                </button>
+            </div>
+
+            <div id="resultsSection" class="results-section hidden">
+                <div class="results-header">
+                    <h2>Comparison Results</h2>
+                </div>
+
+                <div class="diff-stats">
+                    <div class="diff-stat">
+                        <div class="diff-stat-value" id="totalChanges">0</div>
+                        <div class="diff-stat-label">Total Changes</div>
+                    </div>
+                    <div class="diff-stat">
+                        <div class="diff-stat-value additions" id="additions">0</div>
+                        <div class="diff-stat-label">Additions</div>
+                    </div>
+                    <div class="diff-stat">
+                        <div class="diff-stat-value deletions" id="deletions">0</div>
+                        <div class="diff-stat-label">Deletions</div>
+                    </div>
+                    <div class="diff-stat">
+                        <div class="diff-stat-value" id="similarity">0%</div>
+                        <div class="diff-stat-label">Similarity</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color added"></div>
+                        <span>Added text</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color removed"></div>
+                        <span>Removed text</span>
+                    </div>
+                </div>
+
+                <div id="noDifferences" class="no-differences hidden">
+                    <div class="no-differences-icon">✅</div>
+                    <h3>No Differences Found!</h3>
+                    <p>Both texts are identical.</p>
+                </div>
+
+                <div id="diffDisplay" class="diff-display">
+                    <div class="diff-panel">
+                        <div class="diff-panel-header">📄 Text 1 with Changes Marked</div>
+                        <div id="diff1" class="diff-content"></div>
+                    </div>
+                    <div class="diff-panel">
+                        <div class="diff-panel-header">📄 Text 2 with Changes Marked</div>
+                        <div id="diff2" class="diff-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2>What is a Text Comparison Tool?</h2>
+                <p>A text comparison tool (also called a diff checker or text diff tool) compares two versions of text and highlights the differences between them. Our free online text compare tool makes it easy to:</p>
+                <ul>
+                    <li><strong>Compare document versions:</strong> See exactly what changed between drafts</li>
+                    <li><strong>Track edits:</strong> Review changes made by collaborators or editors</li>
+                    <li><strong>Find typos and errors:</strong> Quickly spot unintended changes</li>
+                    <li><strong>Verify copies:</strong> Ensure text was copied correctly</li>
+                    <li><strong>Proofread efficiently:</strong> Focus on what actually changed</li>
+                </ul>
+
+                <h3>Who Uses Text Comparison Tools?</h3>
+                <ul>
+                    <li><strong>Writers and Editors:</strong> Compare draft versions to track revisions</li>
+                    <li><strong>Students:</strong> Ensure citations and quotes are copied accurately</li>
+                    <li><strong>Developers:</strong> Compare code snippets and configuration files</li>
+                    <li><strong>Legal Professionals:</strong> Review contract changes and amendments</li>
+                    <li><strong>Content Managers:</strong> Track website content updates</li>
+                    <li><strong>Translators:</strong> Compare original and translated texts</li>
+                </ul>
+
+                <h3>Features of Our Text Compare Tool</h3>
+                <ul>
+                    <li>✅ <strong>Free forever:</strong> No signup, no limits, no costs</li>
+                    <li>✅ <strong>Instant results:</strong> See differences highlighted in real-time</li>
+                    <li>✅ <strong>Side-by-side view:</strong> Compare texts easily</li>
+                    <li>✅ <strong>Color-coded changes:</strong> Green for additions, red for deletions</li>
+                    <li>✅ <strong>Similarity percentage:</strong> See how similar texts are</li>
+                    <li>✅ <strong>Word count tracking:</strong> Monitor text length</li>
+                    <li>✅ <strong>Privacy-focused:</strong> All processing happens in your browser</li>
+                </ul>
             </section>
         </div>
     </main>
@@ -58,14 +479,16 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2026 VerboMetrics. Free online text tools for everyone.</p>
+                <p>&copy; 2026 VerboMetrics. Free online text tools for writers, students, and professionals.</p>
                 <div class="footer-links">
-                    <a href="#privacy">Privacy</a>
-                    <a href="#terms">Terms</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#contact">Contact Us</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script src="text-diff.js"></script>
 </body>
 </html>
