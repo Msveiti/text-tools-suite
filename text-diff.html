@@ -32,7 +32,7 @@
         }
 
         .panel-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
             padding: 1rem;
             border-radius: 0.5rem 0.5rem 0 0;
@@ -44,26 +44,33 @@
         }
 
         .panel-header.text2 {
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         }
 
         .compare-textarea {
             flex: 1;
             min-height: 300px;
             padding: 1rem;
-            border: 2px solid #e5e7eb;
+            border: 2px solid #d1d5db;
             border-top: none;
             border-radius: 0 0 0.5rem 0.5rem;
             font-family: 'Courier New', monospace;
-            font-size: 0.9375rem;
+            font-size: 1rem;
             line-height: 1.6;
             resize: vertical;
             transition: border-color 0.3s;
+            background: white;
+            color: #111827;
         }
 
         .compare-textarea:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .compare-textarea::placeholder {
+            color: #9ca3af;
         }
 
         .compare-actions {
@@ -75,7 +82,7 @@
         }
 
         .btn-compare {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
             border: none;
             padding: 0.875rem 2.5rem;
@@ -88,7 +95,7 @@
 
         .btn-compare:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
         }
 
         .btn-secondary {
@@ -147,16 +154,16 @@
         .diff-stat-value {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--primary);
+            color: #10b981;
             margin-bottom: 0.25rem;
         }
 
         .diff-stat-value.additions {
-            color: #10b981;
+            color: #059669;
         }
 
         .diff-stat-value.deletions {
-            color: #ef4444;
+            color: #dc2626;
         }
 
         .diff-stat-label {
@@ -180,7 +187,7 @@
         }
 
         .diff-panel-header {
-            background: #374151;
+            background: #1f2937;
             color: white;
             padding: 0.75rem 1rem;
             font-weight: 600;
@@ -190,31 +197,35 @@
         .diff-content {
             padding: 1.5rem;
             font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             line-height: 1.8;
             white-space: pre-wrap;
             word-break: break-word;
             max-height: 500px;
             overflow-y: auto;
+            background: white;
+            color: #111827;
         }
 
         .diff-added {
             background: #d1fae5;
-            color: #065f46;
+            color: #047857;
             padding: 0.125rem 0.25rem;
             border-radius: 0.25rem;
+            font-weight: 600;
         }
 
         .diff-removed {
             background: #fee2e2;
-            color: #991b1b;
+            color: #b91c1c;
             padding: 0.125rem 0.25rem;
             border-radius: 0.25rem;
             text-decoration: line-through;
+            font-weight: 600;
         }
 
         .diff-unchanged {
-            color: #6b7280;
+            color: #374151;
         }
 
         .no-differences {
@@ -264,17 +275,17 @@
 
         .legend-color.added {
             background: #d1fae5;
-            border: 1px solid #10b981;
+            border: 2px solid #059669;
         }
 
         .legend-color.removed {
             background: #fee2e2;
-            border: 1px solid #ef4444;
+            border: 2px solid #dc2626;
         }
 
         .instructions {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
             padding: 1.5rem;
             border-radius: 0.5rem;
             margin: 2rem 0;
@@ -282,7 +293,7 @@
 
         .instructions h3 {
             margin-top: 0;
-            color: #1e40af;
+            color: #047857;
         }
 
         .instructions ol {
