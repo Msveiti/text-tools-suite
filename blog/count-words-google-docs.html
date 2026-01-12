@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>How to Count Words in Google Docs (3 Easy Methods + Shortcuts) | VerboMetrics</title>
+    <meta name="title" content="How to Count Words in Google Docs (3 Easy Methods + Shortcuts) | VerboMetrics">
+    <meta name="description" content="Learn how to count words in Google Docs with 3 simple methods. Includes keyboard shortcuts, live word count display, and tips for counting specific sections. Step-by-step guide with screenshots.">
+    <meta name="keywords" content="count words in google docs, google docs word count, word count google docs, how to see word count google docs, google docs character count, google docs word counter">
+    <meta name="author" content="VerboMetrics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://verbometrics.com/blog/count-words-google-docs.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://verbometrics.com/blog/count-words-google-docs.html">
+    <meta property="og:title" content="How to Count Words in Google Docs (3 Easy Methods)">
+    <meta property="og:description" content="Complete guide to counting words in Google Docs. Learn shortcuts, enable live display, and count specific sections.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://verbometrics.com/blog/count-words-google-docs.html">
+    <meta property="twitter:title" content="How to Count Words in Google Docs (3 Easy Methods)">
+    <meta property="twitter:description" content="Step-by-step guide to word counting in Google Docs with keyboard shortcuts and pro tips.">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Count Words in Google Docs",
+      "description": "Learn three different methods to count words in Google Docs, including keyboard shortcuts and live word count display.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Use the Word Count Menu",
+          "text": "Click on Tools in the menu bar, then select Word count to see your document statistics."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Use Keyboard Shortcut",
+          "text": "Press Ctrl+Shift+C on Windows or Cmd+Shift+C on Mac to instantly view word count."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Enable Live Word Count Display",
+          "text": "Open Word count, check 'Display word count while typing' to see live count at bottom of screen."
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2JWKFVB39"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P2JWKFVB39');
+    </script>
+    
+    <style>
+        /* Blog-specific styles */
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .blog-header {
+            margin-bottom: 2rem;
+        }
+        
+        .blog-meta {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-content {
+            line-height: 1.8;
+            font-size: 1.0625rem;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.875rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+        
+        .blog-content h4 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            color: #374151;
+        }
+        
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 2rem;
+        }
+        
+        .blog-content li {
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        
+        .blog-content strong {
+            color: #111827;
+            font-weight: 600;
+        }
+        
+        .method-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .method-card h3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            margin: -2rem -2rem 1.5rem -2rem;
+            font-size: 1.25rem;
+        }
+        
+        .method-card.method-1 h3 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .method-card.method-2 h3 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .method-card.method-3 h3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+            padding-left: 0;
+        }
+        
+        .steps-list li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .steps-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .keyboard-shortcut {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f3f4f6;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin: 1rem 0;
+        }
+        
+        .key {
+            background: white;
+            border: 2px solid #9ca3af;
+            border-radius: 0.375rem;
+            padding: 0.25rem 0.75rem;
+            box-shadow: 0 2px 0 #9ca3af;
+            font-size: 0.875rem;
+        }
+        
+        .highlight-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .tool-cta {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .tool-cta h3 {
+            color: white !important;
+            margin-top: 0 !important;
+        }
+        
+        .tool-cta a {
+            display: inline-block;
+            background: white;
+            color: #0ea5e9;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .tool-cta a:hover {
+            transform: scale(1.05);
+        }
+        
+        .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .comparison-table thead {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .comparison-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .comparison-table tbody tr:hover {
+            background: #f0f9ff;
+        }
+        
+        .pro-tip {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .pro-tip strong {
+            color: #92400e;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-table {
+                font-size: 0.875rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+            
+            .keyboard-shortcut {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <span class="logo-icon">📝</span>
+                <h1 class="logo-text">VerboMetrics</h1>
+            </a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="/" class="nav-link">Word Counter</a>
+                <a href="/case-converter.html" class="nav-link">Case Converter</a>
+                <a href="/text-diff.html" class="nav-link">Text Compare</a>
+                <a href="/lorem-ipsum.html" class="nav-link">Lorem Ipsum</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <article class="blog-post">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <a href="/blog/">Blog</a> / Count Words in Google Docs
+            </div>
+            
+            <header class="blog-header">
+                <h1>How to Count Words in Google Docs: 3 Easy Methods (+ Keyboard Shortcuts)</h1>
+                <div class="blog-meta">
+                    Published: January 28, 2026 | Reading time: 6 minutes | Category: Tutorial
+                </div>
+            </header>
+
+            <div class="blog-content">
+                <p>Google Docs is one of the most popular word processors in the world, used by millions of students, professionals, and writers daily. Whether you're working on an essay, report, blog post, or novel, knowing your exact word count is essential. This comprehensive guide shows you three simple methods to <strong>count words in Google Docs</strong>, including time-saving keyboard shortcuts and hidden features most users don't know about.</p>
+
+                <p>By the end of this tutorial, you'll be able to check word counts instantly, display live word counts while you type, and count specific sections of your document - all without leaving your keyboard.</p>
+
+                <div class="tool-cta">
+                    <h3>Need to Count Words Outside Google Docs?</h3>
+                    <p>Use our free online word counter for instant word, character, and sentence counts</p>
+                    <a href="/">Try Free Word Counter →</a>
+                </div>
+
+                <h2>Why Word Count Matters in Google Docs</h2>
+                
+                <p>Before diving into the how-to, let's understand why word count is important:</p>
+                
+                <ul>
+                    <li><strong>Academic requirements:</strong> Essays and research papers have strict word count limits</li>
+                    <li><strong>Content writing:</strong> Blog posts need optimal lengths for SEO (typically 1,500-2,500 words)</li>
+                    <li><strong>Professional documents:</strong> Reports and proposals often have word count guidelines</li>
+                    <li><strong>Editing efficiency:</strong> Track your progress and stay within target lengths</li>
+                    <li><strong>Billing purposes:</strong> Freelance writers often charge per word</li>
+                    <li><strong>Reading time estimates:</strong> Calculate how long content takes to read</li>
+                </ul>
+
+                <h2>Method 1: Use the Word Count Menu (Most Common)</h2>
+
+                <div class="method-card method-1">
+                    <h3>📊 Method 1: Tools Menu</h3>
+                    
+                    <p>This is the most straightforward way to check your word count in Google Docs. It works on both desktop and mobile versions.</p>
+                    
+                    <ul class="steps-list">
+                        <li>Open your Google Docs document</li>
+                        <li>Click on <strong>"Tools"</strong> in the top menu bar</li>
+                        <li>Select <strong>"Word count"</strong> from the dropdown menu</li>
+                        <li>A popup window will appear showing:
+                            <ul style="margin-top: 0.5rem;">
+                                <li>Pages</li>
+                                <li>Words</li>
+                                <li>Characters (with spaces)</li>
+                                <li>Characters (excluding spaces)</li>
+                            </ul>
+                        </li>
+                        <li>Click <strong>"OK"</strong> to close the window</li>
+                    </ul>
+                    
+                    <div class="pro-tip">
+                        <strong>💡 Pro Tip:</strong> The word count popup stays on top of your document, so you can move it aside and continue writing while monitoring your word count!
+                    </div>
+                </div>
+
+                <h2>Method 2: Keyboard Shortcut (Fastest Method)</h2>
+
+                <div class="method-card method-2">
+                    <h3>⌨️ Method 2: Keyboard Shortcut</h3>
+                    
+                    <p>This is the quickest way to check word count without touching your mouse. Perfect for writers who want to stay in the flow.</p>
+                    
+                    <h4>For Windows/Chromebook:</h4>
+                    <div class="keyboard-shortcut">
+                        <span class="key">Ctrl</span>
+                        <span>+</span>
+                        <span class="key">Shift</span>
+                        <span>+</span>
+                        <span class="key">C</span>
+                    </div>
+                    
+                    <h4>For Mac:</h4>
+                    <div class="keyboard-shortcut">
+                        <span class="key">Cmd</span>
+                        <span>+</span>
+                        <span class="key">Shift</span>
+                        <span>+</span>
+                        <span class="key">C</span>
+                    </div>
+                    
+                    <p>Simply press these keys together while your document is open, and the word count popup will appear instantly!</p>
+                    
+                    <div class="highlight-box">
+                        <strong>Remember:</strong> "C" stands for "Count" - an easy way to memorize this shortcut!
+                    </div>
+                </div>
+
+                <h2>Method 3: Enable Live Word Count Display (Most Convenient)</h2>
+
+                <div class="method-card method-3">
+                    <h3>📺 Method 3: Live Word Count Display</h3>
+                    
+                    <p>This is the most convenient method for writers who need to constantly monitor their word count. Once enabled, Google Docs displays your word count at the bottom of the screen in real-time.</p>
+                    
+                    <ul class="steps-list">
+                        <li>Open the word count popup using either:
+                            <ul style="margin-top: 0.5rem;">
+                                <li>Tools → Word count, OR</li>
+                                <li>Keyboard shortcut (Ctrl/Cmd + Shift + C)</li>
+                            </ul>
+                        </li>
+                        <li>Look for the checkbox that says <strong>"Display word count while typing"</strong></li>
+                        <li>Check this box to enable live word count</li>
+                        <li>Click "OK" to close the popup</li>
+                        <li>You'll now see your word count in the bottom-left corner of your screen</li>
+                    </ul>
+                    
+                    <p>The live word count updates automatically as you type, delete, or paste text. Click on it at any time to see the full statistics popup.</p>
+                    
+                    <div class="pro-tip">
+                        <strong>💡 Pro Tip:</strong> The live word count display remains active even after you close and reopen the document, so you only need to enable it once!
+                    </div>
+                </div>
+
+                <h2>Bonus: How to Count Words in a Specific Section</h2>
+
+                <p>Sometimes you don't need the total word count - you just want to count a specific paragraph, page, or section. Here's how:</p>
+
+                <ol>
+                    <li><strong>Select the text</strong> you want to count by clicking and dragging</li>
+                    <li><strong>Use the keyboard shortcut</strong> Ctrl/Cmd + Shift + C</li>
+                    <li>The word count popup will show statistics for <strong>only the selected text</strong></li>
+                </ol>
+
+                <p>This is incredibly useful for:</p>
+                <ul>
+                    <li>Checking if a single paragraph is too long</li>
+                    <li>Counting words in a specific chapter or section</li>
+                    <li>Verifying quote lengths</li>
+                    <li>Ensuring individual sections meet requirements</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>Quick Tip:</strong> Press Ctrl/Cmd + A to select all text, then use the word count shortcut - this achieves the same result as checking the total document word count!
+                </div>
+
+                <h2>Understanding Google Docs Word Count Statistics</h2>
+
+                <p>When you open the word count popup in Google Docs, you'll see four different metrics. Here's what each means:</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>What It Counts</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pages</strong></td>
+                            <td>Total number of pages in your document</td>
+                            <td>Checking if you've met page length requirements</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Words</strong></td>
+                            <td>Total words separated by spaces</td>
+                            <td>Most common metric for essays, articles, and assignments</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Characters (with spaces)</strong></td>
+                            <td>Every letter, number, punctuation, and space</td>
+                            <td>Social media posts, SMS messages, translations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Characters (no spaces)</strong></td>
+                            <td>Only letters, numbers, and punctuation</td>
+                            <td>Some academic or translation requirements</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Google Docs Word Count vs Other Word Processors</h2>
+
+                <p>Different word processors may count words slightly differently. Here's how Google Docs compares:</p>
+
+                <h3>Google Docs vs Microsoft Word</h3>
+                <ul>
+                    <li><strong>Word counting method:</strong> Both count words the same way (text separated by spaces)</li>
+                    <li><strong>Hyphenated words:</strong> Both count "twenty-one" as one word</li>
+                    <li><strong>Numbers:</strong> Both count "123" as one word</li>
+                    <li><strong>Contractions:</strong> Both count "don't" as one word</li>
+                    <li><strong>Result:</strong> Word counts should match within 1-2 words</li>
+                </ul>
+
+                <h3>Google Docs vs Online Word Counters</h3>
+                <p>Most online word counters (like <a href="/">VerboMetrics</a>) use the same counting logic as Google Docs and Microsoft Word, so results should be virtually identical. The advantage of online tools is you can count words from any source, not just Google Docs.</p>
+
+                <h2>Common Google Docs Word Count Questions</h2>
+
+                <h4>Does Google Docs count footnotes and endnotes?</h4>
+                <p>No, Google Docs does NOT include footnotes or endnotes in the word count. If you need to include these, you'll need to manually add them to your count or use a workaround like copying everything (including notes) into a separate document to count.</p>
+
+                <h4>Does Google Docs count headers and footers?</h4>
+                <p>No, text in headers and footers is excluded from the word count. This is standard behavior across most word processors.</p>
+
+                <h4>Does Google Docs count text in tables?</h4>
+                <p>Yes! Text inside tables IS included in the word count. This includes all cells in all tables throughout your document.</p>
+
+                <h4>Does Google Docs count words in comments?</h4>
+                <p>No, comments and suggestions are not included in the word count. Only the actual document text counts.</p>
+
+                <h4>Does Google Docs count text boxes?</h4>
+                <p>Yes, text in text boxes (inserted via Insert → Drawing → Text box) is included in the word count.</p>
+
+                <h4>Can I see word count on Google Docs mobile app?</h4>
+                <p>Yes! On the mobile app:</p>
+                <ul>
+                    <li>Tap the three-dot menu (⋮) in the top-right corner</li>
+                    <li>Select "Word count"</li>
+                    <li>View your statistics</li>
+                </ul>
+
+                <h4>Why is my Google Docs word count different from Microsoft Word?</h4>
+                <p>Small differences (1-5 words) are normal due to how each program handles:</p>
+                <ul>
+                    <li>Em dashes vs hyphens</li>
+                    <li>Special characters</li>
+                    <li>Line breaks vs paragraph breaks</li>
+                    <li>Hidden formatting</li>
+                </ul>
+                <p>If the difference is larger than 5 words, copy your text into an online word counter to verify.</p>
+
+                <h2>Pro Tips for Google Docs Word Count</h2>
+
+                <div class="pro-tip">
+                    <strong>Tip 1:</strong> Create a custom menu shortcut by going to Tools → Preferences and adding word count to your toolbar for one-click access.
+                </div>
+
+                <div class="pro-tip">
+                    <strong>Tip 2:</strong> Use conditional formatting with Google Apps Script to automatically highlight your document when you exceed a target word count.
+                </div>
+
+                <div class="pro-tip">
+                    <strong>Tip 3:</strong> Press Ctrl/Cmd + Shift + C repeatedly to refresh the word count without closing the popup - useful when collaborating in real-time.
+                </div>
+
+                <div class="pro-tip">
+                    <strong>Tip 4:</strong> For academic papers, always copy your final version into Microsoft Word or an online word counter to verify the count matches before submission.
+                </div>
+
+                <div class="pro-tip">
+                    <strong>Tip 5:</strong> If you need to exclude certain sections from your word count (like references), copy just the sections you want to count into a temporary document.
+                </div>
+
+                <h2>Troubleshooting Google Docs Word Count Issues</h2>
+
+                <h3>Word count not updating?</h3>
+                <ul>
+                    <li>Close and reopen the word count popup</li>
+                    <li>Refresh your browser (F5 or Ctrl/Cmd + R)</li>
+                    <li>Check your internet connection - Google Docs requires connectivity</li>
+                    <li>Try using an incognito/private window</li>
+                </ul>
+
+                <h3>Live word count not showing?</h3>
+                <ul>
+                    <li>Re-enable "Display word count while typing" in the word count popup</li>
+                    <li>Check your zoom level - word count may be cut off if zoomed in too much</li>
+                    <li>Try switching to a different view (Print layout vs Pageless)</li>
+                </ul>
+
+                <h3>Word count seems incorrect?</h3>
+                <ul>
+                    <li>Check if you have hidden text or formatting</li>
+                    <li>Look for extra spaces or line breaks</li>
+                    <li>Verify text in text boxes and tables is being counted</li>
+                    <li>Use the <a href="/">VerboMetrics word counter</a> as a second opinion</li>
+                </ul>
+
+                <h2>Alternative Ways to Count Words</h2>
+
+                <p>While Google Docs has excellent built-in word counting, here are alternative methods:</p>
+
+                <h3>1. Copy to Online Word Counter</h3>
+                <ol>
+                    <li>Select all text (Ctrl/Cmd + A)</li>
+                    <li>Copy (Ctrl/Cmd + C)</li>
+                    <li>Visit <a href="/">VerboMetrics.com</a></li>
+                    <li>Paste (Ctrl/Cmd + V)</li>
+                    <li>See instant word count plus additional statistics</li>
+                </ol>
+                <p><strong>Advantage:</strong> Get extra stats like reading time, speaking time, and keyword density.</p>
+
+                <h3>2. Download as Microsoft Word</h3>
+                <ol>
+                    <li>File → Download → Microsoft Word (.docx)</li>
+                    <li>Open in Microsoft Word</li>
+                    <li>View word count in the status bar</li>
+                </ol>
+                <p><strong>Advantage:</strong> Verify word count matches for important submissions.</p>
+
+                <h3>3. Use Google Apps Script</h3>
+                <p>Advanced users can create custom functions to automatically track word count over time or set up alerts when reaching targets. This requires some coding knowledge but offers powerful automation.</p>
+
+                <div class="tool-cta">
+                    <h3>Need More Text Analysis Tools?</h3>
+                    <p>Check out our free suite of text tools</p>
+                    <a href="/">Explore All Tools →</a>
+                </div>
+
+                <h2>Conclusion: Master Google Docs Word Count</h2>
+
+                <p>You now know three easy methods to count words in Google Docs:</p>
+
+                <ol>
+                    <li><strong>Tools Menu:</strong> Click Tools → Word count</li>
+                    <li><strong>Keyboard Shortcut:</strong> Press Ctrl/Cmd + Shift + C</li>
+                    <li><strong>Live Display:</strong> Enable "Display word count while typing"</li>
+                </ol>
+
+                <p>For most users, enabling the live word count display (Method 3) provides the best experience - you can see your word count update in real-time without interrupting your writing flow.</p>
+
+                <p><strong>Key takeaways:</strong></p>
+                <ul>
+                    <li>Use Ctrl/Cmd + Shift + C for instant word counts</li>
+                    <li>Enable live display for real-time monitoring</li>
+                    <li>Select specific text to count individual sections</li>
+                    <li>Google Docs doesn't count headers, footers, or comments</li>
+                    <li>Word counts should match Microsoft Word within a few words</li>
+                    <li>Verify important submissions with a second tool</li>
+                </ul>
+
+                <p><strong>Ready to start counting?</strong> Open your Google Doc and try these methods right now. Or use our <a href="/">free online word counter</a> for additional text analysis features like reading time, keyword density, and social media character limits!</p>
+
+                <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e5e7eb;">
+
+                <h3>Related Articles</h3>
+                <ul>
+                    <li><a href="/blog/character-counter-guide.html">Character Counter: Everything You Need to Know in 2026</a></li>
+                    <li><a href="/blog/word-count-requirements.html">Word Count Requirements: Complete Guide for Students</a></li>
+                    <li><a href="/">Free Word Counter Tool</a> - Count words, characters, and sentences</li>
+                </ul>
+
+                <p><em>Last updated: January 28, 2026</em></p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 VerboMetrics. Free online text tools for writers, students, and professionals.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
