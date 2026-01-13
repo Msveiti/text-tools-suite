@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Text Formatter - Add Punctuation & Fix Grammar Online | VerboMetrics</title>
+    <meta name="description" content="Free online text formatter. Automatically add punctuation, fix capitalization, and format text for social media. Perfect for quick posts, messages, and content cleanup.">
+    <meta name="keywords" content="text formatter, add punctuation, fix grammar, format text, punctuation tool, text editor, social media formatter">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2JWKFVB39"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P2JWKFVB39');
+    </script>
+    
+    <style>
+        .formatter-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .formatter-panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+            font-weight: 600;
+            font-size: 1.125rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header.output {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .formatter-textarea {
+            flex: 1;
+            min-height: 300px;
+            padding: 1rem;
+            border: 2px solid #d1d5db;
+            border-top: none;
+            border-radius: 0 0 0.5rem 0.5rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: border-color 0.3s;
+            background: white;
+            color: #111827;
+        }
+
+        .formatter-textarea:focus {
+            outline: none;
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+
+        .formatter-textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .formatter-textarea:disabled {
+            background: #f9fafb;
+            cursor: not-allowed;
+        }
+
+        .options-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .options-header {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .option-item input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+            accent-color: #f59e0b;
+        }
+
+        .option-item label {
+            cursor: pointer;
+            user-select: none;
+            color: #374151;
+        }
+
+        .style-selector {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .style-btn {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #6b7280;
+        }
+
+        .style-btn:hover {
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+
+        .style-btn.active {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border-color: #f59e0b;
+        }
+
+        .formatter-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-format {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: none;
+            padding: 0.875rem 2.5rem;
+            border-radius: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-format:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-format:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+            border: none;
+            padding: 0.875rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        .instructions {
+            background: #fff7ed;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .instructions h3 {
+            margin-top: 0;
+            color: #92400e;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #f59e0b;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            display: none;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #dc2626;
+        }
+
+        .error-message.active {
+            display: block;
+        }
+
+        .example-text {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #6b7280;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9375rem;
+        }
+
+        @media (max-width: 768px) {
+            .formatter-container {
+                grid-template-columns: 1fr;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .style-selector {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <span class="logo-icon">📝</span>
+                <h1 class="logo-text">VerboMetrics</h1>
+            </a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="/" class="nav-link">Word Counter</a>
+                <a href="case-converter.html" class="nav-link">Case Converter</a>
+                <a href="text-diff.html" class="nav-link">Text Compare</a>
+                <a href="text-formatter.html" class="nav-link active">Text Formatter</a>
+                <a href="lorem-ipsum.html" class="nav-link">Lorem Ipsum</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="title-section">
+                <h1>Free Text Formatter - Add Punctuation & Fix Grammar</h1>
+                <p class="subtitle">Automatically format your text with proper punctuation, capitalization, and structure. Perfect for social media posts, quick messages, and content cleanup. Powered by AI.</p>
+            </section>
+
+            <div class="instructions">
+                <h3>✨ How to Use the Text Formatter</h3>
+                <ol>
+                    <li>Paste your raw, unformatted text in the left panel</li>
+                    <li>Choose a formatting style (Formal, Casual, or Social Media)</li>
+                    <li>Select any additional options you want</li>
+                    <li>Click "Format Text" to automatically add punctuation and fix formatting</li>
+                    <li>Copy your perfectly formatted text from the right panel!</li>
+                </ol>
+            </div>
+
+            <div class="options-section">
+                <div class="options-header">
+                    🎨 Formatting Style
+                </div>
+                <div class="style-selector">
+                    <button class="style-btn active" data-style="formal">
+                        📋 Formal<br>
+                        <small>Professional writing</small>
+                    </button>
+                    <button class="style-btn" data-style="casual">
+                        💬 Casual<br>
+                        <small>Everyday communication</small>
+                    </button>
+                    <button class="style-btn" data-style="social">
+                        📱 Social Media<br>
+                        <small>Engaging & friendly</small>
+                    </button>
+                </div>
+
+                <div class="options-header">
+                    ⚙️ Additional Options
+                </div>
+                <div class="options-grid">
+                    <div class="option-item">
+                        <input type="checkbox" id="addPunctuation" checked>
+                        <label for="addPunctuation">Add punctuation (. , ! ?)</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="fixCapitalization" checked>
+                        <label for="fixCapitalization">Fix capitalization</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="fixSpacing" checked>
+                        <label for="fixSpacing">Fix spacing</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="addParagraphs">
+                        <label for="addParagraphs">Add paragraph breaks</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="improveFlow">
+                        <label for="improveFlow">Improve flow & readability</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="fixGrammar">
+                        <label for="fixGrammar">Fix basic grammar</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formatter-container">
+                <div class="formatter-panel">
+                    <div class="panel-header">
+                        <span>📝 Raw Text (Input)</span>
+                        <span id="inputWords">0 words</span>
+                    </div>
+                    <textarea 
+                        id="inputText" 
+                        class="formatter-textarea" 
+                        placeholder="Paste your raw text here...
+
+Example:
+hey this is a great tool i really like it can you help me format this text so it looks professional i need it for my social media post tomorrow thanks"
+                        spellcheck="true"
+                    ></textarea>
+                </div>
+
+                <div class="formatter-panel">
+                    <div class="panel-header output">
+                        <span>✨ Formatted Text (Output)</span>
+                        <span id="outputWords">0 words</span>
+                    </div>
+                    <textarea 
+                        id="outputText" 
+                        class="formatter-textarea" 
+                        placeholder="Your formatted text will appear here..."
+                        readonly
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="formatter-actions">
+                <button id="formatBtn" class="btn-format">
+                    ✨ Format Text
+                </button>
+                <button id="clearBtn" class="btn-secondary">
+                    🗑️ Clear All
+                </button>
+                <button id="copyBtn" class="btn-secondary">
+                    📋 Copy Formatted Text
+                </button>
+            </div>
+
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Formatting your text...</p>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <section class="content-section">
+                <h2>What is a Text Formatter?</h2>
+                <p>A text formatter is an AI-powered tool that automatically adds punctuation, fixes capitalization, and structures your text properly. Perfect for:</p>
+                <ul>
+                    <li><strong>Social media posts:</strong> Quickly format text for Twitter, Instagram, Facebook, LinkedIn</li>
+                    <li><strong>Quick messages:</strong> Clean up rushed typing before sending</li>
+                    <li><strong>Voice-to-text cleanup:</strong> Fix dictation errors and add punctuation</li>
+                    <li><strong>Non-native speakers:</strong> Ensure proper English grammar and punctuation</li>
+                    <li><strong>Content drafts:</strong> Format rough ideas into readable text</li>
+                    <li><strong>Professional communication:</strong> Polish casual text for business use</li>
+                </ul>
+
+                <h3>Example: Before & After</h3>
+                
+                <h4>Before (Raw Text):</h4>
+                <div class="example-text">
+hey everyone just wanted to share some exciting news we finally launched our new product after months of hard work im so grateful to the team for their dedication cant wait to hear what you all think check it out and let me know your thoughts
+                </div>
+
+                <h4>After (Formatted):</h4>
+                <div class="example-text" style="border-left-color: #10b981;">
+Hey everyone! Just wanted to share some exciting news. We finally launched our new product after months of hard work. I'm so grateful to the team for their dedication. Can't wait to hear what you all think! Check it out and let me know your thoughts.
+                </div>
+
+                <h3>Features of Our Text Formatter</h3>
+                <ul>
+                    <li>✅ <strong>AI-powered:</strong> Uses advanced language models for accurate formatting</li>
+                    <li>✅ <strong>Multiple styles:</strong> Choose formal, casual, or social media tone</li>
+                    <li>✅ <strong>Smart punctuation:</strong> Automatically adds periods, commas, question marks, exclamation points</li>
+                    <li>✅ <strong>Capitalization fixing:</strong> Proper sentence and proper noun capitalization</li>
+                    <li>✅ <strong>Spacing cleanup:</strong> Removes extra spaces and fixes formatting</li>
+                    <li>✅ <strong>Grammar improvements:</strong> Fixes common grammatical errors</li>
+                    <li>✅ <strong>Free to use:</strong> No signup, no limits, completely free</li>
+                </ul>
+
+                <h3>Who Uses Text Formatters?</h3>
+                <ul>
+                    <li><strong>Social Media Managers:</strong> Format posts quickly across platforms</li>
+                    <li><strong>Content Creators:</strong> Clean up draft ideas and notes</li>
+                    <li><strong>Students:</strong> Format rough drafts and note-taking</li>
+                    <li><strong>Non-Native Speakers:</strong> Ensure proper English punctuation</li>
+                    <li><strong>Business Professionals:</strong> Polish emails and messages</li>
+                    <li><strong>Writers:</strong> Format stream-of-consciousness writing</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 VerboMetrics. Free online text tools for writers, students, and professionals.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="text-formatter.js"></script>
+</body>
+</html>
