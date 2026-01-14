@@ -1,7 +1,9 @@
 // Text Formatter - VerboMetrics
-// AI-powered text formatting with Claude API
+// Rule-based text formatting
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Text Formatter loaded');
+
     // Get DOM elements
     const inputText = document.getElementById('inputText');
     const outputText = document.getElementById('outputText');
@@ -25,8 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const improveFlow = document.getElementById('improveFlow');
     const fixGrammar = document.getElementById('fixGrammar');
 
-    // Update word counts
-    inputText.addEventListener('input', updateWordCounts);
+    console.log('All elements loaded');
+
+    // Update word counts on input
+    inputText.addEventListener('input', function() {
+        updateWordCounts();
+    });
 
     function updateWordCounts() {
         const inputCount = countWords(inputText.value);
@@ -47,11 +53,13 @@ document.addEventListener('DOMContentLoaded', function() {
             styleBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             selectedStyle = this.dataset.style;
+            console.log('Style changed to:', selectedStyle);
         });
     });
 
     // Format button
     formatBtn.addEventListener('click', async function() {
+        console.log('Format button clicked');
         const text = inputText.value.trim();
 
         if (!text) {
@@ -73,22 +81,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     async function formatText(text) {
-        // Show loading (brief, since processing is instant)
+        console.log('Formatting text...');
+        
+        // Show loading
         formatBtn.disabled = true;
         loadingSpinner.classList.add('active');
         errorMessage.classList.remove('active');
         outputText.value = '';
 
-        // Small delay for UX (makes it feel like real processing)
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // Small delay for UX
+        await new Promise(resolve => setTimeout(resolve, 300));
 
         try {
-            const options = getSelectedOptions();
+            const options = {
+                addPunctuation: addPunctuation.checked,
+                fixCapitalization: fixCapitalization.checked,
+                fixSpacing: fixSpacing.checked,
+                addParagraphs: addParagraphs.checked,
+                improveFlow: improveFlow.checked,
+                fixGrammar: fixGrammar.checked
+            };
+
+            console.log('Options:', options);
+            console.log('Style:', selectedStyle);
+
             const formattedText = applyFormatting(text, selectedStyle, options);
 
             // Display result
             outputText.value = formattedText;
             updateWordCounts();
+            console.log('Formatting complete');
 
         } catch (error) {
             console.error('Formatting error:', error);
@@ -101,6 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function applyFormatting(text, style, options) {
         let result = text;
+
+        console.log('Applying formatting...');
 
         // Step 1: Clean up spacing
         if (options.fixSpacing) {
@@ -156,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
             result = result.replace(/\bhell\b/gi, "he'll");
             result = result.replace(/\bshes\b/gi, "she's");
             result = result.replace(/\bshell\b/gi, "she'll");
-            result = result.replace(/\bits\b/gi, "it's");
             result = result.replace(/\bitll\b/gi, "it'll");
         }
 
@@ -167,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Step 4: Fix capitalization
         if (options.fixCapitalization) {
-            result = fixCapitalization(result);
+            result = fixCapitalizationFunc(result);
         }
 
         // Step 5: Add paragraphs
@@ -175,26 +198,28 @@ document.addEventListener('DOMContentLoaded', function() {
             result = addParagraphBreaks(result);
         }
 
-        // Step 6: Improve flow (remove filler words, fix repetition)
+        // Step 6: Improve flow
         if (options.improveFlow) {
-            result = improveFlow(result, style);
+            result = improveFlowFunc(result, style);
         }
 
         // Final cleanup
-        result = result.replace(/\s+/g, ' '); // Clean up any double spaces
-        result = result.replace(/\s+([.,!?;:])/g, '$1'); // Remove space before punctuation
+        result = result.replace(/\s+/g, ' ');
+        result = result.replace(/\s+([.,!?;:])/g, '$1');
         result = result.trim();
 
         return result;
     }
 
     function addSmartPunctuation(text, style) {
-        // Split into sentences (rough split by common patterns)
-        let sentences = text.split(/(?<=[.!?])\s+/);
+        // Remove existing punctuation at the end
+        text = text.replace(/[.!?]+\s*$/, '');
         
-        // If no sentence endings exist, we need to add them
-        if (sentences.length === 1 && !text.match(/[.!?]$/)) {
-            // Split by common sentence patterns
+        // Split into potential sentences
+        let sentences = text.split(/\s+(?=[A-Z])|(?<=[.!?])\s+/);
+        
+        if (sentences.length === 1) {
+            // Single block of text - split by common patterns
             sentences = text.match(/[^.!?]+/g) || [text];
         }
 
@@ -202,65 +227,73 @@ document.addEventListener('DOMContentLoaded', function() {
             sentence = sentence.trim();
             if (!sentence) return '';
 
-            // Don't add punctuation if it already has ending punctuation
+            // Already has ending punctuation
             if (/[.!?]$/.test(sentence)) {
                 return sentence;
             }
 
-            // Detect questions (starts with question words or has question pattern)
-            const questionWords = /^(what|when|where|who|why|how|is|are|do|does|did|can|could|would|should|will)/i;
+            // Detect questions
+            const questionWords = /^(what|when|where|who|why|how|is|are|do|does|did|can|could|would|should|will|have|has)/i;
             const hasQuestionPattern = questionWords.test(sentence);
 
-            // Detect excitement/emphasis (based on style and certain keywords)
-            const excitementWords = /(amazing|awesome|great|excited|love|wow|incredible|fantastic|congratulations|yay|finally|perfect)/i;
-            const hasExcitement = excitementWords.test(sentence) && style === 'social';
+            // Detect excitement
+            const excitementWords = /(amazing|awesome|great|excited|love|wow|incredible|fantastic|congratulations|yay|finally|perfect|thank|thanks)/i;
+            const hasExcitement = excitementWords.test(sentence);
 
             // Add appropriate punctuation
             if (hasQuestionPattern) {
                 return sentence + '?';
-            } else if (hasExcitement) {
+            } else if (hasExcitement && style === 'social') {
                 return sentence + '!';
-            } else if (style === 'social' && index === sentences.length - 1) {
-                // Last sentence in social media style often ends with !
+            } else if (style === 'social' && (index === sentences.length - 1 || hasExcitement)) {
                 return sentence + '!';
             } else {
                 return sentence + '.';
             }
         }).filter(s => s).join(' ');
 
-        // Add commas in lists (simple heuristic)
-        result = result.replace(/\b(and|or)\s+(\w+)\s+(and|or)\s+/g, ', $1 $2 $3 ');
-
         return result;
     }
 
-    function fixCapitalization(text) {
-        // Capitalize first letter of text
+    function fixCapitalizationFunc(text) {
+        // Capitalize first letter
         text = text.charAt(0).toUpperCase() + text.slice(1);
 
         // Capitalize after sentence endings
-        text = text.replace(/([.!?]\s+)([a-z])/g, (match, punctuation, letter) => {
+        text = text.replace(/([.!?]\s+)([a-z])/g, function(match, punctuation, letter) {
             return punctuation + letter.toUpperCase();
         });
 
         // Capitalize "I"
         text = text.replace(/\bi\b/g, 'I');
 
-        // Capitalize common proper nouns and acronyms
-        const properNouns = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday',
-                             'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 
-                             'september', 'october', 'november', 'december'];
-        
-        properNouns.forEach(noun => {
-            const regex = new RegExp('\\b' + noun + '\\b', 'gi');
-            text = text.replace(regex, noun.charAt(0).toUpperCase() + noun.slice(1));
-        });
+        // Capitalize days of week
+        text = text.replace(/\bmonday\b/gi, 'Monday');
+        text = text.replace(/\btuesday\b/gi, 'Tuesday');
+        text = text.replace(/\bwednesday\b/gi, 'Wednesday');
+        text = text.replace(/\bthursday\b/gi, 'Thursday');
+        text = text.replace(/\bfriday\b/gi, 'Friday');
+        text = text.replace(/\bsaturday\b/gi, 'Saturday');
+        text = text.replace(/\bsunday\b/gi, 'Sunday');
+
+        // Capitalize months
+        text = text.replace(/\bjanuary\b/gi, 'January');
+        text = text.replace(/\bfebruary\b/gi, 'February');
+        text = text.replace(/\bmarch\b/gi, 'March');
+        text = text.replace(/\bapril\b/gi, 'April');
+        text = text.replace(/\bmay\b/gi, 'May');
+        text = text.replace(/\bjune\b/gi, 'June');
+        text = text.replace(/\bjuly\b/gi, 'July');
+        text = text.replace(/\baugust\b/gi, 'August');
+        text = text.replace(/\bseptember\b/gi, 'September');
+        text = text.replace(/\boctober\b/gi, 'October');
+        text = text.replace(/\bnovember\b/gi, 'November');
+        text = text.replace(/\bdecember\b/gi, 'December');
 
         return text;
     }
 
     function addParagraphBreaks(text) {
-        // Split long text into paragraphs (roughly every 3-4 sentences)
         const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
         
         if (sentences.length <= 3) return text;
@@ -268,20 +301,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let paragraphs = [];
         let currentParagraph = [];
 
-        sentences.forEach((sentence, index) => {
+        sentences.forEach((sentence) => {
             currentParagraph.push(sentence.trim());
 
-            // Create new paragraph every 3-4 sentences, or if there's a topic shift indicator
-            const topicShiftWords = /\b(however|moreover|furthermore|additionally|meanwhile|therefore|consequently|in conclusion|first|second|third|finally)\b/i;
-            
-            if (currentParagraph.length >= 3 || 
-                (currentParagraph.length >= 2 && topicShiftWords.test(sentence))) {
+            if (currentParagraph.length >= 3) {
                 paragraphs.push(currentParagraph.join(' '));
                 currentParagraph = [];
             }
         });
 
-        // Add remaining sentences
         if (currentParagraph.length > 0) {
             paragraphs.push(currentParagraph.join(' '));
         }
@@ -289,50 +317,33 @@ document.addEventListener('DOMContentLoaded', function() {
         return paragraphs.join('\n\n');
     }
 
-    function improveFlow(text, style) {
-        // Remove excessive filler words based on style
+    function improveFlowFunc(text, style) {
         if (style === 'formal') {
             // Remove casual fillers
-            text = text.replace(/\b(like|um|uh|you know|basically|literally|actually|just|really)\b/gi, '');
+            text = text.replace(/\b(like|um|uh|you know|basically|literally)\b/gi, '');
             text = text.replace(/\b(i mean|i think|i guess|kind of|sort of)\b/gi, '');
-        }
-
-        if (style === 'casual' || style === 'social') {
-            // Keep some natural language but reduce repetition
-            text = text.replace(/\breally\s+really\b/gi, 'really');
-            text = text.replace(/\bvery\s+very\b/gi, 'very');
         }
 
         // Remove double words
         text = text.replace(/\b(\w+)\s+\1\b/gi, '$1');
 
-        // Clean up multiple spaces created by removal
+        // Clean up spaces
         text = text.replace(/\s{2,}/g, ' ');
 
         return text;
     }
 
-    function getSelectedOptions() {
-        return {
-            addPunctuation: addPunctuation.checked,
-            fixCapitalization: fixCapitalization.checked,
-            fixSpacing: fixSpacing.checked,
-            addParagraphs: addParagraphs.checked,
-            improveFlow: improveFlow.checked,
-            fixGrammar: fixGrammar.checked
-        };
-    }
-
     function showError(message) {
         errorMessage.textContent = message;
         errorMessage.classList.add('active');
-        setTimeout(() => {
+        setTimeout(function() {
             errorMessage.classList.remove('active');
         }, 5000);
     }
 
     // Clear button
     clearBtn.addEventListener('click', function() {
+        console.log('Clear button clicked');
         inputText.value = '';
         outputText.value = '';
         updateWordCounts();
@@ -341,6 +352,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Copy button
     copyBtn.addEventListener('click', async function() {
+        console.log('Copy button clicked');
+        
         if (!outputText.value) {
             showError('Nothing to copy. Format some text first!');
             return;
@@ -354,11 +367,12 @@ document.addEventListener('DOMContentLoaded', function() {
             copyBtn.textContent = '✅ Copied!';
             copyBtn.style.background = '#10b981';
             
-            setTimeout(() => {
+            setTimeout(function() {
                 copyBtn.textContent = originalText;
                 copyBtn.style.background = '';
             }, 2000);
         } catch (error) {
+            console.error('Copy failed:', error);
             showError('Failed to copy. Please select and copy manually.');
         }
     });
@@ -376,14 +390,10 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             clearBtn.click();
         }
-
-        // Ctrl/Cmd + Shift + C to copy
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
-            e.preventDefault();
-            copyBtn.click();
-        }
     });
 
     // Initialize word counts
     updateWordCounts();
+    
+    console.log('Text Formatter ready');
 });
