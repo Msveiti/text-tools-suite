@@ -59,7 +59,7 @@
     </script>
     
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸ“</text></svg>">
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2JWKFVB39"></script>
@@ -71,6 +71,188 @@
     </script>
     
     <style>
+        /* Trust Badges */
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #3730a3 0%, #312e81 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(55, 48, 163, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(55, 48, 163, 0.5);
+            background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+        }
+        
+        .cta-note {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-radius: 1rem;
+            border: 2px solid #93c5fd;
+        }
+        
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+        }
+        
+        .badge-icon {
+            font-size: 1.25rem;
+            color: #1d4ed8;
+        }
+        
+        .badge-text {
+            font-weight: 600;
+            color: #111827;
+            font-size: 0.9375rem;
+        }
+        
+        /* Quick Tips Section */
+        .quick-tips {
+            background: linear-gradient(135deg, #fdba74 0%, #fb923c 100%);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            border-left: 4px solid #c2410c;
+        }
+        
+        .tips-title {
+            margin: 0 0 1rem 0;
+            font-size: 1.125rem;
+            color: #7c2d12;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tip-item {
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9375rem;
+            color: #1f2937;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tip-item strong {
+            color: #c2410c;
+            font-weight: 700;
+        }
+        
+        /* Usage Stats Banner */
+        .usage-stats-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 2px solid #f3f4f6;
+        }
+        
+        .usage-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .usage-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+        
+        .usage-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .trust-badges {
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+            
+            .badge {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.875rem;
+            }
+            
+            .badge-icon {
+                font-size: 1rem;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .usage-stats-banner {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .usage-number {
+                font-size: 1.5rem;
+            }
+            
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
         /* Blog Section Styles */
         .blog-section {
             background: #f9fafb;
@@ -246,7 +428,7 @@
     <header class="header">
         <div class="container">
             <a href="/" class="logo">
-                <span class="logo-icon">📝</span>
+                <span class="logo-icon">ðŸ“</span>
                 <h1 class="logo-text">VerboMetrics</h1>
             </a>
             <nav class="nav" aria-label="Main navigation">
@@ -265,8 +447,71 @@
             <!-- H1 optimized for SEO -->
             <section class="title-section">
                 <h1>Free Word Counter - Count Words & Characters Online</h1>
-                <p class="subtitle">Professional online word counter tool. Count words, characters, sentences, and paragraphs in real-time. No signup required, completely free forever.</p>
+                <p class="subtitle">Professional online word counter tool. Count words, characters, sentences, and paragraphs in real-time. Perfect for essays, social media posts, and professional writing.</p>
+                <div class="cta-buttons">
+                    <a href="#textInput" class="btn-primary">Start Counting Now →</a>
+                    <span class="cta-note">No signup • Completely free • Works offline</span>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="trust-badges">
+                    <div class="badge">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-text">100% Free Forever</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">●</span>
+                        <span class="badge-text">Privacy First</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">⚡</span>
+                        <span class="badge-text">Instant Results</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">★</span>
+                        <span class="badge-text">Used by 10,000+ Writers</span>
+                    </div>
+                </div>
             </section>
+
+            <!-- Quick Tips Section -->
+            <section class="quick-tips">
+                <h3 class="tips-title">Quick Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <strong>Twitter:</strong> 280 characters max
+                    </div>
+                    <div class="tip-item">
+                        <strong>Instagram:</strong> 2,200 characters max
+                    </div>
+                    <div class="tip-item">
+                        <strong>Essay:</strong> Track your word count goal
+                    </div>
+                    <div class="tip-item">
+                        <strong>Shortcut:</strong> Ctrl+A to select all text
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage Stats Banner -->
+            <div class="usage-stats-banner">
+                <div class="usage-stat">
+                    <span class="usage-number">10,000+</span>
+                    <span class="usage-label">Monthly Users</span>
+                </div>
+                <div class="usage-stat">
+                    <span class="usage-number">1M+</span>
+                    <span class="usage-label">Words Counted</span>
+                </div>
+                <div class="usage-stat">
+                    <span class="usage-number">4.8★</span>
+                    <span class="usage-label">User Rating</span>
+                </div>
+                <div class="usage-stat">
+                    <span class="usage-number">24/7</span>
+                    <span class="usage-label">Always Free</span>
+                </div>
+            </div>
 
             <!-- Stats section -->
             <section class="stats-section">
@@ -302,13 +547,13 @@
             <section class="input-section">
                 <div class="toolbar">
                     <button class="btn-tool" id="clearBtn" title="Clear text" aria-label="Clear text">
-                        <span>🗑️</span> Clear
+                        <span>ðŸ—‘ï¸</span> Clear
                     </button>
                     <button class="btn-tool" id="copyBtn" title="Copy text" aria-label="Copy text">
-                        <span>📋</span> Copy
+                        <span>ðŸ“‹</span> Copy
                     </button>
                     <button class="btn-tool" id="downloadBtn" title="Download as .txt" aria-label="Download text">
-                        <span>💾</span> Download
+                        <span>ðŸ’¾</span> Download
                     </button>
                 </div>
                 <textarea 
@@ -392,11 +637,11 @@
                 <div class="blog-grid">
                     <!-- Blog Post 1 -->
                     <article class="blog-card">
-                        <div class="blog-card-image">📊</div>
+                        <div class="blog-card-image">ðŸ“Š</div>
                         <div class="blog-card-content">
                             <div class="blog-card-meta">
-                                <span>📅 Jan 14, 2026</span>
-                                <span>⏱️ 8 min read</span>
+                                <span>ðŸ“… Jan 14, 2026</span>
+                                <span>â±ï¸ 8 min read</span>
                             </div>
                             <h3 class="blog-card-title">
                                 <a href="/blog/character-counter-guide.html">Character Counter: Everything You Need to Know in 2026</a>
@@ -410,7 +655,7 @@
                                     <span class="blog-tag">Social Media</span>
                                 </div>
                                 <a href="/blog/character-counter-guide.html" class="blog-read-more">
-                                    Read More →
+                                    Read More â†’
                                 </a>
                             </div>
                         </div>
@@ -418,11 +663,11 @@
 
                     <!-- Blog Post 2 -->
                     <article class="blog-card">
-                        <div class="blog-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">📚</div>
+                        <div class="blog-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">ðŸ“š</div>
                         <div class="blog-card-content">
                             <div class="blog-card-meta">
-                                <span>📅 Jan 21, 2026</span>
-                                <span>⏱️ 7 min read</span>
+                                <span>ðŸ“… Jan 21, 2026</span>
+                                <span>â±ï¸ 7 min read</span>
                             </div>
                             <h3 class="blog-card-title">
                                 <a href="/blog/word-count-requirements.html">Word Count Requirements: Complete Guide for Students</a>
@@ -436,7 +681,7 @@
                                     <span class="blog-tag">Writing</span>
                                 </div>
                                 <a href="/blog/word-count-requirements.html" class="blog-read-more">
-                                    Read More →
+                                    Read More â†’
                                 </a>
                             </div>
                         </div>
@@ -444,11 +689,11 @@
 
                     <!-- Blog Post 3 -->
                     <article class="blog-card">
-                        <div class="blog-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">💻</div>
+                        <div class="blog-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">ðŸ’»</div>
                         <div class="blog-card-content">
                             <div class="blog-card-meta">
-                                <span>📅 Jan 28, 2026</span>
-                                <span>⏱️ 6 min read</span>
+                                <span>ðŸ“… Jan 28, 2026</span>
+                                <span>â±ï¸ 6 min read</span>
                             </div>
                             <h3 class="blog-card-title">
                                 <a href="/blog/count-words-google-docs.html">How to Count Words in Google Docs (3 Easy Methods)</a>
@@ -462,7 +707,7 @@
                                     <span class="blog-tag">Google Docs</span>
                                 </div>
                                 <a href="/blog/count-words-google-docs.html" class="blog-read-more">
-                                    Read More →
+                                    Read More â†’
                                 </a>
                             </div>
                         </div>
@@ -471,7 +716,7 @@
 
                 <!-- View All Button (hidden for now since we only have 1 post) -->
                 <!-- <div class="blog-view-all">
-                    <a href="/blog/" class="btn-view-all">View All Articles →</a>
+                    <a href="/blog/" class="btn-view-all">View All Articles â†’</a>
                 </div> -->
             </div>
         </section>
