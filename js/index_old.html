@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags - OPTIMIZED -->
+    <title>Free Word Counter - Count Words, Characters & Sentences Online | VerboMetrics</title>
+    <meta name="title" content="Free Word Counter - Count Words, Characters & Sentences Online | VerboMetrics">
+    <meta name="description" content="Free online word counter tool with real-time counting. Count words, characters, sentences, and paragraphs instantly. No signup required. Perfect for essays, social media, and content writing.">
+    <meta name="keywords" content="word counter, character counter, word count tool, free word counter, online word counter, text counter, essay word counter, instagram character counter, twitter character counter">
+    <meta name="author" content="VerboMetrics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://verbometrics.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://verbometrics.com/">
+    <meta property="og:title" content="Free Word Counter - Count Words, Characters & Sentences Online">
+    <meta property="og:description" content="Free online word counter tool with real-time counting. Count words, characters, sentences instantly. No signup required.">
+    <meta property="og:image" content="https://verbometrics.com/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://verbometrics.com/">
+    <meta property="twitter:title" content="Free Word Counter - Count Words, Characters & Sentences Online">
+    <meta property="twitter:description" content="Free online word counter tool with real-time counting. No signup required.">
+    <meta property="twitter:image" content="https://verbometrics.com/og-image.png">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "VerboMetrics Word Counter",
+      "url": "https://verbometrics.com",
+      "description": "Free online word counter and character counter tool. Count words, characters, sentences, and paragraphs in real-time.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Real-time word counting",
+        "Character counting with and without spaces",
+        "Sentence and paragraph counting",
+        "Reading time estimation",
+        "Social media character limit checker",
+        "Keyword density analysis"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2JWKFVB39"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P2JWKFVB39');
+    </script>
+    
+    <style>
+        /* Blog Section Styles */
+        .blog-section {
+            background: #f9fafb;
+            padding: 4rem 0;
+            margin-top: 3rem;
+        }
+        
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-header h2 {
+            font-size: 2.5rem;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .blog-card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .blog-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .blog-card-title {
+            font-size: 1.5rem;
+            color: #111827;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        
+        .blog-card-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .blog-card-title a:hover {
+            color: #4f46e5;
+        }
+        
+        .blog-card-excerpt {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .blog-card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .blog-tag {
+            background: #eff6ff;
+            color: #3b82f6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .blog-read-more {
+            color: #4f46e5;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: gap 0.2s;
+        }
+        
+        .blog-read-more:hover {
+            gap: 0.5rem;
+        }
+        
+        .blog-view-all {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-view-all {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .btn-view-all:hover {
+            background: #4338ca;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-header h2 {
+                font-size: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-section {
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with improved structure -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <span class="logo-icon">📝</span>
+                <h1 class="logo-text">VerboMetrics</h1>
+            </a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="/" class="nav-link active">Word Counter</a>
+                <a href="case-converter.html" class="nav-link">Case Converter</a>
+                <a href="text-diff.html" class="nav-link">Text Compare</a>
+                <a href="text-formatter.html" class="nav-link">Text Formatter</a>
+                <a href="lorem-ipsum.html" class="nav-link">Lorem Ipsum</a>
+                <a href="#blog" class="nav-link">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- H1 optimized for SEO -->
+            <section class="title-section">
+                <h1>Free Word Counter - Count Words & Characters Online</h1>
+                <p class="subtitle">Professional online word counter tool. Count words, characters, sentences, and paragraphs in real-time. No signup required, completely free forever.</p>
+            </section>
+
+            <!-- Stats section -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="wordCount">0</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="charCount">0</div>
+                        <div class="stat-label">Characters</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="charCountNoSpaces">0</div>
+                        <div class="stat-label">Characters (no spaces)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="sentenceCount">0</div>
+                        <div class="stat-label">Sentences</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="paragraphCount">0</div>
+                        <div class="stat-label">Paragraphs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="readingTime">0 min</div>
+                        <div class="stat-label">Reading Time</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Input section -->
+            <section class="input-section">
+                <div class="toolbar">
+                    <button class="btn-tool" id="clearBtn" title="Clear text" aria-label="Clear text">
+                        <span>🗑️</span> Clear
+                    </button>
+                    <button class="btn-tool" id="copyBtn" title="Copy text" aria-label="Copy text">
+                        <span>📋</span> Copy
+                    </button>
+                    <button class="btn-tool" id="downloadBtn" title="Download as .txt" aria-label="Download text">
+                        <span>💾</span> Download
+                    </button>
+                </div>
+                <textarea 
+                    id="textInput" 
+                    class="text-area" 
+                    placeholder="Start typing or paste your text here..."
+                    spellcheck="true"
+                    aria-label="Text input area for word counting"
+                ></textarea>
+            </section>
+
+            <!-- Additional stats -->
+            <section class="detail-stats">
+                <h2>Detailed Text Statistics</h2>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Speaking Time:</span>
+                        <span class="detail-value" id="speakingTime">0 minutes</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Average Word Length:</span>
+                        <span class="detail-value" id="avgWordLength">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Longest Word:</span>
+                        <span class="detail-value" id="longestWord">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Top Keywords:</span>
+                        <span class="detail-value" id="topKeywords">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character limits section -->
+            <section class="limits-section">
+                <h2>Character Limits for Social Media Platforms</h2>
+                <div class="limits-grid">
+                    <div class="limit-card">
+                        <div class="platform-name">Twitter / X</div>
+                        <div class="platform-limit">280 characters</div>
+                        <div class="platform-status" id="twitterStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">Instagram Caption</div>
+                        <div class="platform-limit">2,200 characters</div>
+                        <div class="platform-status" id="instagramStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">Facebook Post</div>
+                        <div class="platform-limit">63,206 characters</div>
+                        <div class="platform-status" id="facebookStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">LinkedIn Post</div>
+                        <div class="platform-limit">3,000 characters</div>
+                        <div class="platform-status" id="linkedinStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">YouTube Description</div>
+                        <div class="platform-limit">5,000 characters</div>
+                        <div class="platform-status" id="youtubeStatus">-</div>
+                    </div>
+                    <div class="limit-card">
+                        <div class="platform-name">Meta Description (SEO)</div>
+                        <div class="platform-limit">160 characters</div>
+                        <div class="platform-status" id="metaStatus">-</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Blog Section -->
+        <section class="blog-section" id="blog">
+            <div class="container">
+                <div class="blog-header">
+                    <h2>Latest From Our Blog</h2>
+                    <p>Helpful guides, tips, and resources for writers, students, and content creators</p>
+                </div>
+
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card">
+                        <div class="blog-card-image">📊</div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-meta">
+                                <span>📅 Jan 14, 2026</span>
+                                <span>⏱️ 8 min read</span>
+                            </div>
+                            <h3 class="blog-card-title">
+                                <a href="/blog/character-counter-guide.html">Character Counter: Everything You Need to Know in 2026</a>
+                            </h3>
+                            <p class="blog-card-excerpt">
+                                Complete guide to character counters in 2026. Learn character limits for all major social media platforms, how to count characters in Google Docs and Word, and why character counting matters for SEO.
+                            </p>
+                            <div class="blog-card-footer">
+                                <div class="blog-card-tags">
+                                    <span class="blog-tag">Tools</span>
+                                    <span class="blog-tag">Social Media</span>
+                                </div>
+                                <a href="/blog/character-counter-guide.html" class="blog-read-more">
+                                    Read More →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card">
+                        <div class="blog-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">📚</div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-meta">
+                                <span>📅 Jan 21, 2026</span>
+                                <span>⏱️ 7 min read</span>
+                            </div>
+                            <h3 class="blog-card-title">
+                                <a href="/blog/word-count-requirements.html">Word Count Requirements: Complete Guide for Students</a>
+                            </h3>
+                            <p class="blog-card-excerpt">
+                                Master word count requirements for academic writing. From high school essays to college research papers, learn exactly how many words you need and tips to hit your target every time.
+                            </p>
+                            <div class="blog-card-footer">
+                                <div class="blog-card-tags">
+                                    <span class="blog-tag">Academic</span>
+                                    <span class="blog-tag">Writing</span>
+                                </div>
+                                <a href="/blog/word-count-requirements.html" class="blog-read-more">
+                                    Read More →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="blog-card">
+                        <div class="blog-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">💻</div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-meta">
+                                <span>📅 Jan 28, 2026</span>
+                                <span>⏱️ 6 min read</span>
+                            </div>
+                            <h3 class="blog-card-title">
+                                <a href="/blog/count-words-google-docs.html">How to Count Words in Google Docs (3 Easy Methods)</a>
+                            </h3>
+                            <p class="blog-card-excerpt">
+                                Step-by-step guide to counting words in Google Docs. Learn keyboard shortcuts, enable live word count, and discover hidden features most users don't know about.
+                            </p>
+                            <div class="blog-card-footer">
+                                <div class="blog-card-tags">
+                                    <span class="blog-tag">Tutorial</span>
+                                    <span class="blog-tag">Google Docs</span>
+                                </div>
+                                <a href="/blog/count-words-google-docs.html" class="blog-read-more">
+                                    Read More →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- View All Button (hidden for now since we only have 1 post) -->
+                <!-- <div class="blog-view-all">
+                    <a href="/blog/" class="btn-view-all">View All Articles →</a>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- SEO Content Section (keeping existing content) -->
+        <div class="container">
+            <section class="content-section">
+                <h2>Free Online Word Counter Tool - Count Words & Characters Instantly</h2>
+                <div class="content-text">
+                    <h3>What is a Word Counter?</h3>
+                    <p>A word counter is an online tool that automatically counts the number of words, characters, sentences, and paragraphs in your text. VerboMetrics offers a free, professional-grade word counter that provides instant, accurate results as you type. Whether you're a student working on an essay, a content writer optimizing blog posts, or a social media manager crafting the perfect caption, our word counter helps you stay within limits and track your writing progress.</p>
+                    
+                    <h3>Why Use Our Free Word Counter?</h3>
+                    <p>Our online word counter is trusted by thousands of writers, students, and professionals daily. Unlike basic word counting tools, VerboMetrics provides comprehensive text analysis including:</p>
+                    <ul>
+                        <li><strong>Real-time word counting:</strong> Watch your word count update instantly as you type or paste text</li>
+                        <li><strong>Character counter with spaces:</strong> Track both total characters and characters without spaces</li>
+                        <li><strong>Sentence and paragraph counter:</strong> Understand your text structure at a glance</li>
+                        <li><strong>Reading time calculator:</strong> Estimate how long it takes to read your content (based on 200 words per minute)</li>
+                        <li><strong>Speaking time estimator:</strong> Calculate presentation length (based on 125 words per minute)</li>
+                        <li><strong>Social media character limits:</strong> Check if your text fits Twitter, Instagram, Facebook, LinkedIn, and YouTube requirements</li>
+                        <li><strong>Keyword density analysis:</strong> Identify your most frequently used words for SEO optimization</li>
+                        <li><strong>No signup required:</strong> Start counting words immediately without creating an account</li>
+                        <li><strong>100% free forever:</strong> All features available at no cost, no hidden fees</li>
+                        <li><strong>Privacy-first:</strong> Your text is processed locally in your browser - we never store your content</li>
+                    </ul>
+
+                    <h3>Who Uses Word Counters?</h3>
+                    
+                    <h4>Students and Academics</h4>
+                    <p>Students use our word counter to ensure essays, research papers, and assignments meet professor requirements. Whether you need exactly 500 words or 5,000 words, our tool helps you hit the target.</p>
+                    
+                    <h4>Content Writers and Bloggers</h4>
+                    <p>Professional writers and bloggers rely on word counters to optimize content length for SEO. Search engines favor comprehensive articles (typically 1,500-2,500 words), and our tool helps you reach ideal word counts.</p>
+                    
+                    <h4>Social Media Managers</h4>
+                    <p>Social media professionals use our character counter to craft perfect posts within platform limits. Check Twitter's 280-character limit, Instagram's 2,200-character caption limit, or LinkedIn's 3,000-character post limit.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2026 VerboMetrics. Free online text tools for writers, students, and professionals.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="#blog">Blog</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
