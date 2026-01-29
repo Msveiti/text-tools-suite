@@ -1223,27 +1223,23 @@ function App() {
       <main className="min-h-screen bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto py-12">
           <Routes>
-            {/* Tool Routes */}
+            {/* Homepage */}
             <Route path="/" element={<WordCounter />} />
-            <Route path="/case-converter" element={<CaseConverter />} />
-            <Route path="/lorem-ipsum" element={<LoremIpsum />} />
-            <Route path="/text-diff" element={<TextDiff />} />
             
-            {/* Support & Legal */}
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy" element={
-              <LegalPage title="Privacy Policy" lastUpdated="Jan 22, 2026" path="/privacy">
-                <p>VerboMetrics respects your privacy. All text is processed locally in your browser and is never stored on our servers.</p>
-              </LegalPage>
-            } />
-            <Route path="/terms" element={
-              <LegalPage title="Terms of Service" lastUpdated="Jan 22, 2026" path="/terms">
-                <p>By using VerboMetrics, you agree that we are not responsible for any errors in word or character counts.</p>
-              </LegalPage>
-            } />
+            {/* Tool Routes - Handling both Clean and Legacy URLs */}
+            <Route path="/case-converter" element={<CaseConverter />} />
+            <Route path="/case-converter.html" element={<CaseConverter />} />
 
-            {/* Blog Post Routes */}
-            <Route path="/blog" element={<BlogIndex />} /> {/* Choice page */}
+            <Route path="/text-diff" element={<TextDiff />} />
+            <Route path="/text-diff.html" element={<TextDiff />} />
+
+            <Route path="/lorem-ipsum" element={<LoremIpsum />} />
+            <Route path="/lorem-ipsum.html" element={<LoremIpsum />} />
+
+            {/* Blog Routes - Handling both Clean and Legacy URLs */}
+            <Route path="/blog" element={<BlogIndex />} />
+            
+            {/* Character Counter Guide */}
             <Route path="/blog/character-counter-guide" element={
               <BlogPost 
                 title="Character Counter: Everything You Need to Know in 2026" 
@@ -1252,6 +1248,16 @@ function App() {
                 path="/blog/character-counter-guide" 
               />
             } />
+            <Route path="/blog/character-counter-guide.html" element={
+              <BlogPost 
+                title="Character Counter: Everything You Need to Know in 2026" 
+                date="Jan 14, 2026" 
+                content={blogCharacterGuide} 
+                path="/blog/character-counter-guide" 
+              />
+            } />
+
+            {/* Count Words in Google Docs */}
             <Route path="/blog/count-words-google-docs" element={
               <BlogPost 
                 title="How to Count Words in Google Docs (3 Easy Methods + Shortcuts)" 
@@ -1260,6 +1266,16 @@ function App() {
                 path="/blog/count-words-google-docs" 
               />
             } />
+            <Route path="/blog/count-words-google-docs.html" element={
+              <BlogPost 
+                title="How to Count Words in Google Docs (3 Easy Methods + Shortcuts)" 
+                date="Jan 28, 2026" 
+                content={blogGoogleDocs} 
+                path="/blog/count-words-google-docs" 
+              />
+            } />
+
+            {/* Word Count Requirements */}
             <Route path="/blog/word-count-requirements" element={
               <BlogPost 
                 title="Word Count Requirements: Complete Guide for Students 2026" 
@@ -1268,6 +1284,67 @@ function App() {
                 path="/blog/word-count-requirements" 
               />
             } />
+            <Route path="/blog/word-count-requirements.html" element={
+              <BlogPost 
+                title="Word Count Requirements: Complete Guide for Students 2026" 
+                date="Jan 21, 2026" 
+                content={blogRequirements} 
+                path="/blog/word-count-requirements" 
+              />
+            } />
+
+            {/* Support & Legal */}
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact.html" element={<Contact />} />
+            
+            <Route path="/privacy" element={
+              <LegalPage 
+                title="Privacy Policy" 
+                lastUpdated="Jan 22, 2026" 
+                path="/privacy"
+              >
+                <p>VerboMetrics respects your privacy. All text is processed locally in your browser and is never stored on our servers.</p>
+              </LegalPage>
+            } />
+            <Route path="/privacy.html" element={
+              <LegalPage 
+                title="Privacy Policy" 
+                lastUpdated="Jan 22, 2026" 
+                path="/privacy"
+              >
+                <p>VerboMetrics respects your privacy. All text is processed locally in your browser and is never stored on our servers.</p>
+              </LegalPage>
+            } />
+            
+            <Route path="/terms" element={
+              <LegalPage 
+                title="Terms of Service" 
+                lastUpdated="Jan 22, 2026" 
+                path="/terms"
+              >
+                <p>By using VerboMetrics, you agree that we are not responsible for any errors in word or character counts.</p>
+              </LegalPage>
+            } />
+            <Route path="/terms.html" element={
+              <LegalPage 
+                title="Terms of Service" 
+                lastUpdated="Jan 22, 2026" 
+                path="/terms"
+              >
+                <p>By using VerboMetrics, you agree that we are not responsible for any errors in word or character counts.</p>
+              </LegalPage>
+            } />
+
+            {/* Catch-all 404 - Keep this at the bottom */}
+            <Route path="*" element={
+              <div className="text-center py-20">
+                <h1 className="text-4xl font-bold text-slate-900 mb-4">404 - Page Not Found</h1>
+                <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
+                <a href="/" className="text-indigo-600 font-bold hover:underline">
+                  ← Return to Homepage
+                </a>
+              </div>
+            } />
           </Routes>
         </div>
       </main>
@@ -1275,5 +1352,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
