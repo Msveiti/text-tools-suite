@@ -192,39 +192,27 @@ export const generateLorem = (count: number, type: 'words' | 'sentences' | 'para
 };
 
 export const computeDiff = (oldText: string, newText: string) => {
-  const oldWords = oldText.split(/(\s+)/);
-  const newWords = newText.split(/(\s+)/);
-  const n = oldWords.length;
-  const m = newWords.length;
-  const dp = Array(n + 1).fill(null).map(() => Array(m + 1).fill(0));
+  const oldWords = oldText.split(/(\s+)/).filter(Boolean);
+  const newWords = newText.split(/(\s+)/).filter(Boolean);
+  
+  // A simple but effective diff algorithm for words
+  const diff: { text: string; type: 'added' | 'removed' | 'unchanged' }[] = [];
+  let i = 0, j = 0;
 
-  // Loop for LCS calculation
-  for (let i = 1; i <= n; i++) {
-    for (let j = 1; j <= m; j++) {
-      if (oldWords[i - 1] === newWords[j - 1]) {
-        dp[i][j] = dp[i - 1][j - 1] + 1;
-      } else {
-        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-      }
+  while (i < oldWords.length || j < newWords.length) {
+    if (i < oldWords.length && j < newWords.length && oldWords[i] === newWords[j]) {
+      diff.push({ text: oldWords[i], type: 'unchanged' });
+      i++; j++;
+    } else if (j < newWords.length && !oldWords.slice(i).includes(newWords[j])) {
+      diff.push({ text: newWords[j], type: 'added' });
+      j++;
+    } else if (i < oldWords.length) {
+      diff.push({ text: oldWords[i], type: 'removed' });
+      i++;
+    } else {
+      diff.push({ text: newWords[j], type: 'added' });
+      j++;
     }
   }
-
-  const diff: Array<{type: 'added' | 'removed' | 'unchanged', text: string}> = [];
-  let i = n, j = m;
-  
-  // Loop to reconstruct the diff
-  while (i > 0 || j > 0) {
-    if (i > 0 && j > 0 && oldWords[i - 1] === newWords[j - 1]) {
-      diff.unshift({ type: 'unchanged', text: oldWords[i - 1] });
-      i--; j--;
-    } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
-      diff.unshift({ type: 'added', text: newWords[j - 1] });
-      j--;
-    } else if (i > 0) {
-      diff.unshift({ type: 'removed', text: oldWords[i - 1] });
-      i--;
-    }
-  }
-  
   return diff;
 };

@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react'; // Ensure lucide-react is installed
 
 const Header = () => {
   const { pathname } = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const navClass = (path: string) => 
     `px-5 py-2 rounded-xl text-sm font-bold transition-all ${
@@ -10,15 +13,20 @@ const Header = () => {
       : 'text-slate-500 hover:text-slate-900'
     }`;
 
+  const mobileNavClass = (path: string) => 
+    `w-full px-6 py-4 rounded-2xl text-lg font-black transition-all ${
+      pathname === path ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600'
+    }`;
+
   return (
     <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="text-2xl transition-transform group-hover:rotate-12">📝</span>
+          <span className="text-2xl">📝</span>
           <span className="text-xl font-black text-slate-900 tracking-tight">VerboMetrics</span>
         </Link>
         
-        {/* Main Tool Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1 bg-slate-50 p-1 rounded-2xl border border-slate-100">
           <Link to="/" className={navClass('/')}>Word Counter</Link>
           <Link to="/case-converter" className={navClass('/case-converter')}>Case Converter</Link>
@@ -26,11 +34,31 @@ const Header = () => {
           <Link to="/lorem-ipsum" className={navClass('/lorem-ipsum')}>Lorem Ipsum</Link>
         </nav>
 
-        <div className="flex items-center gap-6">
-          <Link to="/blog" className="text-sm font-bold text-slate-500 hover:text-indigo-600 transition-colors">Blog</Link>
-          <Link to="/contact" className="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-indigo-600 transition-all shadow-lg shadow-slate-200">Support</Link>
+        {/* Desktop Right Side */}
+        <div className="hidden lg:flex items-center gap-6">
+          <Link to="/blog" className="text-sm font-bold text-slate-500 hover:text-indigo-600">Blog</Link>
+          <Link to="/contact" className="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-indigo-600 shadow-lg transition-all">Support</Link>
         </div>
+
+        {/* Mobile Toggle Button */}
+        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2 text-slate-600">
+          {isOpen ? <X /> : <Menu />}
+        </button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 p-6 space-y-2 animate-in slide-in-from-top duration-300">
+          <Link onClick={() => setIsOpen(false)} to="/" className={mobileNavClass('/')}>Word Counter</Link>
+          <Link onClick={() => setIsOpen(false)} to="/case-converter" className={mobileNavClass('/case-converter')}>Case Converter</Link>
+          <Link onClick={() => setIsOpen(false)} to="/text-diff" className={mobileNavClass('/text-diff')}>Text Diff</Link>
+          <Link onClick={() => setIsOpen(false)} to="/lorem-ipsum" className={mobileNavClass('/lorem-ipsum')}>Lorem Ipsum</Link>
+          <div className="pt-4 border-t border-slate-50 flex flex-col gap-2">
+            <Link onClick={() => setIsOpen(false)} to="/blog" className={mobileNavClass('/blog')}>Blog</Link>
+            <Link onClick={() => setIsOpen(false)} to="/contact" className={mobileNavClass('/contact')}>Support</Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
