@@ -34,10 +34,12 @@ const blogCharacterGuide = `
 
                 <p>This comprehensive guide covers everything you need to know about character counters in 2026, including how to use them effectively, character limits for all major platforms, and practical tips for writers, marketers, and social media managers.</p>
 
-                <div class="tool-cta">
-                    <h3>Try Our Free Character Counter</h3>
-                    <p>Count characters, words, and sentences in real-time with our professional tool</p>
-                    <a href="/">Use Free Character Counter →</a>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Need to check social media character limits instantly?</h4>
+                    <p class="text-slate-600 mb-6">Our free character counter checks your text against all major platform limits in real-time.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Open VerboMetrics Character Counter
+                    </a>
                 </div>
 
                 <h2>What is a Character Counter?</h2>
@@ -286,6 +288,14 @@ const blogCharacterGuide = `
                     <li><strong>Alternative:</strong> Use our web-based <a href="/">character counter</a> in Chrome</li>
                 </ol>
 
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Skip the manual counting!</h4>
+                    <p class="text-slate-600 mb-6">Get instant character counts for any text, anywhere. Works on all devices.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Use Free Character Counter
+                    </a>
+                </div>
+
                 <h3>How to Count Characters Online (Easiest Method)</h3>
                 <ol>
                     <li>Visit <a href="/">VerboMetrics.com</a></li>
@@ -391,10 +401,12 @@ const blogCharacterGuide = `
 
                 <p><strong>Verdict:</strong> For most users, a free character counter like VerboMetrics is more than sufficient. You get accurate counting, platform limit checking, and additional text analysis tools at zero cost.</p>
 
-                <div class="tool-cta">
-                    <h3>Count Characters Instantly</h3>
-                    <p>Free, accurate, and lightning-fast. No signup required.</p>
-                    <a href="/">Try VerboMetrics Character Counter →</a>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Ready to optimize your content?</h4>
+                    <p class="text-slate-600 mb-6">Get instant character counts plus word count, reading time, and more.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Try VerboMetrics Now - Free
+                    </a>
                 </div>
 
                 <h2>Frequently Asked Questions (FAQ)</h2>
@@ -449,7 +461,13 @@ const blogCharacterGuide = `
 
                 <p>With character limits constantly evolving across platforms, having quick access to an accurate character counter has never been more important. VerboMetrics provides a free, reliable solution that helps you count characters instantly, check platform limits, and optimize your content - all without leaving your browser.</p>
 
-                <p><strong>Ready to start counting?</strong> Try our <a href="/">free character counter</a> now and never worry about character limits again!</p>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Stop guessing, start counting!</h4>
+                    <p class="text-slate-600 mb-6">Join thousands of writers who use VerboMetrics to perfect their content.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Open Free Character Counter
+                    </a>
+                </div>
 
                 <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e5e7eb;">
 
@@ -471,10 +489,12 @@ const blogGoogleDocs = `
 
                 <p>By the end of this tutorial, you'll be able to check word counts instantly, display live word counts while you type, and count specific sections of your document - all without leaving your keyboard.</p>
 
-                <div class="tool-cta">
-                    <h3>Need to Count Words Outside Google Docs?</h3>
-                    <p>Use our free online word counter for instant word, character, and sentence counts</p>
-                    <a href="/">Try Free Word Counter →</a>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Google Docs is great, but for deep analysis, you need a professional suite.</h4>
+                    <p class="text-slate-600 mb-6">Get word count, character count, reading time, and keyword density all in one place.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Open VerboMetrics Word Counter
+                    </a>
                 </div>
 
                 <h2>Why Word Count Matters in Google Docs</h2>
@@ -598,6 +618,14 @@ const blogGoogleDocs = `
                     <strong>Quick Tip:</strong> Press Ctrl/Cmd + A to select all text, then use the word count shortcut - this achieves the same result as checking the total document word count!
                 </div>
 
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Need more than just word count?</h4>
+                    <p class="text-slate-600 mb-6">Get reading time, speaking time, character count, and more with our professional tool.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Try Advanced Word Analysis
+                    </a>
+                </div>
+
                 <h2>Understanding Google Docs Word Count Statistics</h2>
 
                 <p>When you open the word count popup in Google Docs, you'll see four different metrics. Here's what each means:</p>
@@ -707,6 +735,14 @@ const blogGoogleDocs = `
                     <strong>Tip 5:</strong> If you need to exclude certain sections from your word count (like references), copy just the sections you want to count into a temporary document.
                 </div>
 
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Save time with automatic tracking</h4>
+                    <p class="text-slate-600 mb-6">Our word counter updates in real-time as you type - no need to click anything.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Try Real-Time Word Counter
+                    </a>
+                </div>
+
                 <h2>Troubleshooting Google Docs Word Count Issues</h2>
 
                 <h3>Word count not updating?</h3>
@@ -757,10 +793,12 @@ const blogGoogleDocs = `
                 <h3>3. Use Google Apps Script</h3>
                 <p>Advanced users can create custom functions to automatically track word count over time or set up alerts when reaching targets. This requires some coding knowledge but offers powerful automation.</p>
 
-                <div class="tool-cta">
-                    <h3>Need More Text Analysis Tools?</h3>
-                    <p>Check out our free suite of text tools</p>
-                    <a href="/">Explore All Tools →</a>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Need More Text Analysis Tools?</h4>
+                    <p class="text-slate-600 mb-6">Check out our free suite of text tools including case converter and text diff.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Explore All Tools
+                    </a>
                 </div>
 
                 <h2>Conclusion: Master Google Docs Word Count</h2>
@@ -785,7 +823,13 @@ const blogGoogleDocs = `
                     <li>Verify important submissions with a second tool</li>
                 </ul>
 
-                <p><strong>Ready to start counting?</strong> Open your Google Doc and try these methods right now. Or use our <a href="/">free online word counter</a> for additional text analysis features like reading time, keyword density, and social media character limits!</p>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Ready to supercharge your writing?</h4>
+                    <p class="text-slate-600 mb-6">Get all the tools you need to write better, faster, and smarter.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Start Using VerboMetrics
+                    </a>
+                </div>
 
                 <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e5e7eb;">
 
@@ -807,10 +851,12 @@ const blogRequirements = `
 
                 <p>If you've ever struggled to reach a minimum word count or had to drastically cut down an essay that's too long, you're not alone. Learning to write to specific word counts is a skill that improves with practice - and this guide will help you master it.</p>
 
-                <div class="tool-cta">
-                    <h3>Track Your Essay Word Count in Real-Time</h3>
-                    <p>Use our free word counter to monitor your progress as you write</p>
-                    <a href="/">Try Free Word Counter →</a>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Track your essay progress in real-time</h4>
+                    <p class="text-slate-600 mb-6">Our free word counter helps you stay on target with live word count updates.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Open Essay Word Counter
+                    </a>
                 </div>
 
                 <h2>Why Word Count Requirements Matter</h2>
@@ -824,8 +870,6 @@ const blogRequirements = `
                     <li><strong>Develops discipline:</strong> Learning to write to specific lengths is a valuable professional skill</li>
                     <li><strong>Time management:</strong> Word counts help professors gauge how long assignments should take</li>
                 </ul>
-
-                <p>Understanding these reasons helps you approach word count requirements as learning opportunities rather than arbitrary restrictions.</p>
 
                 <h2>Word Count Requirements by Education Level</h2>
 
@@ -933,6 +977,14 @@ const blogRequirements = `
 
                 <div class="highlight-box">
                     <strong>College Application Essays:</strong> Most colleges set strict limits of 500-650 words for personal statements. Going even 10 words over can result in your essay being cut off in the application system. Always check the specific requirements for each school!
+                </div>
+
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Perfecting your college essay?</h4>
+                    <p class="text-slate-600 mb-6">Our word counter shows you exactly how close you are to the limit in real-time.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Check College Essay Length
+                    </a>
                 </div>
 
                 <h3>College/University (Undergraduate)</h3>
@@ -1043,6 +1095,14 @@ const blogRequirements = `
                 <h3>Research Papers</h3>
                 <p><strong>Typical length:</strong> 2,000-5,000 words (undergraduate), 8,000-15,000 words (graduate)</p>
                 <p>Research papers present original analysis supported by scholarly sources. Longer lengths reflect deeper research and analysis expectations.</p>
+
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Research paper stress?</h4>
+                    <p class="text-slate-600 mb-6">Track your word count, reading time, and structure all in one place.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Open Research Paper Assistant
+                    </a>
+                </div>
 
                 <h2>How to Meet Word Count Requirements</h2>
 
@@ -1168,10 +1228,12 @@ const blogRequirements = `
                 <p><strong>Google Docs:</strong> Tools → Word count, or press Ctrl+Shift+C (Windows) / Cmd+Shift+C (Mac)</p>
                 <p><strong>Pages (Mac):</strong> View → Show Word Count</p>
 
-                <div class="tool-cta">
-                    <h3>Check Your Essay Word Count</h3>
-                    <p>Free online word counter - No signup required</p>
-                    <a href="/">Count Words Now →</a>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Stop stressing about word counts</h4>
+                    <p class="text-slate-600 mb-6">Let our free tool handle the counting while you focus on writing.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Start Writing With Confidence
+                    </a>
                 </div>
 
                 <h2>Frequently Asked Questions</h2>
@@ -1216,7 +1278,13 @@ const blogRequirements = `
 
                 <p>Remember: word counts are guidelines to help you develop appropriately detailed responses. They're not obstacles to overcome but tools to help you gauge the depth of analysis expected. With practice, writing to specific word counts becomes second nature.</p>
 
-                <p><strong>Ready to track your essay progress?</strong> Use our <a href="/">free word counter</a> to monitor your word count in real-time as you write!</p>
+                <div class="my-8 p-8 bg-indigo-50 rounded-[32px] border border-indigo-100 text-center">
+                    <h4 class="text-indigo-900 font-black mb-4 text-xl">Ready to ace your next assignment?</h4>
+                    <p class="text-slate-600 mb-6">Get the perfect word count every time with our free tool.</p>
+                    <a href="/" class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                        Get Perfect Word Counts Now
+                    </a>
+                </div>
 
                 <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e5e7eb;">
 
@@ -1243,8 +1311,18 @@ function App() {
             <Route path="/" element={<WordCounter />} />
             
             {/* Tool Routes - Handling both Clean and Legacy URLs */}
-            <Route path="/case-converter" element={<CaseConverter />} />
-            <Route path="/case-converter.html" element={<CaseConverter />} />
+            <Route path="/case-converter" element={
+              <CaseConverter 
+                seoTitle="Case Converter: Transform Text Instantly"
+                seoDescription="Convert text to uppercase, lowercase, sentence case, or title case in one click. Perfect for formatting documents, code, and social media posts. No signup required."
+              />
+            } />
+            <Route path="/case-converter.html" element={
+              <CaseConverter 
+                seoTitle="Case Converter: Transform Text Instantly"
+                seoDescription="Convert text to uppercase, lowercase, sentence case, or title case in one click. Perfect for formatting documents, code, and social media posts. No signup required."
+              />
+            } />
 
             <Route path="/text-diff" element={<TextDiff />} />
             <Route path="/text-diff.html" element={<TextDiff />} />
@@ -1261,7 +1339,9 @@ function App() {
                 title="Character Counter: Everything You Need to Know in 2026" 
                 date="Jan 14, 2026" 
                 content={blogCharacterGuide} 
-                path="/blog/character-counter-guide" 
+                path="/blog/character-counter-guide"
+                seoTitle="Current X (Twitter) Character Limit 2026 + All Social Media"
+                seoDescription="Updated for 2026: Every character limit for X, Instagram, Facebook, LinkedIn. Optimize your social engagement and SEO with our free character counter tool."
               />
             } />
             <Route path="/blog/character-counter-guide.html" element={
@@ -1269,7 +1349,9 @@ function App() {
                 title="Character Counter: Everything You Need to Know in 2026" 
                 date="Jan 14, 2026" 
                 content={blogCharacterGuide} 
-                path="/blog/character-counter-guide" 
+                path="/blog/character-counter-guide"
+                seoTitle="Current X (Twitter) Character Limit 2026 + All Social Media"
+                seoDescription="Updated for 2026: Every character limit for X, Instagram, Facebook, LinkedIn. Optimize your social engagement and SEO with our free character counter tool."
               />
             } />
 
@@ -1279,7 +1361,9 @@ function App() {
                 title="How to Count Words in Google Docs (3 Easy Methods + Shortcuts)" 
                 date="Jan 28, 2026" 
                 content={blogGoogleDocs} 
-                path="/blog/count-words-google-docs" 
+                path="/blog/count-words-google-docs"
+                seoTitle="How to Check Word Count in Google Docs: 2026 Guide"
+                seoDescription="Step-by-step guide: 3 easy ways to check word count in Google Docs including hidden shortcuts for 2026. Plus free online word counter for advanced analysis."
               />
             } />
             <Route path="/blog/count-words-google-docs.html" element={
@@ -1287,7 +1371,9 @@ function App() {
                 title="How to Count Words in Google Docs (3 Easy Methods + Shortcuts)" 
                 date="Jan 28, 2026" 
                 content={blogGoogleDocs} 
-                path="/blog/count-words-google-docs" 
+                path="/blog/count-words-google-docs"
+                seoTitle="How to Check Word Count in Google Docs: 2026 Guide"
+                seoDescription="Step-by-step guide: 3 easy ways to check word count in Google Docs including hidden shortcuts for 2026. Plus free online word counter for advanced analysis."
               />
             } />
 
@@ -1297,7 +1383,9 @@ function App() {
                 title="Word Count Requirements: Complete Guide for Students 2026" 
                 date="Jan 21, 2026" 
                 content={blogRequirements} 
-                path="/blog/word-count-requirements" 
+                path="/blog/word-count-requirements"
+                seoTitle="Essay Word Count Requirements: 2026 Student Guide"
+                seoDescription="Complete guide to essay word counts for high school, college, and graduate students. Meet requirements without padding. Free word counter included."
               />
             } />
             <Route path="/blog/word-count-requirements.html" element={
@@ -1305,7 +1393,9 @@ function App() {
                 title="Word Count Requirements: Complete Guide for Students 2026" 
                 date="Jan 21, 2026" 
                 content={blogRequirements} 
-                path="/blog/word-count-requirements" 
+                path="/blog/word-count-requirements"
+                seoTitle="Essay Word Count Requirements: 2026 Student Guide"
+                seoDescription="Complete guide to essay word counts for high school, college, and graduate students. Meet requirements without padding. Free word counter included."
               />
             } />
 

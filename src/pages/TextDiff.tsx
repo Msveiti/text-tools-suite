@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { computeDiff } from '../utils/textLogic';
 import { SEO } from '../components/SEO';
 import { StatCard } from '../components/Cards';
-import { SearchCode, ArrowRightLeft } from 'lucide-react';
+import { SearchCode, ArrowRightLeft, Home } from 'lucide-react';
 
 const TextDiff = () => {
   const [oldText, setOldText] = useState('');
@@ -27,6 +27,19 @@ const TextDiff = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 animate-in">
       <SEO title="Text Diff" description="Compare two texts." path="/text-diff" />
+
+      {/* Breadcrumb Navigation */}
+      <nav className="mb-6" aria-label="Breadcrumb">
+        <ol className="flex items-center space-x-2 text-sm text-slate-500">
+          <li>
+            <a href="/" className="flex items-center hover:text-indigo-600 transition-colors">
+              <Home className="w-4 h-4 mr-1" />
+              <span className="sr-only">Home</span>
+            </a>
+          </li>
+          <li className="text-slate-900 font-medium">Text Difference Checker</li>
+        </ol>
+      </nav>
 
       <div className="mb-12 flex justify-between items-end">
         <div>

@@ -1,19 +1,65 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronRight, Home } from 'lucide-react';
 import { SEO } from '../components/SEO';
 
-const BlogPost = ({ title, date, content, path }: any) => (
+interface BlogPostProps {
+  title: string;
+  date: string;
+  content: string;
+  path: string;
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
+const BlogPost = ({ title, date, content, path, seoTitle, seoDescription }: BlogPostProps) => (
   <main className="max-w-4xl mx-auto py-20 px-6 animate-in">
-    <SEO title={title} description={title} path={path} />
+    {/* Use custom SEO title/description if provided, otherwise use defaults */}
+    <SEO 
+      title={seoTitle || title} 
+      description={seoDescription || `${title} - Learn more about text analysis and word counting.`} 
+      path={path} 
+    />
     
-    {/* Go Back Button */}
-    <Link 
-      to="/blog" 
-      className="inline-flex items-center gap-2 text-slate-400 font-black text-[10px] uppercase tracking-[0.2em] hover:text-indigo-600 transition-all mb-12 group"
-    >
-      <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" /> 
-      Back to Resources
-    </Link>
+    {/* Breadcrumb Navigation */}
+    <nav className="mb-8" aria-label="Breadcrumb">
+      <ol className="flex items-center space-x-2 text-sm text-slate-500">
+        <li>
+          <Link to="/" className="flex items-center hover:text-indigo-600 transition-colors">
+            <Home className="w-4 h-4 mr-1" />
+            <span className="sr-only">Home</span>
+          </Link>
+        </li>
+        <li>
+          <ChevronRight className="w-4 h-4 text-slate-300" />
+        </li>
+        <li>
+          <Link 
+            to="/blog" 
+            className="hover:text-indigo-600 transition-colors"
+            aria-label="Blog"
+          >
+            Blog
+          </Link>
+        </li>
+        <li>
+          <ChevronRight className="w-4 h-4 text-slate-300" />
+        </li>
+        <li className="text-slate-900 font-medium truncate max-w-[300px]" aria-current="page">
+          {title}
+        </li>
+      </ol>
+    </nav>
+
+    {/* Go Back Button (Alternative to Breadcrumb) */}
+    <div className="mb-8">
+      <Link 
+        to="/blog" 
+        className="inline-flex items-center gap-2 text-slate-400 font-black text-[10px] uppercase tracking-[0.2em] hover:text-indigo-600 transition-all group"
+      >
+        <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" /> 
+        Back to Resources
+      </Link>
+    </div>
 
     <div className="mb-16">
         <span className="text-indigo-600 font-black text-xs uppercase tracking-[0.3em]">{date}</span>

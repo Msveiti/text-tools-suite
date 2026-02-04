@@ -1,17 +1,54 @@
 import { useState } from 'react';
 import { converters } from '../utils/textLogic';
 import { SEO } from '../components/SEO';
+import { Toast } from '../components/Toast';
+import { Home } from 'lucide-react';
 
-const CaseConverter = () => {
+interface CaseConverterProps {
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
+const CaseConverter = ({ seoTitle, seoDescription }: CaseConverterProps) => {
   const [text, setText] = useState('');
+  const [showToast, setShowToast] = useState(false);
 
   const handleConvert = (type: keyof typeof converters) => {
     setText(converters[type](text));
   };
 
+  const copyToClipboard = () => {
+    if (text.trim()) {
+      navigator.clipboard.writeText(text);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
+    }
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 animate-in">
-      <SEO title="Case Converter" description="Change text case instantly." path="/case-converter" />
+      {/* Use custom SEO props if provided */}
+      <SEO 
+        title={seoTitle || "Case Converter"} 
+        description={seoDescription || "Change text case instantly. Convert to uppercase, lowercase, sentence case, and title case."} 
+        path="/case-converter" 
+      />
+      
+      {/* Breadcrumb Navigation */}
+      <nav className="mb-6" aria-label="Breadcrumb">
+        <ol className="flex items-center space-x-2 text-sm text-slate-500">
+          <li>
+            <a href="/" className="flex items-center hover:text-indigo-600 transition-colors">
+              <Home className="w-4 h-4 mr-1" />
+              <span className="sr-only">Home</span>
+            </a>
+          </li>
+          <li className="text-slate-900 font-medium">Case Converter</li>
+        </ol>
+      </nav>
+
+      {/* Toast Notification */}
+      <Toast message="Copied to clipboard" show={showToast} />
       
       <div className="mb-12 text-center">
         <h2 className="text-5xl font-black text-slate-900 tracking-tight">Case Converter</h2>
@@ -45,14 +82,16 @@ const CaseConverter = () => {
         
         <div className="absolute bottom-8 right-8 flex gap-3">
           <button 
-            onClick={() => { navigator.clipboard.writeText(text); alert('Copied!'); }}
-            className="px-6 py-3 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all active:scale-95"
+            onClick={copyToClipboard}
+            className="px-6 py-3 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={!text.trim()}
           >
             Copy Result
           </button>
           <button 
             onClick={() => setText('')}
-            className="px-6 py-3 bg-slate-100 text-slate-600 rounded-2xl font-bold hover:bg-rose-50 hover:text-rose-600 transition-all active:scale-95"
+            className="px-6 py-3 bg-slate-100 text-slate-600 rounded-2xl font-bold hover:bg-rose-50 hover:text-rose-600 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={!text.trim()}
           >
             Clear
           </button>
@@ -60,6 +99,12 @@ const CaseConverter = () => {
       </div>
     </div>
   );
+};
+
+// Default props in case they're not provided
+CaseConverter.defaultProps = {
+  seoTitle: "Case Converter: Transform Text Instantly",
+  seoDescription: "Convert text to uppercase, lowercase, sentence case, or title case in one click. Perfect for formatting documents, code, and social media posts. No signup required."
 };
 
 export default CaseConverter;

@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import { getStats, getKeywordDensity, getAIInsights } from '../utils/textLogic';
 import { StatCard, SocialCard } from '../components/Cards';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { SEO } from '../components/SEO';
+import { Home } from 'lucide-react'; // Import Home icon
 
 const WordCounter = () => {
   const [text, setText] = useState('');
@@ -11,6 +13,26 @@ const WordCounter = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 animate-in">
+      {/* SEO Component with updated description */}
+      <SEO 
+        title="Professional Word Counter & Text Analyzer" 
+        description="Free professional word counter. Get real-time stats, lexical density, reading time, and AI insights. No signup required." 
+        path="/" 
+      />
+      
+      {/* Breadcrumb for main pages */}
+      <nav className="mb-6" aria-label="Breadcrumb">
+        <ol className="flex items-center space-x-2 text-sm text-slate-500">
+          <li>
+            <a href="/" className="flex items-center hover:text-indigo-600 transition-colors">
+              <Home className="w-4 h-4 mr-1" />
+              <span className="sr-only">Home</span>
+            </a>
+          </li>
+          <li className="text-slate-900 font-medium">Word Counter</li>
+        </ol>
+      </nav>
+
       {/* Header Section */}
       <div className="mb-12">
         <h2 className="text-6xl font-[900] text-slate-900 tracking-tight mb-2">Writing Analytics</h2>

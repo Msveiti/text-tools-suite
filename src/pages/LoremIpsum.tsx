@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { generateLorem } from '../utils/textLogic';
 import { SEO } from '../components/SEO';
-import { Sparkles, Copy, Trash2 } from 'lucide-react';
+import { Sparkles, Copy, Trash2, Home } from 'lucide-react';
 
 const LoremIpsum = () => {
   const [count, setCount] = useState(5);
@@ -16,6 +16,19 @@ const LoremIpsum = () => {
     <div className="max-w-5xl mx-auto px-6 py-12 animate-in">
       <SEO title="Lorem Ipsum" description="Generate placeholder text." path="/lorem-ipsum" />
       
+      {/* Breadcrumb Navigation */}
+      <nav className="mb-6" aria-label="Breadcrumb">
+        <ol className="flex items-center space-x-2 text-sm text-slate-500">
+          <li>
+            <a href="/" className="flex items-center hover:text-indigo-600 transition-colors">
+              <Home className="w-4 h-4 mr-1" />
+              <span className="sr-only">Home</span>
+            </a>
+          </li>
+          <li className="text-slate-900 font-medium">Lorem Ipsum Generator</li>
+        </ol>
+      </nav>
+
       <div className="mb-12 text-center">
         <h2 className="text-5xl font-black text-slate-900 tracking-tight">Placeholder Engine</h2>
         <p className="text-slate-500 mt-3 text-lg">Generate high-fidelity dummy text for your mockups.</p>
