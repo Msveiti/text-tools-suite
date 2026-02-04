@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     
+    <!-- Font Preloading for Speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Professional Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
     
@@ -19,11 +23,42 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       // Note: Config is handled dynamically in App.tsx to track page changes
+      
+      // Preload tracking improvements
+      document.addEventListener('DOMContentLoaded', function() {
+        // Track initial page load
+        if (typeof gtag === 'function') {
+          gtag('event', 'page_view', {
+            page_title: document.title,
+            page_location: window.location.href,
+            page_path: window.location.pathname
+          });
+        }
+      });
     </script>
-    <script type="module" crossorigin src="/assets/index-yVN1rFBo.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-D_JuEjl-.css">
+    <script type="module" crossorigin src="/assets/index-C2kdjxYw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cs5VwLXt.css">
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Schema.org Breadcrumb Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "VerboMetrics",
+        "item": "https://verbometrics.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://verbometrics.com/blog"
+      }]
+    }
+    </script>
   </body>
 </html>
