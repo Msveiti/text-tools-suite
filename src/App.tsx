@@ -1,15 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WordCounter from './pages/WordCounter';
 import CaseConverter from './pages/CaseConverter';
 import Contact from './pages/Contact';
 import LegalPage from './pages/LegalPage';
-import BlogPost from './pages/BlogPosts'; // Make sure this exists
+import BlogPost from './pages/BlogPosts';
 import LoremIpsum from './pages/LoremIpsum';
 import TextDiff from './pages/TextDiff';
 import BlogIndex from './pages/BlogIndex';
 
+// --- ADD THIS COMPONENT ---
+const AnalyticsTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if ((window as any).gtag) {
+      (window as any).gtag('config', 'G-P2JWKFVB39', {
+        page_path: location.pathname,
+      });
+    }
+  }, [location]);
+
+  return null;
+};
 
 // --- FULL BLOG CONTENT ---
 // Character Counter Guide content
@@ -1219,6 +1234,7 @@ const blogRequirements = `
 function App() {
   return (
     <Router>
+      <AnalyticsTracker /> {/* --- ADDED THIS LINE HERE --- */}
       <Header />
       <main className="min-h-screen bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto py-12">
@@ -1352,6 +1368,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
