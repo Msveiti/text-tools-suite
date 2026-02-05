@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react'; // Ensure lucide-react is installed
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -21,8 +21,13 @@ const Header = () => {
   return (
     <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="text-2xl">📝</span>
+        <Link to="/" className="flex items-center gap-3 group">
+          {/* Updated: Replaced emoji with your logo image */}
+          <img 
+            src="/verbometrics-logo.png" 
+            alt="VerboMetrics Logo" 
+            className="w-10 h-10 rounded-xl transition-transform group-hover:rotate-6 shadow-sm"
+          />
           <span className="text-xl font-black text-slate-900 tracking-tight">VerboMetrics</span>
         </Link>
         

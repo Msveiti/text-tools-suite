@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 const Footer = () => (
   <footer className="py-20 bg-[#F8FAFC] border-t border-slate-100">
     <div className="max-w-7xl mx-auto px-6 text-center">
-      {/* Brand Icon */}
-      <div className="bg-slate-900 w-16 h-16 rounded-[24px] flex items-center justify-center text-white font-black text-xl mx-auto mb-8 shadow-xl shadow-slate-200">
-        VM
-      </div>
+      {/* Updated: Replaced "VM" div with your logo image */}
+      <img 
+        src="/verbometrics-logo.png" 
+        alt="VerboMetrics Logo" 
+        className="w-16 h-16 rounded-[24px] mx-auto mb-8 shadow-xl shadow-slate-200 transition-transform hover:scale-110 duration-500"
+      />
       
       <p className="text-slate-400 font-medium max-w-sm mx-auto mb-10">
         The premier AI-driven writing suite for professional creators.
