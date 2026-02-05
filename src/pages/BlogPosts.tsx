@@ -70,9 +70,13 @@ const BlogPost = ({ title, date, content, path, seoTitle, seoDescription }: Blog
     <div 
       className="prose prose-slate prose-lg lg:prose-xl max-w-none 
                  prose-headings:font-black prose-headings:tracking-tight prose-headings:text-slate-900
-                 prose-p:text-slate-600 prose-p:leading-relaxed
+                 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:my-6
                  prose-strong:text-slate-900 prose-strong:font-bold
-                 prose-table:border prose-table:border-slate-100 prose-table:rounded-[24px] prose-table:overflow-hidden"
+                 prose-a:text-indigo-600 prose-a:no-underline hover:prose-a:underline
+                 prose-ul:my-6 prose-ol:my-6 prose-li:my-2
+                 prose-table:border prose-table:border-slate-100 prose-table:rounded-[24px] prose-table:overflow-hidden
+                 prose-code:bg-slate-100 prose-code:text-slate-800 prose-code:px-2 prose-code:py-1 prose-code:rounded-lg
+                 prose-blockquote:border-l-4 prose-blockquote:border-indigo-500 prose-blockquote:pl-6 prose-blockquote:italic"
       dangerouslySetInnerHTML={{ __html: content }} 
     />
   </main>
