@@ -13,9 +13,10 @@ const Header = () => {
       : 'text-slate-500 hover:text-slate-900'
     }`;
 
+  // UPDATED mobileNavClass function
   const mobileNavClass = (path: string) => 
-    `w-full px-6 py-4 rounded-2xl text-lg font-black transition-all ${
-      pathname === path ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600'
+    `w-full px-6 py-4 rounded-2xl text-lg font-black transition-all flex items-center ${
+      pathname === path ? 'bg-indigo-50 text-indigo-600 shadow-sm' : 'text-slate-600 hover:bg-slate-50'
     }`;
 
   return (
@@ -51,14 +52,19 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* UPDATED Mobile Menu Overlay */}
       {isOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 p-6 space-y-2 animate-in slide-in-from-top duration-300">
-          <Link onClick={() => setIsOpen(false)} to="/" className={mobileNavClass('/')}>Word Counter</Link>
-          <Link onClick={() => setIsOpen(false)} to="/case-converter" className={mobileNavClass('/case-converter')}>Case Converter</Link>
-          <Link onClick={() => setIsOpen(false)} to="/text-diff" className={mobileNavClass('/text-diff')}>Text Diff</Link>
-          <Link onClick={() => setIsOpen(false)} to="/lorem-ipsum" className={mobileNavClass('/lorem-ipsum')}>Lorem Ipsum</Link>
-          <div className="pt-4 border-t border-slate-50 flex flex-col gap-2">
+        <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 p-8 space-y-3 animate-in slide-in-from-top duration-300 shadow-2xl z-50">
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 ml-6 mb-2">Tools</span>
+            <Link onClick={() => setIsOpen(false)} to="/" className={mobileNavClass('/')}>Word Counter</Link>
+            <Link onClick={() => setIsOpen(false)} to="/case-converter" className={mobileNavClass('/case-converter')}>Case Converter</Link>
+            <Link onClick={() => setIsOpen(false)} to="/text-diff" className={mobileNavClass('/text-diff')}>Text Diff</Link>
+            <Link onClick={() => setIsOpen(false)} to="/lorem-ipsum" className={mobileNavClass('/lorem-ipsum')}>Lorem Ipsum</Link>
+          </div>
+          
+          <div className="pt-6 mt-4 border-t border-slate-50 flex flex-col gap-2">
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 ml-6 mb-2">Resources</span>
             <Link onClick={() => setIsOpen(false)} to="/blog" className={mobileNavClass('/blog')}>Blog</Link>
             <Link onClick={() => setIsOpen(false)} to="/contact" className={mobileNavClass('/contact')}>Support</Link>
           </div>

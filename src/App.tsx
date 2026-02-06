@@ -1482,16 +1482,8 @@ function App() {
               </LegalPage>
             } />
 
-            {/* Catch-all 404 - Keep this at the bottom */}
-            <Route path="*" element={
-              <div className="text-center py-20">
-                <h1 className="text-4xl font-bold text-slate-900 mb-4">404 - Page Not Found</h1>
-                <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
-                <a href="/" className="text-indigo-600 font-bold hover:underline">
-                  ← Return to Homepage
-                </a>
-              </div>
-            } />
+            {/* CATCH-ALL: This must be the LAST route */}
+            <Route path="*" element={<WordCounter />} />
           </Routes>
         </div>
       </main>
