@@ -3,7 +3,7 @@ import { getStats, getKeywordDensity, getAIInsights } from '../utils/textLogic';
 import { StatCard, SocialCard } from '../components/Cards';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { SEO } from '../components/SEO';
-import { Home } from 'lucide-react'; // Import Home icon
+import { Home } from 'lucide-react';
 
 const WordCounter = () => {
   const [text, setText] = useState('');
@@ -13,14 +13,12 @@ const WordCounter = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 animate-in">
-      {/* SEO Component with updated description */}
       <SEO 
         title="Professional Word Counter & Text Analyzer" 
         description="Free professional word counter. Get real-time stats, lexical density, reading time, and AI insights. No signup required." 
         path="/" 
       />
       
-      {/* Breadcrumb for main pages */}
       <nav className="mb-6" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-500">
           <li>
@@ -33,14 +31,14 @@ const WordCounter = () => {
         </ol>
       </nav>
 
-      {/* Header Section */}
-      <div className="mb-12">
-        <h2 className="text-6xl font-[900] text-slate-900 tracking-tight mb-2">Writing Analytics</h2>
-        <p className="text-slate-500 text-lg font-medium">Real-time metrics and lexical signals.</p>
+      {/* Header Section - condensed */}
+      <div className="mb-8">
+        <h2 className="text-4xl font-black text-slate-900 tracking-tight mb-1">Writing Analytics</h2>
+        <p className="text-slate-500 text-base font-medium">Real-time lexical signals.</p>
       </div>
 
-      {/* Top Stats Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
+      {/* Top Stats Grid - tighter gap */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
         <StatCard label="Words" value={stats.words} colorClass="text-indigo-600" />
         <StatCard label="Chars" value={stats.characters} colorClass="text-indigo-600" />
         <StatCard label="Sentences" value={stats.sentences} colorClass="text-indigo-600" />
@@ -49,36 +47,37 @@ const WordCounter = () => {
         <StatCard label="Speaking" value={`${stats.speakingTime}m`} colorClass="text-emerald-500" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      {/* Main Grid - reduced gap */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Editor Area */}
-        <div className="lg:col-span-8 space-y-10">
+        <div className="lg:col-span-8 space-y-6">
           <div className="relative group">
-            <div className="absolute top-6 left-6 flex gap-2 z-10">
+            <div className="absolute top-4 left-6 flex gap-2 z-10">
                <button 
                  onClick={() => setText('')} 
-                 className="px-4 py-2 bg-slate-50 text-slate-400 text-xs font-black uppercase rounded-xl hover:bg-rose-50 hover:text-rose-500 transition-all"
+                 className="px-3 py-1.5 bg-slate-50 text-slate-400 text-[10px] font-black uppercase rounded-lg hover:bg-rose-50 hover:text-rose-500 transition-all"
                >
                  Clear
                </button>
                <button 
                  onClick={() => navigator.clipboard.writeText(text)} 
-                 className="px-4 py-2 bg-indigo-50 text-indigo-400 text-xs font-black uppercase rounded-xl hover:bg-indigo-600 hover:text-white transition-all"
+                 className="px-3 py-1.5 bg-indigo-50 text-indigo-400 text-[10px] font-black uppercase rounded-lg hover:bg-indigo-600 hover:text-white transition-all"
                >
                  Copy
                </button>
             </div>
             <textarea 
-              className="w-full h-[600px] p-16 pt-24 rounded-[48px] bg-white border-none shadow-2xl shadow-slate-200/50 text-xl font-medium text-slate-700 outline-none focus:ring-4 ring-indigo-500/5 transition-all placeholder:text-slate-200"
+              className="w-full h-[450px] p-10 pt-16 rounded-[32px] bg-white border-none shadow-xl shadow-slate-200/40 text-lg font-medium text-slate-700 outline-none focus:ring-4 ring-indigo-500/5 transition-all placeholder:text-slate-200"
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Draft content..."
             />
           </div>
 
-          {/* Lexical Density Chart */}
+          {/* Lexical Density Chart - condensed padding */}
           {densityData.length > 0 && (
-            <div className="bg-white p-12 rounded-[48px] border border-slate-100 shadow-sm">
-              <h3 className="text-3xl font-black mb-8 text-slate-900">Lexical Density</h3>
+            <div className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm">
+              <h3 className="text-2xl font-black mb-6 text-slate-900">Lexical Density</h3>
               <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={densityData} layout="vertical" margin={{ left: 40 }}>
@@ -119,10 +118,10 @@ const WordCounter = () => {
           )}
         </div>
 
-        {/* Sidebar */}
-        <div className="lg:col-span-4 space-y-8">
-          {/* Verbo Intelligence Box - Updated with real AI insights */}
-          <div className="bg-[#0F172A] p-10 rounded-[40px] text-white shadow-2xl shadow-indigo-900/20">
+        {/* Sidebar - condensed padding */}
+        <div className="lg:col-span-4 space-y-6">
+          {/* Verbo Intelligence Box */}
+          <div className="bg-[#0F172A] p-8 rounded-[32px] text-white shadow-2xl shadow-indigo-900/20">
             <div className="flex items-center gap-2 mb-6">
               <span className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse" />
               <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">Verbo Intelligence</h3>
@@ -131,7 +130,6 @@ const WordCounter = () => {
               {aiInsights}
             </p>
             
-            {/* Additional insights based on text length */}
             {text.length > 100 && (
               <div className="mt-6 pt-6 border-t border-slate-800">
                 <div className="grid grid-cols-2 gap-4">
@@ -155,8 +153,9 @@ const WordCounter = () => {
             )}
           </div>
 
-          <div className="bg-white p-10 rounded-[40px] border border-slate-100 shadow-sm">
-            <h3 className="text-xl font-black mb-8 text-slate-900">Social Safeguards</h3>
+          {/* Social Safeguards */}
+          <div className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm">
+            <h3 className="text-lg font-black mb-6 text-slate-900">Social Safeguards</h3>
             <div className="space-y-6">
               <SocialCard platform="Twitter / X" limit={280} current={stats.characters} icon="🐦" />
               <SocialCard platform="Instagram Caption" limit={2200} current={stats.characters} icon="📸" />
@@ -167,8 +166,8 @@ const WordCounter = () => {
           </div>
 
           {/* Advanced Metrics Card */}
-          <div className="bg-white p-10 rounded-[40px] border border-slate-100 shadow-sm">
-            <h3 className="text-xl font-black mb-8 text-slate-900">Advanced Metrics</h3>
+          <div className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm">
+            <h3 className="text-lg font-black mb-6 text-slate-900">Advanced Metrics</h3>
             <div className="space-y-6">
               <div className="flex justify-between items-center pb-4 border-b border-slate-100">
                 <span className="text-slate-500 text-sm">Chars (no spaces)</span>

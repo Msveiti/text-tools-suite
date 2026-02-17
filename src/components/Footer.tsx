@@ -1,38 +1,25 @@
 import { Link } from 'react-router-dom';
 
 const Footer = () => (
-  <footer className="py-20 bg-[#F8FAFC] border-t border-slate-100">
+  <footer className="py-12 bg-[#F8FAFC] border-t border-slate-100">
     <div className="max-w-7xl mx-auto px-6 text-center">
-      {/* Updated: Replaced "VM" div with your logo image */}
       <img 
-        src="/verbometrics-logo.png" 
-        alt="VerboMetrics Logo" 
-        className="w-16 h-16 rounded-[24px] mx-auto mb-8 shadow-xl shadow-slate-200 transition-transform hover:scale-110 duration-500"
+        src="/logo.png" 
+        alt="VM Logo" 
+        className="w-12 h-12 rounded-2xl mx-auto mb-6 shadow-lg shadow-slate-200"
       />
       
-      <p className="text-slate-400 font-medium max-w-sm mx-auto mb-10">
+      <p className="text-slate-400 text-sm font-medium max-w-sm mx-auto mb-8">
         The premier AI-driven writing suite for professional creators.
       </p>
 
-      {/* Blog/Resources Section */}
-      <div className="mb-12">
-        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-300 mb-6">Writing Resources</h4>
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
-          <Link to="/blog/character-counter-guide" className="text-sm font-bold text-slate-500 hover:text-indigo-600 transition-colors">Character Guide</Link>
-          <Link to="/blog/count-words-google-docs" className="text-sm font-bold text-slate-500 hover:text-indigo-600 transition-colors">Google Docs Tips</Link>
-          <Link to="/blog/word-count-requirements" className="text-sm font-bold text-slate-500 hover:text-indigo-600 transition-colors">Academic Limits</Link>
-        </div>
+      <div className="flex justify-center gap-8 mb-8">
+        <Link to="/privacy" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Privacy</Link>
+        <Link to="/terms" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Terms</Link>
+        <Link to="/contact" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Contact</Link>
       </div>
       
-      {/* Legal & Support Section */}
-      <div className="flex justify-center gap-10 mb-12 py-8 border-t border-slate-50">
-        <Link to="/privacy" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition-colors">Privacy</Link>
-        <Link to="/terms" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition-colors">Terms</Link>
-        <Link to="/contact" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition-colors">Contact</Link>
-      </div>
-      
-      {/* Copyright */}
-      <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300">
+      <p className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300">
         © 2026 VerboMetrics Suite
       </p>
     </div>

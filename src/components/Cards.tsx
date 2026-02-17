@@ -2,9 +2,9 @@ import { type ReactNode } from 'react';
 
 // The "Big Number" Cards used in Word Counter and Text Diff
 export const StatCard = ({ label, value, colorClass }: { label: string; value: string | number; colorClass: string }) => (
-  <div className="bg-white p-8 rounded-[32px] border border-slate-50 shadow-sm flex flex-col items-center justify-center transition-all hover:shadow-md group">
-    <span className={`text-4xl font-black mb-2 ${colorClass}`}>{value}</span>
-    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">{label}</span>
+  <div className="bg-white p-5 rounded-3xl border border-slate-50 shadow-sm flex flex-col items-center justify-center transition-all hover:shadow-md group">
+    <span className={`text-2xl font-black mb-0.5 ${colorClass}`}>{value}</span>
+    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{label}</span>
   </div>
 );
 

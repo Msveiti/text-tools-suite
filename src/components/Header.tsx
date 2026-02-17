@@ -6,30 +6,33 @@ const Header = () => {
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
+  // Compact nav styles: reduced padding
   const navClass = (path: string) => 
-    `px-5 py-2 rounded-xl text-sm font-bold transition-all ${
+    `px-4 py-1.5 rounded-xl text-sm font-bold transition-all ${
       pathname === path 
       ? 'bg-white text-indigo-600 shadow-sm shadow-indigo-100' 
       : 'text-slate-500 hover:text-slate-900'
     }`;
 
-  // UPDATED mobileNavClass function
+  // Compact mobile nav styles
   const mobileNavClass = (path: string) => 
-    `w-full px-6 py-4 rounded-2xl text-lg font-black transition-all flex items-center ${
+    `w-full px-4 py-3 rounded-xl text-base font-bold transition-all flex items-center ${
       pathname === path ? 'bg-indigo-50 text-indigo-600 shadow-sm' : 'text-slate-600 hover:bg-slate-50'
     }`;
 
   return (
     <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          {/* Updated: Replaced emoji with your logo image */}
+      {/* Reduced header height to h-16 */}
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2.5 group">
+          {/* Smaller logo: w-8 h-8 */}
           <img 
             src="/verbometrics-logo.png" 
             alt="VerboMetrics Logo" 
-            className="w-10 h-10 rounded-xl transition-transform group-hover:rotate-6 shadow-sm"
+            className="w-8 h-8 rounded-xl transition-transform group-hover:rotate-6 shadow-sm"
           />
-          <span className="text-xl font-black text-slate-900 tracking-tight">VerboMetrics</span>
+          {/* Smaller text: text-lg */}
+          <span className="text-lg font-black text-slate-900 tracking-tight">VerboMetrics</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -40,10 +43,10 @@ const Header = () => {
           <Link to="/lorem-ipsum" className={navClass('/lorem-ipsum')}>Lorem Ipsum</Link>
         </nav>
 
-        {/* Desktop Right Side */}
+        {/* Desktop Right Side - reduced button padding */}
         <div className="hidden lg:flex items-center gap-6">
           <Link to="/blog" className="text-sm font-bold text-slate-500 hover:text-indigo-600">Blog</Link>
-          <Link to="/contact" className="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-indigo-600 shadow-lg transition-all">Support</Link>
+          <Link to="/contact" className="px-4 py-2 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-indigo-600 shadow-lg transition-all">Support</Link>
         </div>
 
         {/* Mobile Toggle Button */}
@@ -52,9 +55,9 @@ const Header = () => {
         </button>
       </div>
 
-      {/* UPDATED Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - adjusted top offset to match new header height */}
       {isOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 p-8 space-y-3 animate-in slide-in-from-top duration-300 shadow-2xl z-50">
+        <div className="lg:hidden absolute top-16 left-0 w-full bg-white border-b border-slate-100 p-8 space-y-3 animate-in slide-in-from-top duration-300 shadow-2xl z-50">
           <div className="flex flex-col gap-2">
             <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 ml-6 mb-2">Tools</span>
             <Link onClick={() => setIsOpen(false)} to="/" className={mobileNavClass('/')}>Word Counter</Link>
