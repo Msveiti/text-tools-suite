@@ -4,7 +4,7 @@ const Footer = () => (
   <footer className="py-12 bg-[#F8FAFC] border-t border-slate-100">
     <div className="max-w-7xl mx-auto px-6 text-center">
       <img 
-        src="/logo.png" 
+        src="/verbometrics-logo.png" 
         alt="VM Logo" 
         className="w-12 h-12 rounded-2xl mx-auto mb-6 shadow-lg shadow-slate-200"
       />
