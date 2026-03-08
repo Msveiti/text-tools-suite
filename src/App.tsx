@@ -31,6 +31,18 @@ const AnalyticsTracker = () => {
 const blogCharacterGuide = `
   <p>In today's digital world, character limits are everywhere. Whether you're crafting the perfect tweet, writing an Instagram caption, optimizing a meta description for SEO, or simply trying to stay within a text message limit, knowing how to count characters accurately is essential. A <strong>character counter</strong> is a simple yet powerful tool that helps you track every letter, number, space, and symbol in your text.</p>
 
+  <div class="my-10 p-8 bg-indigo-600 rounded-[32px] text-center shadow-xl">
+  <h4 class="text-white font-black text-xl mb-4">
+    Ready to check your character count?
+  </h4>
+  <p class="text-indigo-100 mb-6 font-medium">
+    Paste your text and see characters, words, and platform limits instantly.
+  </p>
+  <a href="/" class="inline-block bg-white text-indigo-600 px-10 py-3 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-slate-50 transition-all">
+    Open Free Character Counter
+  </a>
+</div>
+
   <p>This comprehensive guide covers everything you need to know about character counters in 2026, including how to use them effectively, character limits for all major platforms, and practical tips for writers, marketers, and social media managers.</p>
 
   <!-- CTA Box -->
@@ -38,7 +50,7 @@ const blogCharacterGuide = `
     <h4 class="text-indigo-900 font-black text-2xl mb-4">Need to check social media character limits instantly?</h4>
     <p class="text-indigo-600 mb-8 font-medium">Our free character counter checks your text against all major platform limits in real-time.</p>
     <a href="/" class="inline-block bg-indigo-600 text-white px-10 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200">
-      Open VerboMetrics Character Counter
+      Character counter guide for 2026Open VerboMetrics Character Counter
     </a>
   </div>
 
@@ -1381,18 +1393,19 @@ function App() {
                 date="Jan 14, 2026" 
                 content={blogCharacterGuide} 
                 path="/blog/character-counter-guide"
-                seoTitle="Current X (Twitter) Character Limit 2026 + All Social Media"
-                seoDescription="Updated for 2026: Every character limit for X, Instagram, Facebook, LinkedIn. Optimize your social engagement and SEO with our free character counter tool."
+                seoTitle="X (Twitter) Character Limit 2026 + Instagram, LinkedIn & Facebook Limits"
+                seoDescription="🚀 2026 Social Media Character Limits: X (Twitter) 280, Instagram 2200, Facebook 63,206, LinkedIn 3000. Check your text instantly with our free real-time character counter."
               />
             } />
+
             <Route path="/blog/character-counter-guide.html" element={
               <BlogPost 
                 title="Character Counter: Everything You Need to Know in 2026" 
                 date="Jan 14, 2026" 
                 content={blogCharacterGuide} 
                 path="/blog/character-counter-guide"
-                seoTitle="Current X (Twitter) Character Limit 2026 + All Social Media"
-                seoDescription="Updated for 2026: Every character limit for X, Instagram, Facebook, LinkedIn. Optimize your social engagement and SEO with our free character counter tool."
+                seoTitle="X (Twitter) Character Limit 2026 + Instagram, LinkedIn & Facebook Limits"
+                seoDescription="🚀 2026 Social Media Character Limits: X (Twitter) 280, Instagram 2200, Facebook 63,206, LinkedIn 3000. Check your text instantly with our free real-time character counter."
               />
             } />
 
