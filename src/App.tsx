@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';import Header from './components/Header';
 import Footer from './components/Footer';
 import WordCounter from './pages/WordCounter';
 import CaseConverter from './pages/CaseConverter';
@@ -1352,10 +1351,27 @@ const blogRequirements = `
   <p><em>Last updated: January 21, 2026</em></p>
 `;
 
+
+const RedirectOldLinks = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // If the URL ends in .html, strip it and redirect
+    if (location.pathname.endsWith('.html')) {
+      const newPath = location.pathname.replace('.html', '');
+      navigate(newPath, { replace: true });
+    }
+  }, [location, navigate]);
+
+  return null;
+};
+
 function App() {
   return (
     <Router>
       <AnalyticsTracker /> {/* --- ADDED THIS LINE HERE --- */}
+      <RedirectOldLinks /> {/* ADD THIS HERE */}
       <Header />
       <main className="min-h-screen bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto py-12">

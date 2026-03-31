@@ -2,14 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    <!-- REDIRECT: Remove .html from URL -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+          var newPath = path.replace(/\.html$/, '');
+          var newUrl = newPath + window.location.search + window.location.hash;
+          window.location.replace(newUrl);
+        }
+      })();
+    </script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Professional Title -->
     <title>VerboMetrics | Professional Writing Suite</title>
   </head>
   <body>
     <div id="root"></div>
-    <!-- This script loads the React app and handles the route -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

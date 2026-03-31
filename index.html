@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- REDIRECT: Remove .html from URL if present -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        if (path.endsWith('.html')) {
+          var newPath = path.replace(/\.html$/, '');
+          var newUrl = newPath + window.location.search + window.location.hash;
+          window.location.replace(newUrl);
+        }
+      })();
+    </script>
+
     <meta charset="UTF-8" />
     
     <!-- Font Preloading for Speed -->
