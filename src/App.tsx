@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import WordCounter from './pages/WordCounter';
 import CaseConverter from './pages/CaseConverter';
@@ -488,8 +489,8 @@ const blogCharacterGuide = `
   <h3>Related Tools & Articles</h3>
   <ul>
     <li><a href="/">Free Word Counter Tool</a> - Count words, sentences, and paragraphs</li>
-    <li><a href="/case-converter.html">Case Converter</a> - Change text to uppercase, lowercase, title case</li>
-    <li><a href="/lorem-ipsum.html">Lorem Ipsum Generator</a> - Generate placeholder text</li>
+    <li><a href="/case-converter">Case Converter</a> - Change text to uppercase, lowercase, title case</li>
+    <li><a href="/lorem-ipsum">Lorem Ipsum Generator</a> - Generate placeholder text</li>
   </ul>
 
   <p><em>Last updated: January 14, 2026</em></p>
@@ -872,8 +873,8 @@ const blogGoogleDocs = `
 
   <h3>Related Articles</h3>
   <ul>
-    <li><a href="/blog/character-counter-guide.html">Character Counter: Everything You Need to Know in 2026</a></li>
-    <li><a href="/blog/word-count-requirements.html">Word Count Requirements: Complete Guide for Students</a></li>
+    <li><a href="/blog/character-counter-guide">Character Counter: Everything You Need to Know in 2026</a></li>
+    <li><a href="/blog/word-count-requirements">Word Count Requirements: Complete Guide for Students</a></li>
     <li><a href="/">Free Word Counter Tool</a> - Count words, characters, and sentences</li>
   </ul>
 
@@ -881,7 +882,7 @@ const blogGoogleDocs = `
 </div>
 `;
 
-// Word Count Requirements content (truncated for brevity, add full content)
+// Word Count Requirements content
 const blogRequirements = `
   <p>One of the most common questions students ask is: "How many words should my essay be?" Whether you're writing a high school essay, college admission essay, or graduate-level research paper, understanding <strong>word count requirements</strong> is essential for academic success. This comprehensive guide breaks down exact word count expectations for every type of academic writing, along with proven strategies to meet your target without padding or cutting important content.</p>
 
@@ -1343,9 +1344,9 @@ const blogRequirements = `
 
   <h3>Related Articles</h3>
   <ul>
-    <li><a href="/blog/character-counter-guide.html">Character Counter: Everything You Need to Know in 2026</a></li>
+    <li><a href="/blog/character-counter-guide">Character Counter: Everything You Need to Know in 2026</a></li>
     <li><a href="/">Free Word Counter Tool</a> - Count words, sentences, and paragraphs</li>
-    <li><a href="/case-converter.html">Case Converter</a> - Change text formatting instantly</li>
+    <li><a href="/case-converter">Case Converter</a> - Change text formatting instantly</li>
   </ul>
 
   <p><em>Last updated: January 21, 2026</em></p>
@@ -1357,8 +1358,10 @@ const RedirectOldLinks = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // If the URL ends in .html, strip it and redirect
-    if (location.pathname.endsWith('.html')) {
+    // Check user agent here as well
+    const isReactSnap = navigator.userAgent === 'ReactSnap';
+    
+    if (location.pathname.endsWith('.html') && !isReactSnap) {
       const newPath = location.pathname.replace('.html', '');
       navigate(newPath, { replace: true });
     }
@@ -1404,14 +1407,14 @@ function App() {
             
             {/* Character Counter Guide */}
             <Route path="/blog/character-counter-guide" element={
-              <BlogPost 
-                title="Character Counter: Everything You Need to Know in 2026" 
-                date="Jan 14, 2026" 
-                content={blogCharacterGuide} 
-                path="/blog/character-counter-guide"
-                seoTitle="X (Twitter) Character Limit 2026 + Instagram, LinkedIn & Facebook Limits"
-                seoDescription="🚀 2026 Social Media Character Limits: X (Twitter) 280, Instagram 2200, Facebook 63,206, LinkedIn 3000. Check your text instantly with our free real-time character counter."
-              />
+            <BlogPost 
+              title="Character Counter: Everything You Need to Know in 2026" 
+              date="Jan 14, 2026" 
+              content={blogCharacterGuide} 
+              path="/blog/character-counter-guide"
+              seoTitle="Current X (Twitter) Character Limit 2026 & Other Social Media"
+              seoDescription="2026 Social Media Character Limits: X (Twitter) 280, Instagram 2200, Facebook 63,206. Check your text instantly with our free real-time character counter."
+            />
             } />
 
             <Route path="/blog/character-counter-guide.html" element={

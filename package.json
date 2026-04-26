@@ -5,9 +5,26 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && mkdir -p dist/case-converter && cp dist/index.html dist/case-converter/index.html && mkdir -p dist/text-diff && cp dist/index.html dist/text-diff/index.html && mkdir -p dist/lorem-ipsum && cp dist/index.html dist/lorem-ipsum/index.html && mkdir -p dist/blog && cp dist/index.html dist/blog/index.html && mkdir -p dist/contact && cp dist/index.html dist/contact/index.html && mkdir -p dist/privacy && cp dist/index.html dist/privacy/index.html && mkdir -p dist/terms && cp dist/index.html dist/terms/index.html && cp dist/index.html dist/case-converter.html && cp dist/index.html dist/text-diff.html && cp dist/index.html dist/lorem-ipsum.html && cp dist/index.html dist/blog/character-counter-guide.html && cp dist/index.html dist/blog/count-words-google-docs.html && cp dist/index.html dist/blog/word-count-requirements.html",
+    "build": "vite build",
+    "postbuild": "react-snap",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "include": [
+      "/",
+      "/case-converter",
+      "/text-diff",
+      "/lorem-ipsum",
+      "/blog",
+      "/blog/character-counter-guide",
+      "/blog/count-words-google-docs",
+      "/blog/word-count-requirements",
+      "/contact",
+      "/privacy",
+      "/terms"
+    ]
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
@@ -32,6 +49,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "postcss": "^8.5.6",
+    "react-snap": "^1.23.0",
     "tailwindcss": "^4.1.18",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
