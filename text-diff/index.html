@@ -1,62 +1,12 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- REDIRECT: Remove .html from URL if present -->
-    <script>
-      (function() {
+<!DOCTYPE html><html lang="en"><head><!-- REDIRECT: Remove .html from URL if present (skip for react-snap crawler) --><script>(function() {
         var path = window.location.pathname;
-        if (path.endsWith('.html')) {
+        // Check if it ends in .html AND the visitor is NOT react-snap
+        if (path.endsWith('.html') && navigator.userAgent !== 'ReactSnap') {
           var newPath = path.replace(/\.html$/, '');
           var newUrl = newPath + window.location.search + window.location.hash;
           window.location.replace(newUrl);
         }
-      })();
-    </script>
-
-    <meta charset="UTF-8" />
-    
-    <!-- Font Preloading for Speed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Professional Favicon -->
-    <link rel="icon" type="image/png" href="/verbometrics-logo.png" />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Professional Branding -->
-    <title>VerboMetrics | Professional Writing Suite</title>
-    <meta name="description" content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://verbometrics.com/" />
-    <meta property="og:title" content="VerboMetrics | Professional Writing Suite" />
-    <meta property="og:description" content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." />
-    <meta property="og:image" content="https://verbometrics.com/verbometrics-logo.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="VerboMetrics Logo - Professional Writing Tools" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://verbometrics.com/" />
-    <meta property="twitter:title" content="VerboMetrics | Professional Writing Suite" />
-    <meta property="twitter:description" content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." />
-    <meta property="twitter:image" content="https://verbometrics.com/verbometrics-logo.png" />
-    
-    <!-- Additional Meta Tags for Better SEO -->
-    <meta name="keywords" content="word counter, text analysis, writing tools, character counter, case converter, text diff, lorem ipsum" />
-    <meta name="author" content="VerboMetrics" />
-    <meta name="robots" content="index, follow" />
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://verbometrics.com/" />
-
-    <!-- Google Analytics (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2JWKFVB39"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
+      })();</script><meta charset="UTF-8"><!-- Font Preloading for Speed --><link href="https://fonts.googleapis.com" rel="preconnect"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""><!-- Professional Favicon --><link href="/verbometrics-logo.png" rel="icon" type="image/png"><meta content="width=device-width,initial-scale=1" name="viewport"><!-- Professional Branding --><title>Text Diff | VerboMetrics</title><meta content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." name="description"><!-- Open Graph / Facebook --><meta content="website" property="og:type"><meta content="https://verbometrics.com/" property="og:url"><meta content="VerboMetrics | Professional Writing Suite" property="og:title"><meta content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." property="og:description"><meta content="https://verbometrics.com/verbometrics-logo.png" property="og:image"><meta content="1200" property="og:image:width"><meta content="630" property="og:image:height"><meta content="VerboMetrics Logo - Professional Writing Tools" property="og:image:alt"><!-- Twitter --><meta content="summary_large_image" property="twitter:card"><meta content="https://verbometrics.com/" property="twitter:url"><meta content="VerboMetrics | Professional Writing Suite" property="twitter:title"><meta content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." property="twitter:description"><meta content="https://verbometrics.com/verbometrics-logo.png" property="twitter:image"><!-- Additional Meta Tags for Better SEO --><meta content="word counter, text analysis, writing tools, character counter, case converter, text diff, lorem ipsum" name="keywords"><meta content="VerboMetrics" name="author"><meta content="index, follow" name="robots"><!-- Google Analytics (gtag.js) --><script src="https://www.googletagmanager.com/gtag/js?id=G-P2JWKFVB39" async></script><script>window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       // Note: Config is handled dynamically in App.tsx to track page changes
@@ -71,17 +21,7 @@
             page_path: window.location.pathname
           });
         }
-      });
-    </script>
-    <script type="module" crossorigin src="/assets/index-C6tRg_sv.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-lYj_qjxE.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    
-    <!-- Schema.org Breadcrumb Structured Data for Google -->
-    <script type="application/ld+json">
-    {
+      });</script><script type="module" crossorigin="" src="/assets/index-eN_pv3vF.js"></script><link href="/assets/index-DTZpG0H_.css" rel="stylesheet" crossorigin=""><link href="https://fonts.googleapis.com" rel="preconnect"><link href="https://www.googletagmanager.com" rel="preconnect"><link href="https://verbometrics.com/text-diff" rel="canonical" data-rh="true"><meta content="Compare two texts." name="description" data-rh="true"><link href="https://www.google-analytics.com" rel="preconnect"></head><body><div id="root"><header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100"><div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"><a class="flex items-center gap-2.5 group" href="/" data-discover="true"><img alt="VerboMetrics Logo" class="w-8 h-8 rounded-xl transition-transform group-hover:rotate-6 shadow-sm" src="/verbometrics-logo.png"><span class="text-lg font-black text-slate-900 tracking-tight">VerboMetrics</span></a><nav class="hidden lg:flex items-center gap-1 bg-slate-50 p-1 rounded-2xl border border-slate-100"><a class="px-4 py-1.5 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-900" href="/" data-discover="true">Word Counter</a><a class="px-4 py-1.5 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-900" href="/case-converter" data-discover="true">Case Converter</a><a class="px-4 py-1.5 rounded-xl text-sm font-bold transition-all bg-white text-indigo-600 shadow-sm shadow-indigo-100" href="/text-diff" data-discover="true">Text Diff</a><a class="px-4 py-1.5 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-900" href="/lorem-ipsum" data-discover="true">Lorem Ipsum</a></nav><div class="hidden lg:flex items-center gap-6"><a class="text-sm font-bold text-slate-500 hover:text-indigo-600" href="/blog" data-discover="true">Blog</a><a class="px-4 py-2 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-indigo-600 shadow-lg transition-all" href="/contact" data-discover="true">Support</a></div><button class="lg:hidden p-2 text-slate-600"><svg aria-hidden="true" class="lucide lucide-menu" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></header><main class="min-h-screen bg-[#F8FAFC]"><div class="max-w-7xl mx-auto py-12"><div class="max-w-7xl mx-auto px-6 py-12 animate-in"><nav class="mb-6" aria-label="Breadcrumb"><ol class="flex items-center space-x-2 text-sm text-slate-500"><li><a class="flex items-center hover:text-indigo-600 transition-colors" href="/"><svg aria-hidden="true" class="lucide lucide-house w-4 h-4 mr-1" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span class="sr-only">Home</span></a></li><li class="text-slate-900 font-medium">Text Difference Checker</li></ol></nav><div class="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6"><div><h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Version Control</h2><p class="text-slate-500 mt-2 text-base md:text-lg">Pinpoint evolution between two narratives.</p></div><div class="grid grid-cols-2 gap-3 w-full md:w-auto"><div class="bg-white p-5 md:p-8 rounded-[32px] border border-slate-50 shadow-sm flex flex-col items-center justify-center transition-all hover:shadow-md group"><span class="text-2xl md:text-4xl font-black mb-1 md:mb-2 text-emerald-500">100%</span><span class="text-[8px] md:text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Similarity</span></div><div class="bg-white p-5 md:p-8 rounded-[32px] border border-slate-50 shadow-sm flex flex-col items-center justify-center transition-all hover:shadow-md group"><span class="text-2xl md:text-4xl font-black mb-1 md:mb-2 text-indigo-600">0</span><span class="text-[8px] md:text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Additions</span></div></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"><div class="space-y-4"><label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Original Draft</label><textarea class="w-full h-80 p-6 md:p-8 rounded-[32px] md:rounded-[40px] bg-white border border-slate-100 shadow-sm focus:ring-4 ring-indigo-500/5 outline-none transition-all text-slate-600 font-medium resize-none" placeholder="Paste original version..."></textarea><div class="text-xs text-slate-400 text-center">0 characters • 0 words</div></div><div class="space-y-4"><label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Updated Version</label><textarea class="w-full h-80 p-6 md:p-8 rounded-[32px] md:rounded-[40px] bg-white border border-slate-100 shadow-sm focus:ring-4 ring-indigo-500/5 outline-none transition-all text-slate-600 font-medium resize-none" placeholder="Paste new version..."></textarea><div class="text-xs text-slate-400 text-center">0 characters • 0 words</div></div></div><div class="bg-white p-6 md:p-12 rounded-[40px] md:rounded-[48px] border border-slate-100 shadow-2xl shadow-slate-200/50"><div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8"><div class="flex items-center gap-3"><svg aria-hidden="true" class="lucide lucide-search-code text-indigo-600 w-6 h-6" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m13 13.5 2-2.5-2-2.5"></path><path d="m21 21-4.3-4.3"></path><path d="M9 8.5 7 11l2 2.5"></path><circle cx="11" cy="11" r="8"></circle></svg><h3 class="text-2xl font-black text-slate-900">Comparative Analysis</h3></div></div><div class="flex flex-wrap items-center gap-4 mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-100"><div class="flex items-center gap-2"><div class="w-3 h-3 bg-emerald-400 rounded-full"></div><span class="text-[10px] font-black uppercase text-slate-400">Added</span></div><div class="flex items-center gap-2"><div class="w-3 h-3 bg-rose-400 rounded-full"></div><span class="text-[10px] font-black uppercase text-slate-400">Removed</span></div><div class="flex items-center gap-2"><div class="w-3 h-3 bg-slate-300 rounded-full"></div><span class="text-[10px] font-black uppercase text-slate-400">Unchanged</span></div></div><div class="p-6 md:p-10 bg-slate-50 rounded-[32px] min-h-[200px]"><div class="flex items-center justify-center h-40"><span class="text-slate-300 italic text-lg">Enter text above to see the difference...</span></div></div></div><div class="flex flex-col sm:flex-row gap-4 justify-center mt-8"><button class="flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-indigo-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5"><svg aria-hidden="true" class="lucide lucide-arrow-right-left w-4 h-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m16 3 4 4-4 4"></path><path d="M20 7H4"></path><path d="m8 21-4-4 4-4"></path><path d="M4 17h16"></path></svg> Swap Texts</button><button class="flex items-center justify-center gap-3 px-8 py-4 bg-slate-100 text-slate-600 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-rose-50 hover:text-rose-600 transition-all border border-slate-200">Clear All</button></div></div></div></main><footer class="py-12 bg-[#F8FAFC] border-t border-slate-100"><div class="max-w-7xl mx-auto px-6 text-center"><img alt="VM Logo" class="w-12 h-12 rounded-2xl mx-auto mb-6 shadow-lg shadow-slate-200" src="/verbometrics-logo.png"><p class="text-slate-400 text-sm font-medium max-w-sm mx-auto mb-8">The premier AI-driven writing suite for professional creators.</p><div class="flex justify-center gap-8 mb-8"><a class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600" href="/privacy" data-discover="true">Privacy</a><a class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600" href="/terms" data-discover="true">Terms</a><a class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600" href="/contact" data-discover="true">Contact</a></div><p class="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300">© 2026 VerboMetrics Suite</p></div></footer></div><!-- Schema.org Breadcrumb Structured Data for Google --><script type="application/ld+json">{
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [{
@@ -95,12 +35,7 @@
         "name": "Blog",
         "item": "https://verbometrics.com/blog"
       }]
-    }
-    </script>
-    
-    <!-- Website Schema.org Markup -->
-    <script type="application/ld+json">
-    {
+    }</script><!-- Website Schema.org Markup --><script type="application/ld+json">{
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "VerboMetrics",
@@ -120,7 +55,4 @@
         "target": "https://verbometrics.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
-    }
-    </script>
-  </body>
-</html>
+    }</script></body></html>
