@@ -10,6 +10,7 @@ import BlogPost from './pages/BlogPosts';
 import LoremIpsum from './pages/LoremIpsum';
 import TextDiff from './pages/TextDiff';
 import BlogIndex from './pages/BlogIndex';
+import VerbFinder from './pages/VerbFinder';
 
 // --- ADD THIS COMPONENT ---
 const AnalyticsTracker = () => {
@@ -1398,6 +1399,8 @@ function App() {
 
             <Route path="/text-diff" element={<TextDiff />} />
             <Route path="/text-diff.html" element={<TextDiff />} />
+
+            <Route path="/verb-finder" element={<VerbFinder />} />
 
             <Route path="/lorem-ipsum" element={<LoremIpsum />} />
             <Route path="/lorem-ipsum.html" element={<LoremIpsum />} />

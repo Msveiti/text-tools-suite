@@ -40,6 +40,7 @@ const Header = () => {
           <Link to="/" className={navClass('/')}>Word Counter</Link>
           <Link to="/case-converter" className={navClass('/case-converter')}>Case Converter</Link>
           <Link to="/text-diff" className={navClass('/text-diff')}>Text Diff</Link>
+          <Link to="/verb-finder" className={navClass('/verb-finder')}>Verb Finder</Link> {/* ADDED */}
           <Link to="/lorem-ipsum" className={navClass('/lorem-ipsum')}>Lorem Ipsum</Link>
         </nav>
 
@@ -63,6 +64,7 @@ const Header = () => {
             <Link onClick={() => setIsOpen(false)} to="/" className={mobileNavClass('/')}>Word Counter</Link>
             <Link onClick={() => setIsOpen(false)} to="/case-converter" className={mobileNavClass('/case-converter')}>Case Converter</Link>
             <Link onClick={() => setIsOpen(false)} to="/text-diff" className={mobileNavClass('/text-diff')}>Text Diff</Link>
+            <Link onClick={() => setIsOpen(false)} to="/verb-finder" className={mobileNavClass('/verb-finder')}>Verb Finder</Link> {/* ADDED */}
             <Link onClick={() => setIsOpen(false)} to="/lorem-ipsum" className={mobileNavClass('/lorem-ipsum')}>Lorem Ipsum</Link>
           </div>
           

@@ -12,12 +12,16 @@
   },
   "reactSnap": {
     "source": "dist",
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
     "include": [
       "/",
       "/case-converter",
       "/text-diff",
       "/lorem-ipsum",
+      "/verb-finder",
       "/blog",
       "/blog/character-counter-guide",
       "/blog/count-words-google-docs",
@@ -29,6 +33,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
+    "compromise": "^14.15.0",
     "lucide-react": "^0.563.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
