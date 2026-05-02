@@ -25,6 +25,7 @@
       "/readability-scorer",
       "/word-frequency",
       "/passive-voice",
+      "/tone-analyzer",
       "/blog",
       "/blog/character-counter-guide",
       "/blog/count-words-google-docs",
@@ -43,7 +44,8 @@
     "react-helmet-async": "^2.0.5",
     "react-is": "^19.2.4",
     "react-router-dom": "^7.13.0",
-    "recharts": "^3.7.0"
+    "recharts": "^3.7.0",
+    "sentiment": "^5.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -51,6 +53,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@types/sentiment": "^5.0.4",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.23",
     "eslint": "^9.39.1",

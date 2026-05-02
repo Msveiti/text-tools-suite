@@ -44,6 +44,7 @@ const Header = () => {
           <Link to="/readability-scorer" className={navClass('/readability-scorer')}>Readability</Link>
           <Link to="/word-frequency" className={navClass('/word-frequency')}>Word Frequency</Link>
           <Link to="/passive-voice" className={navClass('/passive-voice')}>Passive Voice</Link>
+          <Link to="/tone-analyzer" className={navClass('/tone-analyzer')}>Tone Analyzer</Link>
           <Link to="/lorem-ipsum" className={navClass('/lorem-ipsum')}>Lorem Ipsum</Link>
         </nav>
 
@@ -71,6 +72,7 @@ const Header = () => {
             <Link onClick={() => setIsOpen(false)} to="/readability-scorer" className={mobileNavClass('/readability-scorer')}>Readability Scorer</Link>
             <Link onClick={() => setIsOpen(false)} to="/word-frequency" className={mobileNavClass('/word-frequency')}>Word Frequency</Link>
             <Link onClick={() => setIsOpen(false)} to="/passive-voice" className={mobileNavClass('/passive-voice')}>Passive Voice Detector</Link>
+            <Link onClick={() => setIsOpen(false)} to="/tone-analyzer" className={mobileNavClass('/tone-analyzer')}>Tone Analyzer</Link>
             <Link onClick={() => setIsOpen(false)} to="/lorem-ipsum" className={mobileNavClass('/lorem-ipsum')}>Lorem Ipsum</Link>
           </div>
           

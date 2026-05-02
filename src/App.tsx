@@ -14,6 +14,7 @@ import VerbFinder from './pages/VerbFinder';
 import ReadabilityScorer from './pages/ReadabilityScorer';
 import WordFrequency from './pages/WordFrequency';
 import PassiveVoice from './pages/PassiveVoice';
+import ToneAnalyzer from './pages/ToneAnalyzer';
 
 // --- ADD THIS COMPONENT ---
 const AnalyticsTracker = () => {
@@ -1410,6 +1411,8 @@ function App() {
             <Route path="/word-frequency" element={<WordFrequency />} />
 
             <Route path="/passive-voice" element={<PassiveVoice />} />
+
+            <Route path="/tone-analyzer" element={<ToneAnalyzer />} />
 
             <Route path="/lorem-ipsum" element={<LoremIpsum />} />
             <Route path="/lorem-ipsum.html" element={<LoremIpsum />} />
