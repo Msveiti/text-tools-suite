@@ -12,6 +12,7 @@ import TextDiff from './pages/TextDiff';
 import BlogIndex from './pages/BlogIndex';
 import VerbFinder from './pages/VerbFinder';
 import ReadabilityScorer from './pages/ReadabilityScorer';
+import WordFrequency from './pages/WordFrequency';
 
 // --- ADD THIS COMPONENT ---
 const AnalyticsTracker = () => {
@@ -1404,6 +1405,8 @@ function App() {
             <Route path="/verb-finder" element={<VerbFinder />} />
 
             <Route path="/readability-scorer" element={<ReadabilityScorer />} />
+
+            <Route path="/word-frequency" element={<WordFrequency />} />
 
             <Route path="/lorem-ipsum" element={<LoremIpsum />} />
             <Route path="/lorem-ipsum.html" element={<LoremIpsum />} />

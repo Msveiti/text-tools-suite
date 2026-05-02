@@ -35,13 +35,14 @@ const Header = () => {
           <span className="text-lg font-black text-slate-900 tracking-tight">VerboMetrics</span>
         </Link>
         
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 bg-slate-50 p-1 rounded-2xl border border-slate-100">
+        {/* Desktop Navigation - WITH HORIZONTAL SCROLL FIX */}
+        <nav className="hidden lg:flex items-center gap-1 overflow-x-auto whitespace-nowrap no-scrollbar pb-2">
           <Link to="/" className={navClass('/')}>Word Counter</Link>
           <Link to="/case-converter" className={navClass('/case-converter')}>Case Converter</Link>
           <Link to="/text-diff" className={navClass('/text-diff')}>Text Diff</Link>
           <Link to="/verb-finder" className={navClass('/verb-finder')}>Verb Finder</Link>
           <Link to="/readability-scorer" className={navClass('/readability-scorer')}>Readability</Link>
+          <Link to="/word-frequency" className={navClass('/word-frequency')}>Word Frequency</Link>
           <Link to="/lorem-ipsum" className={navClass('/lorem-ipsum')}>Lorem Ipsum</Link>
         </nav>
 
@@ -67,6 +68,7 @@ const Header = () => {
             <Link onClick={() => setIsOpen(false)} to="/text-diff" className={mobileNavClass('/text-diff')}>Text Diff</Link>
             <Link onClick={() => setIsOpen(false)} to="/verb-finder" className={mobileNavClass('/verb-finder')}>Verb Finder</Link>
             <Link onClick={() => setIsOpen(false)} to="/readability-scorer" className={mobileNavClass('/readability-scorer')}>Readability Scorer</Link>
+            <Link onClick={() => setIsOpen(false)} to="/word-frequency" className={mobileNavClass('/word-frequency')}>Word Frequency</Link>
             <Link onClick={() => setIsOpen(false)} to="/lorem-ipsum" className={mobileNavClass('/lorem-ipsum')}>Lorem Ipsum</Link>
           </div>
           

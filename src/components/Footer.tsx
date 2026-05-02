@@ -16,6 +16,7 @@ const Footer = () => (
       <div className="flex flex-wrap justify-center gap-8 mb-8">
         <Link to="/verb-finder" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Verb Finder</Link>
         <Link to="/readability-scorer" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Readability Scorer</Link>
+        <Link to="/word-frequency" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Word Frequency</Link>
         <Link to="/privacy" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Privacy</Link>
         <Link to="/terms" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Terms</Link>
         <Link to="/contact" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Contact</Link>
