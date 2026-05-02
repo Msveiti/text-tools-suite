@@ -11,6 +11,7 @@ import LoremIpsum from './pages/LoremIpsum';
 import TextDiff from './pages/TextDiff';
 import BlogIndex from './pages/BlogIndex';
 import VerbFinder from './pages/VerbFinder';
+import ReadabilityScorer from './pages/ReadabilityScorer';
 
 // --- ADD THIS COMPONENT ---
 const AnalyticsTracker = () => {
@@ -1401,6 +1402,8 @@ function App() {
             <Route path="/text-diff.html" element={<TextDiff />} />
 
             <Route path="/verb-finder" element={<VerbFinder />} />
+
+            <Route path="/readability-scorer" element={<ReadabilityScorer />} />
 
             <Route path="/lorem-ipsum" element={<LoremIpsum />} />
             <Route path="/lorem-ipsum.html" element={<LoremIpsum />} />
