@@ -1,34 +1,80 @@
 import { Link } from 'react-router-dom';
 
-const Footer = () => (
-  <footer className="py-12 bg-[#F8FAFC] border-t border-slate-100">
-    <div className="max-w-7xl mx-auto px-6 text-center">
-      <img 
-        src="/verbometrics-logo.png" 
-        alt="VM Logo" 
-        className="w-12 h-12 rounded-2xl mx-auto mb-6 shadow-lg shadow-slate-200"
-      />
-      
-      <p className="text-slate-400 text-sm font-medium max-w-sm mx-auto mb-8">
-        The premier AI-driven writing suite for professional creators.
-      </p>
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
-      <div className="flex flex-wrap justify-center gap-8 mb-8">
-        <Link to="/verb-finder" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Verb Finder</Link>
-        <Link to="/readability-scorer" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Readability Scorer</Link>
-        <Link to="/word-frequency" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Word Frequency</Link>
-        <Link to="/passive-voice" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Passive Voice</Link>
-        <Link to="/tone-analyzer" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Tone Analyzer</Link>
-        <Link to="/privacy" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Privacy</Link>
-        <Link to="/terms" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Terms</Link>
-        <Link to="/contact" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600">Contact</Link>
+  return (
+    <footer className="bg-white border-t border-slate-200/60 pt-20 pb-10 mt-auto">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-1">
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-md">
+                V
+              </div>
+              <span className="text-lg font-black text-slate-900 tracking-tight">
+                Verbo<span className="text-indigo-600">Metrics</span>
+              </span>
+            </Link>
+            <p className="text-slate-500 text-sm leading-relaxed font-medium">
+              The premier AI-driven writing suite for professional creators, marketers, and students.
+            </p>
+          </div>
+
+          {/* Tools Column 1 */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 mb-6">Core Tools</h4>
+            <ul className="flex flex-col gap-4">
+              <li><Link to="/" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Word Counter</Link></li>
+              <li><Link to="/case-converter" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Case Converter</Link></li>
+              <li><Link to="/text-diff" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Text Diff Checker</Link></li>
+              <li><Link to="/lorem-ipsum" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Lorem Ipsum</Link></li>
+            </ul>
+          </div>
+
+          {/* Tools Column 2 */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 mb-6">Analysis</h4>
+            <ul className="flex flex-col gap-4">
+              <li><Link to="/readability-scorer" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Readability Scorer</Link></li>
+              <li><Link to="/word-frequency" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Word Frequency</Link></li>
+              <li><Link to="/verb-finder" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Verb Finder</Link></li>
+              <li><Link to="/passive-voice" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Passive Voice</Link></li>
+              <li><Link to="/tone-analyzer" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Tone Analyzer</Link></li>
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 mb-6">Company</h4>
+            <ul className="flex flex-col gap-4">
+              <li><Link to="/blog" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Blog & Guides</Link></li>
+              <li><Link to="/contact" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Contact Support</Link></li>
+              <li><Link to="/privacy" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Terms of Service</Link></li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-slate-400 text-sm font-medium">
+            © {currentYear} VerboMetrics Suite. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            {/* You can add social media icons here later if needed */}
+            <span className="text-slate-300 text-sm font-bold">Made for Writers</span>
+          </div>
+        </div>
+
       </div>
-      
-      <p className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300">
-        © 2026 VerboMetrics Suite
-      </p>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;
