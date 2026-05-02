@@ -24,6 +24,7 @@
       "/verb-finder",
       "/readability-scorer",
       "/word-frequency",
+      "/passive-voice",
       "/blog",
       "/blog/character-counter-guide",
       "/blog/count-words-google-docs",
