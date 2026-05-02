@@ -40,7 +40,8 @@ const Header = () => {
           <Link to="/" className={navClass('/')}>Word Counter</Link>
           <Link to="/case-converter" className={navClass('/case-converter')}>Case Converter</Link>
           <Link to="/text-diff" className={navClass('/text-diff')}>Text Diff</Link>
-          <Link to="/verb-finder" className={navClass('/verb-finder')}>Verb Finder</Link> {/* ADDED */}
+          <Link to="/verb-finder" className={navClass('/verb-finder')}>Verb Finder</Link>
+          <Link to="/readability-scorer" className={navClass('/readability-scorer')}>Readability</Link>
           <Link to="/lorem-ipsum" className={navClass('/lorem-ipsum')}>Lorem Ipsum</Link>
         </nav>
 
@@ -64,7 +65,8 @@ const Header = () => {
             <Link onClick={() => setIsOpen(false)} to="/" className={mobileNavClass('/')}>Word Counter</Link>
             <Link onClick={() => setIsOpen(false)} to="/case-converter" className={mobileNavClass('/case-converter')}>Case Converter</Link>
             <Link onClick={() => setIsOpen(false)} to="/text-diff" className={mobileNavClass('/text-diff')}>Text Diff</Link>
-            <Link onClick={() => setIsOpen(false)} to="/verb-finder" className={mobileNavClass('/verb-finder')}>Verb Finder</Link> {/* ADDED */}
+            <Link onClick={() => setIsOpen(false)} to="/verb-finder" className={mobileNavClass('/verb-finder')}>Verb Finder</Link>
+            <Link onClick={() => setIsOpen(false)} to="/readability-scorer" className={mobileNavClass('/readability-scorer')}>Readability Scorer</Link>
             <Link onClick={() => setIsOpen(false)} to="/lorem-ipsum" className={mobileNavClass('/lorem-ipsum')}>Lorem Ipsum</Link>
           </div>
           
