@@ -14,9 +14,9 @@ const PassiveVoice = () => {
     const doc = nlp(text);
     const sentences = doc.sentences().length || 1;
     
-    // compromise has a built-in method to detect passive verb phrases!
-    const passivePhrases = (doc as any).verbs().isPassive();
-    const passiveCount = passivePhrases.length;
+    // FIXED: Find passive structures: [Copula/To-Be] + [Optional Adverb] + [Past Tense]
+    const passivePhrases = doc.match('(#Copula|be|been|being) #Adverb? #PastTense');
+    const passiveCount = passivePhrases.length || 0;
     
     const percentage = Math.round((passiveCount / sentences) * 100);
     
@@ -46,8 +46,8 @@ const PassiveVoice = () => {
     
     const doc = nlp(text).clone();
     
-    // Target the passive verb phrases and wrap them in custom tokens
-    (doc as any).verbs().isPassive().prepend('[[[').append(']]]');
+    // FIXED: Target the passive verb phrases and wrap them in custom tokens
+    doc.match('(#Copula|be|been|being) #Adverb? #PastTense').prepend('[[[').append(']]]');
     const rawOutput = doc.text();
     
     // Escape standard HTML to prevent XSS attacks
