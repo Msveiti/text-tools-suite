@@ -16,6 +16,7 @@ import WordFrequency from './pages/WordFrequency';
 import PassiveVoice from './pages/PassiveVoice';
 import ToneAnalyzer from './pages/ToneAnalyzer';
 import AdverbSpotter from './pages/AdverbSpotter';
+import SentenceLength from './pages/SentenceLength';
 
 // --- ADD THIS COMPONENT ---
 const AnalyticsTracker = () => {
@@ -1416,6 +1417,8 @@ function App() {
             <Route path="/tone-analyzer" element={<ToneAnalyzer />} />
 
             <Route path="/adverb-spotter" element={<AdverbSpotter />} />
+
+            <Route path="/sentence-length" element={<SentenceLength />} />
 
             <Route path="/lorem-ipsum" element={<LoremIpsum />} />
             <Route path="/lorem-ipsum.html" element={<LoremIpsum />} />
