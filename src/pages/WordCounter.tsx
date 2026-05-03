@@ -120,7 +120,7 @@ const WordCounter = () => {
 
         {/* Sidebar - condensed padding */}
         <div className="lg:col-span-4 space-y-6">
-          {/* Verbo Intelligence Box */}
+          {/* Verbo Intelligence Box - FIXED: Changed threshold from 100 to 50 */}
           <div className="bg-[#0F172A] p-8 rounded-[32px] text-white shadow-2xl shadow-indigo-900/20">
             <div className="flex items-center gap-2 mb-6">
               <span className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse" />
@@ -130,7 +130,8 @@ const WordCounter = () => {
               {aiInsights}
             </p>
             
-            {text.length > 100 && (
+            {/* FIXED: Changed 100 to 50 to match the placeholder text "Draft 50+ characters" */}
+            {text.length > 50 && (
               <div className="mt-6 pt-6 border-t border-slate-800">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-slate-800/50 p-3 rounded-xl">
@@ -153,13 +154,13 @@ const WordCounter = () => {
             )}
           </div>
 
-          {/* Social Safeguards */}
+          {/* Social Safeguards - FIXED: Replaced corrupted icons with clean emojis */}
           <div className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm">
             <h3 className="text-lg font-black mb-6 text-slate-900">Social Safeguards</h3>
             <div className="space-y-6">
               <SocialCard platform="Twitter / X" limit={280} current={stats.characters} icon="🐦" />
               <SocialCard platform="Instagram Caption" limit={2200} current={stats.characters} icon="📸" />
-              <SocialCard platform="Facebook Post" limit={63206} current={stats.characters} icon="👥" />
+              <SocialCard platform="Facebook Post" limit={63206} current={stats.characters} icon="📘" />
               <SocialCard platform="LinkedIn Post" limit={3000} current={stats.characters} icon="💼" />
               <SocialCard platform="Meta Description" limit={160} current={stats.characters} icon="🔍" />
             </div>
