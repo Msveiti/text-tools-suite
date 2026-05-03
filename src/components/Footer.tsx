@@ -45,6 +45,7 @@ const Footer = () => {
               <li><Link to="/verb-finder" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Verb Finder</Link></li>
               <li><Link to="/passive-voice" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Passive Voice</Link></li>
               <li><Link to="/tone-analyzer" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Tone Analyzer</Link></li>
+              <li><Link to="/adverb-spotter" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Adverb & Fluff Spotter</Link></li>
             </ul>
           </div>
 

@@ -12,6 +12,7 @@ const tools = [
   { name: 'Word Frequency', path: '/word-frequency' },
   { name: 'Passive Voice', path: '/passive-voice' },
   { name: 'Tone Analyzer', path: '/tone-analyzer' },
+  { name: 'Adverb & Fluff Spotter', path: '/adverb-spotter' },
 ];
 
 const Header = () => {
