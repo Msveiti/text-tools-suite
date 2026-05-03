@@ -47,6 +47,7 @@ const Footer = () => {
               <li><Link to="/tone-analyzer" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Tone Analyzer</Link></li>
               <li><Link to="/adverb-spotter" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Adverb & Fluff Spotter</Link></li>
               <li><Link to="/sentence-length" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Sentence Length</Link></li>
+              <li><Link to="/grammar-checker" className="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">Grammar Checker</Link></li>
             </ul>
           </div>
 

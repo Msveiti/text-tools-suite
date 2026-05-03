@@ -14,6 +14,7 @@ const tools = [
   { name: 'Tone Analyzer', path: '/tone-analyzer' },
   { name: 'Adverb & Fluff Spotter', path: '/adverb-spotter' },
   { name: 'Sentence Length Analyzer', path: '/sentence-length' },
+  { name: 'Grammar Checker', path: '/grammar-checker' },
 ];
 
 const Header = () => {
