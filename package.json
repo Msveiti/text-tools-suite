@@ -2,11 +2,14 @@
   "name": "verbometrics-react",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": ">=20"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "react-snap",
+    "postbuild": "react-snap && node scripts/postbuild.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -16,6 +19,9 @@
       "--no-sandbox",
       "--disable-setuid-sandbox"
     ],
+    "minifyHtml": false,
+    "skipThirdPartyRequests": true,
+    "waitFor": 500,
     "include": [
       "/",
       "/case-converter",
@@ -35,7 +41,8 @@
       "/blog/word-count-requirements",
       "/contact",
       "/privacy",
-      "/terms"
+      "/terms",
+      "/404"
     ]
   },
   "dependencies": {

@@ -51,7 +51,7 @@ const CaseConverter = ({ seoTitle, seoDescription }: CaseConverterProps) => {
       <Toast message="Copied to clipboard" show={showToast} />
       
       <div className="mb-12 text-center">
-        <h2 className="text-5xl font-black text-slate-900 tracking-tight">Case Converter</h2>
+        <h1 className="text-5xl font-black text-slate-900 tracking-tight">Case Converter</h1>
         <p className="text-slate-500 mt-3 text-lg">Shift your narrative perspective instantly.</p>
       </div>
 
@@ -64,7 +64,7 @@ const CaseConverter = ({ seoTitle, seoDescription }: CaseConverterProps) => {
         ].map((btn) => (
           <button
             key={btn.key}
-            onClick={() => handleConvert(btn.key as any)}
+            onClick={() => handleConvert(btn.key as keyof typeof converters)}
             className="h-14 bg-white border border-slate-100 rounded-2xl font-bold text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200 transition-all shadow-sm active:scale-95"
           >
             {btn.label}

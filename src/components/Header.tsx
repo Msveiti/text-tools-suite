@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const tools = [
   { name: 'Word Counter', path: '/' },
@@ -20,6 +20,39 @@ const tools = [
 const Header = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isToolsOpen, setIsToolsOpen] = useState(false);
+  const toolsRef = useRef<HTMLDivElement>(null);
+
+  // GitHub Pages serves directory routes with a trailing slash ("/verb-finder/").
+  // Normalise before comparing so the active state is identical on the server
+  // (react-snap) and the client, which avoids a hydration mismatch.
+  const currentPath = location.pathname.replace(/\/+$/, '') || '/';
+
+  // Close the tools dropdown on outside click or Escape.
+  useEffect(() => {
+    if (!isToolsOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsToolsOpen(false);
+    };
+    const onClick = (e: MouseEvent) => {
+      if (toolsRef.current && !toolsRef.current.contains(e.target as Node)) {
+        setIsToolsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onClick);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', onClick);
+    };
+  }, [isToolsOpen]);
+
+  // Close dropdown on route change.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsToolsOpen(false);
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="sticky top-0 z-50 bg-[#F8FAFC]/80 backdrop-blur-md border-b border-slate-200/50">
@@ -39,19 +72,33 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-8">
           
           {/* Tools Dropdown */}
-          <div className="relative group py-8">
-            <button className="flex items-center gap-1.5 text-sm font-bold text-slate-600 hover:text-indigo-600 transition-colors">
-              Writing Tools <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+          <div className="relative py-8" ref={toolsRef}>
+            <button
+              type="button"
+              className="flex items-center gap-1.5 text-sm font-bold text-slate-600 hover:text-indigo-600 transition-colors"
+              aria-haspopup="true"
+              aria-expanded={isToolsOpen}
+              aria-controls="tools-menu"
+              onClick={() => setIsToolsOpen((v) => !v)}
+            >
+              Writing Tools <ChevronDown className={`w-4 h-4 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`} />
             </button>
-            
+
             {/* Dropdown Panel */}
-            <div className="absolute top-full left-1/2 -translate-x-1/2 w-[480px] bg-white rounded-3xl shadow-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4 grid grid-cols-2 gap-2">
+            <div
+              id="tools-menu"
+              role="menu"
+              className={`absolute top-full left-1/2 -translate-x-1/2 w-[480px] bg-white rounded-3xl shadow-2xl border border-slate-100 p-4 grid grid-cols-2 gap-2 transition-all duration-200 ${
+                isToolsOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+              }`}
+            >
               {tools.map((tool) => (
                 <Link
                   key={tool.path}
                   to={tool.path}
+                  role="menuitem"
                   className={`px-4 py-3 rounded-2xl text-sm font-bold transition-all hover:bg-indigo-50 hover:text-indigo-600 ${
-                    location.pathname === tool.path ? 'bg-slate-50 text-indigo-600' : 'text-slate-600'
+                    currentPath === tool.path ? 'bg-slate-50 text-indigo-600' : 'text-slate-600'
                   }`}
                 >
                   {tool.name}
@@ -73,18 +120,21 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="md:hidden p-2 text-slate-600"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isMobileMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
         </button>
 
       </div>
 
       {/* Mobile Navigation Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto">
+        <div id="mobile-navigation" className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto">
           <div className="p-6 flex flex-col gap-4">
             <div className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">All Tools</div>
             {tools.map((tool) => (
@@ -92,7 +142,7 @@ const Header = () => {
                 key={tool.path}
                 to={tool.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`font-bold text-lg ${location.pathname === tool.path ? 'text-indigo-600' : 'text-slate-700'}`}
+                className={`font-bold text-lg ${currentPath === tool.path ? 'text-indigo-600' : 'text-slate-700'}`}
               >
                 {tool.name}
               </Link>

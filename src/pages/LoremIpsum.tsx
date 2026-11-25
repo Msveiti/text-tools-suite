@@ -14,7 +14,7 @@ const LoremIpsum = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 animate-in">
-      <SEO title="Lorem Ipsum" description="Generate placeholder text." path="/lorem-ipsum" />
+      <SEO title="Lorem Ipsum Generator — Placeholder Text" description="Generate paragraphs, sentences or words of lorem ipsum placeholder text. Free, instant, copy-ready." path="/lorem-ipsum" />
       
       {/* Breadcrumb Navigation */}
       <nav className="mb-6" aria-label="Breadcrumb">
@@ -30,7 +30,7 @@ const LoremIpsum = () => {
       </nav>
 
       <div className="mb-12 text-center">
-        <h2 className="text-5xl font-black text-slate-900 tracking-tight">Placeholder Engine</h2>
+        <h1 className="text-5xl font-black text-slate-900 tracking-tight">Lorem Ipsum Generator</h1>
         <p className="text-slate-500 mt-3 text-lg">Generate high-fidelity dummy text for your mockups.</p>
       </div>
 

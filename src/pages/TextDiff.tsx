@@ -27,7 +27,7 @@ const TextDiff = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 animate-in">
-      <SEO title="Text Diff" description="Compare two texts." path="/text-diff" />
+      <SEO title="Text Difference Checker — Compare Two Texts Online" description="Compare two versions of any text and see every added, removed and changed line. Free, instant, no signup." path="/text-diff" />
 
       {/* Breadcrumb Navigation */}
       <nav className="mb-6" aria-label="Breadcrumb">
@@ -45,9 +45,9 @@ const TextDiff = () => {
       {/* Updated Header + Stats */}
       <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
         <div>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Version Control
-          </h2>
+          <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+            Text Difference Checker
+          </h1>
           <p className="text-slate-500 mt-2 text-base md:text-lg">
             Pinpoint evolution between two narratives.
           </p>

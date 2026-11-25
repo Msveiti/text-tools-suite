@@ -14,10 +14,25 @@ interface BlogPostProps {
 const BlogPost = ({ title, date, content, path, seoTitle, seoDescription }: BlogPostProps) => (
   <main className="max-w-4xl mx-auto py-20 px-6 animate-in">
     {/* Use custom SEO title/description if provided, otherwise use defaults */}
-    <SEO 
-      title={seoTitle || title} 
-      description={seoDescription || `${title} - Learn more about text analysis and word counting.`} 
-      path={path} 
+    <SEO
+      title={seoTitle || title}
+      description={seoDescription || `${title} - Learn more about text analysis and word counting.`}
+      path={path}
+      type="article"
+      schema={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title,
+        description: seoDescription || `${title} - Learn more about text analysis and word counting.`,
+        url: `https://verbometrics.com${path.endsWith('/') ? path : path + '/'}`,
+        datePublished: date,
+        author: { '@type': 'Organization', name: 'VerboMetrics' },
+        publisher: {
+          '@type': 'Organization',
+          name: 'VerboMetrics',
+          logo: { '@type': 'ImageObject', url: 'https://verbometrics.com/verbometrics-logo.png' },
+        },
+      }}
     />
     
     {/* Breadcrumb Navigation */}

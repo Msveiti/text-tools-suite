@@ -11,10 +11,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install and Build
-        run: |
-          npm install --legacy-peer-deps
-          npm run build
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
 
       - name: Add CNAME
         run: echo "verbometrics.com" > dist/CNAME

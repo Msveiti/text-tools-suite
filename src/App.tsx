@@ -1,32 +1,44 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+const WordCounter = lazy(() => import('./pages/WordCounter'));
+const CaseConverter = lazy(() => import('./pages/CaseConverter'));
+const Contact = lazy(() => import('./pages/Contact'));
+const LegalPage = lazy(() => import('./pages/LegalPage'));
+const BlogPost = lazy(() => import('./pages/BlogPosts'));
+const LoremIpsum = lazy(() => import('./pages/LoremIpsum'));
+const TextDiff = lazy(() => import('./pages/TextDiff'));
+const BlogIndex = lazy(() => import('./pages/BlogIndex'));
+const VerbFinder = lazy(() => import('./pages/VerbFinder'));
+const ReadabilityScorer = lazy(() => import('./pages/ReadabilityScorer'));
+const WordFrequency = lazy(() => import('./pages/WordFrequency'));
+const PassiveVoice = lazy(() => import('./pages/PassiveVoice'));
+const ToneAnalyzer = lazy(() => import('./pages/ToneAnalyzer'));
+const AdverbSpotter = lazy(() => import('./pages/AdverbSpotter'));
+const SentenceLength = lazy(() => import('./pages/SentenceLength'));
+const GrammarChecker = lazy(() => import('./pages/GrammarChecker'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import WordCounter from './pages/WordCounter';
-import CaseConverter from './pages/CaseConverter';
-import Contact from './pages/Contact';
-import LegalPage from './pages/LegalPage';
-import BlogPost from './pages/BlogPosts';
-import LoremIpsum from './pages/LoremIpsum';
-import TextDiff from './pages/TextDiff';
-import BlogIndex from './pages/BlogIndex';
-import VerbFinder from './pages/VerbFinder';
-import ReadabilityScorer from './pages/ReadabilityScorer';
-import WordFrequency from './pages/WordFrequency';
-import PassiveVoice from './pages/PassiveVoice';
-import ToneAnalyzer from './pages/ToneAnalyzer';
-import AdverbSpotter from './pages/AdverbSpotter';
-import SentenceLength from './pages/SentenceLength';
-import GrammarChecker from './pages/GrammarChecker';
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 // --- ADD THIS COMPONENT ---
 const AnalyticsTracker = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if ((window as any).gtag) {
-      (window as any).gtag('config', 'G-P2JWKFVB39', {
-        page_path: location.pathname,
+    // gtag('config') runs in index.html with send_page_view:false, so this is
+    // the only page_view - sent once per route change, including first load.
+    const gtag = window.gtag;
+    if (typeof gtag === 'function') {
+      gtag('event', 'page_view', {
+        page_path: location.pathname + location.search,
+        page_location: window.location.href,
+        page_title: document.title,
       });
     }
   }, [location]);
@@ -58,7 +70,7 @@ const blogCharacterGuide = `
     <h4 class="text-indigo-900 font-black text-2xl mb-4">Need to check social media character limits instantly?</h4>
     <p class="text-indigo-600 mb-8 font-medium">Our free character counter checks your text against all major platform limits in real-time.</p>
     <a href="/" class="inline-block bg-indigo-600 text-white px-10 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200">
-      Character counter guide for 2026Open VerboMetrics Character Counter
+      Open the VerboMetrics Character Counter
     </a>
   </div>
 
@@ -1383,10 +1395,16 @@ function App() {
     <Router>
       <AnalyticsTracker /> {/* --- ADDED THIS LINE HERE --- */}
       <RedirectOldLinks /> {/* ADD THIS HERE */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-indigo-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
+      >
+        Skip to main content
+      </a>
       <Header />
-      <main className="min-h-screen bg-[#F8FAFC]">
+      <main id="main-content" className="min-h-screen bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto py-12">
-          <Routes>
+          <Suspense fallback={<div className="min-h-[60vh]" />}><Routes>
             {/* Homepage */}
             <Route path="/" element={<WordCounter />} />
             
@@ -1397,15 +1415,8 @@ function App() {
                 seoDescription="Convert text to uppercase, lowercase, sentence case, or title case in one click. Perfect for formatting documents, code, and social media posts. No signup required."
               />
             } />
-            <Route path="/case-converter.html" element={
-              <CaseConverter 
-                seoTitle="Case Converter: Transform Text Instantly"
-                seoDescription="Convert text to uppercase, lowercase, sentence case, or title case in one click. Perfect for formatting documents, code, and social media posts. No signup required."
-              />
-            } />
 
             <Route path="/text-diff" element={<TextDiff />} />
-            <Route path="/text-diff.html" element={<TextDiff />} />
 
             <Route path="/verb-finder" element={<VerbFinder />} />
 
@@ -1424,7 +1435,6 @@ function App() {
             <Route path="/grammar-checker" element={<GrammarChecker />} />
 
             <Route path="/lorem-ipsum" element={<LoremIpsum />} />
-            <Route path="/lorem-ipsum.html" element={<LoremIpsum />} />
 
             {/* Blog Routes - Handling both Clean and Legacy URLs */}
             <Route path="/blog" element={<BlogIndex />} />
@@ -1436,34 +1446,14 @@ function App() {
               date="Jan 14, 2026" 
               content={blogCharacterGuide} 
               path="/blog/character-counter-guide"
-              seoTitle="Current X (Twitter) Character Limit 2026 & Other Social Media"
+              seoTitle="Character Counter & 2026 Social Media Character Limits"
               seoDescription="2026 Social Media Character Limits: X (Twitter) 280, Instagram 2200, Facebook 63,206. Check your text instantly with our free real-time character counter."
             />
             } />
 
-            <Route path="/blog/character-counter-guide.html" element={
-              <BlogPost 
-                title="Character Counter: Everything You Need to Know in 2026" 
-                date="Jan 14, 2026" 
-                content={blogCharacterGuide} 
-                path="/blog/character-counter-guide"
-                seoTitle="X (Twitter) Character Limit 2026 + Instagram, LinkedIn & Facebook Limits"
-                seoDescription="🚀 2026 Social Media Character Limits: X (Twitter) 280, Instagram 2200, Facebook 63,206, LinkedIn 3000. Check your text instantly with our free real-time character counter."
-              />
-            } />
 
             {/* Count Words in Google Docs */}
             <Route path="/blog/count-words-google-docs" element={
-              <BlogPost 
-                title="How to Count Words in Google Docs (3 Easy Methods + Shortcuts)" 
-                date="Jan 28, 2026" 
-                content={blogGoogleDocs} 
-                path="/blog/count-words-google-docs"
-                seoTitle="How to Check Word Count in Google Docs: 2026 Guide"
-                seoDescription="Step-by-step guide: 3 easy ways to check word count in Google Docs including hidden shortcuts for 2026. Plus free online word counter for advanced analysis."
-              />
-            } />
-            <Route path="/blog/count-words-google-docs.html" element={
               <BlogPost 
                 title="How to Count Words in Google Docs (3 Easy Methods + Shortcuts)" 
                 date="Jan 28, 2026" 
@@ -1485,31 +1475,11 @@ function App() {
                 seoDescription="Complete guide to essay word counts for high school, college, and graduate students. Meet requirements without padding. Free word counter included."
               />
             } />
-            <Route path="/blog/word-count-requirements.html" element={
-              <BlogPost 
-                title="Word Count Requirements: Complete Guide for Students 2026" 
-                date="Jan 21, 2026" 
-                content={blogRequirements} 
-                path="/blog/word-count-requirements"
-                seoTitle="Essay Word Count Requirements: 2026 Student Guide"
-                seoDescription="Complete guide to essay word counts for high school, college, and graduate students. Meet requirements without padding. Free word counter included."
-              />
-            } />
 
             {/* Support & Legal */}
             <Route path="/contact" element={<Contact />} />
-            <Route path="/contact.html" element={<Contact />} />
             
             <Route path="/privacy" element={
-              <LegalPage 
-                title="Privacy Policy" 
-                lastUpdated="Jan 22, 2026" 
-                path="/privacy"
-              >
-                <p>VerboMetrics respects your privacy. All text is processed locally in your browser and is never stored on our servers.</p>
-              </LegalPage>
-            } />
-            <Route path="/privacy.html" element={
               <LegalPage 
                 title="Privacy Policy" 
                 lastUpdated="Jan 22, 2026" 
@@ -1528,19 +1498,10 @@ function App() {
                 <p>By using VerboMetrics, you agree that we are not responsible for any errors in word or character counts.</p>
               </LegalPage>
             } />
-            <Route path="/terms.html" element={
-              <LegalPage 
-                title="Terms of Service" 
-                lastUpdated="Jan 22, 2026" 
-                path="/terms"
-              >
-                <p>By using VerboMetrics, you agree that we are not responsible for any errors in word or character counts.</p>
-              </LegalPage>
-            } />
 
-            {/* CATCH-ALL: This must be the LAST route */}
-            <Route path="*" element={<WordCounter />} />
-          </Routes>
+            {/* CATCH-ALL: unknown URLs render a real 404 page (noindex) */}
+            <Route path="*" element={<NotFound />} />
+          </Routes></Suspense>
         </div>
       </main>
       <Footer />

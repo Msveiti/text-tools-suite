@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# VerboMetrics
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Free writing and text analysis tools — word counter, verb finder, readability scorer, grammar checker, case converter, text diff, lorem ipsum, and more. Built as a React + Vite single-page app, prerendered with react-snap for SEO, and deployed to GitHub Pages.
 
-Currently, two official plugins are available:
+Live: https://verbometrics.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+- React 19 + TypeScript + Vite 7
+- React Router 7 (SPA, prerendered per route)
+- react-snap (static prerender for crawlers) + postbuild cleanup (`scripts/postbuild.mjs`)
+- Tailwind CSS 4
+- Google Analytics 4
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Scripts
 
-## Expanding the ESLint configuration
+| Command | What it does |
+|---|---|
+| `npm run dev` | Vite dev server |
+| `npm run build` | `vite build` + react-snap prerender + postbuild cleanup |
+| `npm run lint` | ESLint |
+| `npm run preview` | Preview the production build |
+| `npx tsc --noEmit` | Type check |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Adding a tool
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Create `src/pages/<Tool>.tsx` with a default export and an `<SEO title description path />` block (see `src/components/SEO.tsx`).
+2. Register the route in `src/App.tsx` (lazy import + `<Route>`).
+3. Add the path to `reactSnap.include` in `package.json`.
+4. Add an entry to `public/sitemap.xml`.
+5. Add a card to the `tools` array in `src/components/Header.tsx`.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Adding a blog post
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Posts are template literals in `src/App.tsx` passed to `<BlogPost>`. Add the content constant, a route, and an entry to the blog index + sitemap.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Deploy
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Push to `main`. The GitHub Actions workflow builds `dist/` and publishes to `gh-pages`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Node
+
+Node 20+ recommended (see `.nvmrc`).
+EOF

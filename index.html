@@ -19,37 +19,22 @@
     <!-- Font Preloading for Speed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
     
     <!-- Professional Favicon -->
     <link rel="icon" type="image/png" href="/verbometrics-logo.png" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Professional Branding -->
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!--
+      Title / description / canonical / Open Graph / Twitter / robots are all
+      rendered per route by src/components/SEO.tsx (react-helmet-async).
+      Keep only the fallback title here so the static template is still valid.
+    -->
     <title>VerboMetrics | Professional Writing Suite</title>
-    <meta name="description" content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://verbometrics.com/" />
-    <meta property="og:title" content="VerboMetrics | Professional Writing Suite" />
-    <meta property="og:description" content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." />
-    <meta property="og:image" content="https://verbometrics.com/verbometrics-logo.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="VerboMetrics Logo - Professional Writing Tools" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://verbometrics.com/" />
-    <meta property="twitter:title" content="VerboMetrics | Professional Writing Suite" />
-    <meta property="twitter:description" content="Advanced text utilities for professional creators. Word counting, lexical density, text comparison, and more." />
-    <meta property="twitter:image" content="https://verbometrics.com/verbometrics-logo.png" />
-    
-    <!-- Additional Meta Tags for Better SEO -->
-    <meta name="keywords" content="word counter, text analysis, writing tools, character counter, case converter, text diff, lorem ipsum" />
     <meta name="author" content="VerboMetrics" />
-    <meta name="robots" content="index, follow" />
     
 
     <!-- Google Analytics (gtag.js) -->
@@ -58,45 +43,17 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      // Note: Config is handled dynamically in App.tsx to track page changes
-      
-      // Preload tracking improvements
-      document.addEventListener('DOMContentLoaded', function() {
-        // Track initial page load
-        if (typeof gtag === 'function') {
-          gtag('event', 'page_view', {
-            page_title: document.title,
-            page_location: window.location.href,
-            page_path: window.location.pathname
-          });
-        }
-      });
+      // Page views are sent once per route change from AnalyticsTracker in
+      // src/App.tsx. Disable the automatic page_view to avoid double counting.
+      gtag('config', 'G-P2JWKFVB39', { send_page_view: false });
     </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Schema.org Breadcrumb Structured Data for Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "VerboMetrics",
-        "item": "https://verbometrics.com/"
-      }, {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": "https://verbometrics.com/blog"
-      }]
-    }
-    </script>
-    
-    <!-- Website Schema.org Markup -->
+    <!-- Site-wide Organization / WebSite schema. Breadcrumb, Article and tool
+         schema are rendered per route by src/components/SEO.tsx. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -112,11 +69,6 @@
           "@type": "ImageObject",
           "url": "https://verbometrics.com/verbometrics-logo.png"
         }
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://verbometrics.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
       }
     }
     </script>

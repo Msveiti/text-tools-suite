@@ -28,9 +28,9 @@ const posts = [
 
 const BlogIndex = () => (
   <div className="max-w-6xl mx-auto px-6 py-20 animate-in">
-    <SEO title="Blog" description="Writing resources and guides." path="/blog" />
+    <SEO title="Writing Resources — Guides & Articles" description="Free guides on word counts, character limits, writing and editing, from the VerboMetrics team." path="/blog" />
     <div className="mb-16 text-center">
-      <h2 className="text-5xl font-black text-slate-900 tracking-tight">Writing Resources</h2>
+      <h1 className="text-5xl font-black text-slate-900 tracking-tight">Writing Resources</h1>
       <p className="text-slate-500 mt-4 text-lg">Expert guides to help you master the craft of digital writing.</p>
     </div>
 

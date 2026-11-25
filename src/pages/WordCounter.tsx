@@ -13,10 +13,16 @@ const WordCounter = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 animate-in">
-      <SEO 
-        title="Professional Word Counter & Text Analyzer" 
-        description="Free professional word counter. Get real-time stats, lexical density, reading time, and AI insights. No signup required." 
-        path="/" 
+      <SEO
+        title="Professional Word Counter & Text Analyzer"
+        description="Free professional word counter. Get real-time stats, lexical density, reading time, and AI insights. No signup required."
+        path="/"
+        faqs={[
+          { q: 'How does the word counter work?', a: 'Paste or type your text into the editor. Words, characters, sentences, paragraphs, reading time and speaking time update instantly as you type. Nothing is uploaded — all analysis runs in your browser.' },
+          { q: 'Is VerboMetrics free?', a: 'Yes. Every tool is free to use with no signup, no account, and no usage limits.' },
+          { q: 'Does it count characters with or without spaces?', a: 'Both. The "Chars" stat includes spaces; "Chars (no spaces)" excludes them. Use the right one for your platform limit.' },
+          { q: 'How is reading time calculated?', a: 'Reading time assumes 200 words per minute; speaking time assumes 125 words per minute.' },
+        ]}
       />
       
       <nav className="mb-6" aria-label="Breadcrumb">
@@ -33,7 +39,7 @@ const WordCounter = () => {
 
       {/* Header Section - condensed */}
       <div className="mb-8">
-        <h2 className="text-4xl font-black text-slate-900 tracking-tight mb-1">Writing Analytics</h2>
+        <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-1">Free Word Counter &amp; Text Analyzer</h1>
         <p className="text-slate-500 text-base font-medium">Real-time lexical signals.</p>
       </div>
 
@@ -199,6 +205,38 @@ const WordCounter = () => {
           </div>
         </div>
       </div>
+
+      {/* Explainer + FAQ for search engines and visitors */}
+      <section className="mt-16 space-y-10">
+        <div className="bg-white p-8 md:p-12 rounded-[32px] border border-slate-100 shadow-sm">
+          <h2 className="text-2xl font-black text-slate-900 mb-4">What is VerboMetrics?</h2>
+          <p className="text-slate-600 leading-relaxed">
+            VerboMetrics is a free suite of writing and text analysis tools that run entirely in your browser. Count words, characters, sentences and paragraphs in real time, measure lexical density and reading time, find every verb, check readability, and compare text versions — no signup, no upload, no data leaving your device.
+          </p>
+        </div>
+
+        <div className="bg-white p-8 md:p-12 rounded-[32px] border border-slate-100 shadow-sm">
+          <h2 className="text-2xl font-black text-slate-900 mb-6">Frequently asked questions</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-bold text-slate-900">How does the word counter work?</h3>
+              <p className="text-slate-600 mt-1">Paste or type your text into the editor. Words, characters, sentences, paragraphs, reading time and speaking time update instantly as you type. Nothing is uploaded — all analysis runs in your browser.</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-slate-900">Is VerboMetrics free?</h3>
+              <p className="text-slate-600 mt-1">Yes. Every tool is free to use with no signup, no account, and no usage limits.</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-slate-900">Does it count characters with or without spaces?</h3>
+              <p className="text-slate-600 mt-1">Both. The "Chars" stat includes spaces; use the no-spaces count for strict platform limits.</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-slate-900">How is reading time calculated?</h3>
+              <p className="text-slate-600 mt-1">Reading time assumes 200 words per minute; speaking time assumes 125 words per minute.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
